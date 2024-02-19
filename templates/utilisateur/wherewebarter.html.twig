@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Where we barter{% endblock %}
+
+{% block body %}
+<div class="container-xxl bg-white p-0">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-dark px-0">
+        <div class="row gx-0">
+            <div class="col-lg-3 bg-dark d-none d-lg-block">
+                <a href="utilisateurHome" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <style>
+                        .logo{
+                            width: 160px;
+                            height: 113px;
+                            border-radius: 90px;
+                        }
+                    </style>
+                    <img src="img/test.png" class="logo">
+                </a>
+            </div>
+            <div class="col-lg-9">
+                <div class="row gx-0 bg-white d-none d-lg-flex">
+                    <div class="col-lg-7 px-5 text-start">
+                        <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                            <i class="fa fa-envelope text-primary me-2"></i>
+                            <p class="mb-0">contact@swapcraze.com</p>
+                        </div>
+                        <div class="h-100 d-inline-flex align-items-center py-2">
+                            <i class="fa fa-phone-alt text-primary me-2"></i>
+                            <p class="mb-0">+216 55 462 001</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 px-5 text-end">
+                        <div class="d-inline-flex align-items-center py-2">
+                            <a class="me-3" href="https://www.facebook.com/profile.php?id=61552363545156"><i class="fab fa-facebook-f"></i></a>
+                            <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="" href="https://www.youtube.com/channel/UC5OrDvL9DscpcAstz7JnQGA"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                    <a href="index.html" class="navbar-brand d-block d-lg-none">
+                        <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="utilisateurHome" class="nav-item nav-link">Home</a>
+                            <a href="utilisateurWhoItsFor" class="nav-item nav-link">Who it's for</a>
+                            <a href="utilisateurHowToCraze" class="nav-item nav-link">How to craze</a>
+                            <a href="utilisateurWhereWeBarter" class="nav-item nav-link active">Where we barter</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Managments</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="utilisateurSignUp" class="dropdown-item">User Managment</a>
+                                    <a href="produit" class="dropdown-item">Product Managment</a>
+                                    <a href="services" class="dropdown-item">Service Managment</a>
+                                    <a href="deliveryList" class="dropdown-item">Delivery Managment</a>
+                                    <a href="messagerie" class="dropdown-item">Messaging Managment</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="utilisateurLogIn"" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/barter.png);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Where we barter</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Where we barter</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">swapcraze</h6>
+                <h1 class="mb-3">Join the</h1>
+                <h2 class="mb-2"><span class="text-primary text-uppercase">+1000 Individuals</span></h2>
+                <h3 class="mb-5">who are bartering what they have to get what they need and give what they can!</h3>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11394.56854322297!2d10.08348065425788!3d33.879942224226845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12556fd74a8bbe41%3A0x73913cb331eeac0a!2sGabes!5e0!3m2!1sen!2stn!4v1707922854309!5m2!1sen!2stn" 
+                    width="200%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Newsletter Start -->
+    <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 border rounded p-1">
+                <div class="border rounded text-center p-1">
+                    <div class="bg-white rounded text-center p-5">
+                        <h4 class="mb-4">For more <span class="text-primary text-uppercase">INFO</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter Start -->
+    
+
+     <!-- Footer Start -->
+     <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="bg-primary rounded p-4">
+                        <a href="utilisateurHome"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
+                        <p class="text-white mb-0">
+                            Stay tuned for <a class="text-dark fw-medium" href="">SwapCraze – Desktop Application</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h6 class="section-title text-start text-primary text-uppercase mb-4">Contact</h6>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>El Ghazela, Ariana, Tunis</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+216 55 562 001</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@swapcraze.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12">
+                    <div class="row gy-5 g-4">
+                        <div class="col-md-6">
+                            <h6 class="section-title text-start text-primary text-uppercase mb-4">Products</h6>
+                            <a class="btn btn-link" href="">Auto</a>
+                            <a class="btn btn-link" href="">Clothes</a>
+                            <a class="btn btn-link" href="">Food</a>
+                            <a class="btn btn-link" href="">Technology</a>
+                            <a class="btn btn-link" href="">House</a>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="section-title text-start text-primary text-uppercase mb-4">Services</h6>
+                            <a class="btn btn-link" href="">Educational barter</a>
+                            <a class="btn btn-link" href="">DIY services</a>
+                            <a class="btn btn-link" href="">Health and wellness services</a>
+                            <a class="btn btn-link" href="">Cleaning services</a>
+                            <a class="btn btn-link" href="">Sports services</a>
+                            <a class="btn btn-link" href="">Transportation services</a>
+                            <a class="btn btn-link" href="">Entertainment services</a>
+                            <a class="btn btn-link" href="">Other services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">SwapCraze</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+{% endblock %}
