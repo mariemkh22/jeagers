@@ -24,6 +24,8 @@ class BackendController extends AbstractController
         ]);
     }
 
+    
+
     #Backend CRUD
 
     #[Route('/displayUsers', name: 'displayUsers')]
@@ -54,11 +56,11 @@ class BackendController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
-    public function edit(UserRepository $utilisateurRepository, ManagerRegistry $managerRegistry, Request $request, $id): Response
+    #[Route('/edit', name: 'edit')]
+    public function edit(UserRepository $utilisateurRepository, ManagerRegistry $managerRegistry, Request $request): Response
     {
         $m=$managerRegistry->getManager();
-        $findid=$utilisateurRepository->find($id);
+        $findid=$this->getUser();
         $form=$this->createForm(EditUtilisateurType::class,$findid);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -83,4 +85,33 @@ class BackendController extends AbstractController
         return $this->redirectToRoute('displayUsers');
     }
 
+    # Profile business
+
+    #[Route('/adminProfile', name: 'adminProfile')]
+    public function adminProfile(): Response
+    {
+        return $this->render('backend/adminprofile.html.twig', [
+            'controller_name' => 'BackendController',
+        ]);
+    }
+    
+    #[Route('/editAdmin', name: 'editAdmin')]
+    public function editAdmin(UserRepository $userRepository, ManagerRegistry $managerRegistry, Request $request): Response
+    {
+        $m=$managerRegistry->getManager();
+        $findid=$this->getUser();
+        $form=$this->createForm(EditUtilisateurType::class,$findid);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+
+            $m->persist($findid);
+            $m->flush();
+
+            return $this->redirectToRoute('adminProfile');
+        }
+        return $this->render('backend/editprofile.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    
 }

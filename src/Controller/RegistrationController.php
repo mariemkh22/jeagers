@@ -51,4 +51,34 @@ class RegistrationController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/dashBoardAdd", name="dashBoardAdd")
+     */
+    public function dashBoardAdd(Request $request): Response
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Hash the new user's password
+            $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
+            $user->setPassword($hashedPassword);
+
+            // Set their role
+            $user->setRoles(['ROLE_USER']);
+
+            // Save
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+
+            return $this->redirectToRoute('app_login');
+        }
+
+        return $this->render('backend/addUser.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
 }

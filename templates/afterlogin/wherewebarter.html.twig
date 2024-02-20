@@ -1,148 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Sign up{% endblock %}
+{% block title %}Where we barter{% endblock %}
 
 {% block body %}
 <style>
-.wrapper{
-    position: relative;
-    width: 400px;
-    height: 600px;
-    background: transparent;
-    border: 2px solid rgba(255,255,255,.5);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.wrapper .form-box {
-    width: 100%;
-    padding: 40px;
-}
-
-.form-box h2 {
-    font-size: 2em;
-    color: #FEA116;
-    text-align: center;
-}
-
-.input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    border-bottom: 2px solid #FEA116;
-    margin: 20px 0;
-}
-
-.input-box label {
-    position: absolute;
-    top: 20%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    color: #FEA116;
-    font-weight: 500;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.input-box input:focus~label,
-.input-box input:valid~label {
-    top: -5px;
-}
-
-.input-box input {
-    width: 120%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color: white;
-    font-weight: 600;
-    padding: 0 35px 0 5px;
-}
-
-.input-box .icon {
-    position: absolute;
-    right: 8px;
-    font-size: 1.2em;
-    color: #FEA116;
-    line-height: 57px;
-}
-
-.remember-forgot {
-    font-size: .9em;
-    color: #FEA116;
-    font-weight: 500;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.remember-forgot label input {
-    accent-color: #FEA116;
-    margin-right: 3px;
-}
-
-.remember-forgot a {
-    color: #FEA116;
-    text-decoration: none;
-}
-
-.remember-forgot a:hover {
-    text-decoration: underline;
-}
-
-.button {
-    width: 100%;
-    height: 45px;
-    background: #FEA116;
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    color: white;
-    font-weight: 500;
-}
-
-.buttondelete {
-    width: 100%;
-    height: 45px;
-    background: red;
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.3em;
-    color: white;
-    font-weight: 500;
-}
-
-.login-register {
-    font-size: .9em;
-    color: #FEA116;
-    text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
-}
-
-.login-register p a {
-    color: #FEA116;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.login-register p a:hover {
-    text-decoration: underline;
-}
-
+   .profile{
+        width: 50px;
+        transform: translate(-40%);
+    }
 </style>
-
 <div class="container-xxl bg-white p-0">
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -161,7 +27,6 @@
                         .logo{
                             width: 160px;
                             height: 113px;
-                            border-radius: 90px;
                         }
                     </style>
                     <img src="img/test.png" class="logo">
@@ -198,10 +63,10 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="Home" class="nav-item nav-link">Home</a>
+                            <a href="Home" class="nav-item nav-link ">Home</a>
                             <a href="WhoItsFor" class="nav-item nav-link">Who it's for</a>
                             <a href="HowToCraze" class="nav-item nav-link">How to craze</a>
-                            <a href="WhereWeBarter" class="nav-item nav-link">Where we barter</a>
+                            <a href="WhereWeBarter" class="nav-item nav-link active">Where we barter</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Managments</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -213,6 +78,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="assets/img/profiles/profile.png" class="profile"></a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="Profile" class="dropdown-item">My profile</a>
+                                <a href="backendHome" class="dropdown-item">Dashboard</a>
+                                <a href="logout" class="dropdown-item">Log out</a>
+                            </div>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -221,50 +94,41 @@
     <!-- Header End -->
 
 
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
-        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="img/man.png" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 700px;">
-                            
-                            <!-- SignUp start -->
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/barter.png);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Where we barter</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Where we barter</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
 
-                            <div class="wrapper">
-                                {{ form_start(form) }}
-                                    <div class="form-box">
-                                        <h2 class="section-title text-white text-uppercase mb-3 animated slideInown text">Update</h2>   
-
-                                        <div class="input-box">         
-                                            {{ form_row(form.email, {'attr': {'class': 'input-box'}}) }}
-                                        </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.full_name, {'attr': {'class': 'input-box'}}) }}
-                                        </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.phone_number, {'attr': {'class': 'input-box'}}) }}
-                                        </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
-                                        </div>
-                                        {{ form_row(form.update, {'attr': {'class': 'button'}}) }}
-                                        <br>
-                                        <a href="Profile"><button type="submit" class="buttondelete">Cancel</button>
-                                        </a>
-                                    </div>
-                                {{ form_end(form) }}
-                            </div>
-
-                            <!-- SignUp end -->
-
-                        </div>
-                    </div>
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">swapcraze</h6>
+                <h1 class="mb-3">Join the</h1>
+                <h2 class="mb-2"><span class="text-primary text-uppercase">+1000 Individuals</span></h2>
+                <h3 class="mb-5">who are bartering what they have to get what they need and give what they can!</h3>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11394.56854322297!2d10.08348065425788!3d33.879942224226845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12556fd74a8bbe41%3A0x73913cb331eeac0a!2sGabes!5e0!3m2!1sen!2stn!4v1707922854309!5m2!1sen!2stn" 
+                    width="200%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
                 </div>
             </div>
         </div>
     </div>
+    <!-- Contact End -->
+
 
     <!-- Newsletter Start -->
     <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -289,7 +153,7 @@
                     <div class="bg-primary rounded p-4">
                         <a href="Home"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
                         <p class="text-white mb-0">
-                            Stayed tuned for <a class="text-dark fw-medium" href="">SwapCraze – Desktop Application</a>
+                            Stay tuned for <a class="text-dark fw-medium" href="">SwapCraze – Desktop Application</a>
                         </p>
                     </div>
                 </div>
@@ -316,16 +180,16 @@
                             <a class="btn btn-link" href="">House</a>
                         </div>
                         <div class="col-md-6">
-                                <h6 class="section-title text-start text-primary text-uppercase mb-4">Services</h6>
-                                <a class="btn btn-link" href="">Educational barter</a>
-                                <a class="btn btn-link" href="">DIY services</a>
-                                <a class="btn btn-link" href="">Health and wellness services</a>
-                                <a class="btn btn-link" href="">Cleaning services</a>
-                                <a class="btn btn-link" href="">Sports services</a>
-                                <a class="btn btn-link" href="">Transportation services</a>
-                                <a class="btn btn-link" href="">Entertainment services</a>
-                                <a class="btn btn-link" href="">Other services</a>
-                            </div>
+                            <h6 class="section-title text-start text-primary text-uppercase mb-4">Services</h6>
+                            <a class="btn btn-link" href="">Educational barter</a>
+                            <a class="btn btn-link" href="">DIY services</a>
+                            <a class="btn btn-link" href="">Health and wellness services</a>
+                            <a class="btn btn-link" href="">Cleaning services</a>
+                            <a class="btn btn-link" href="">Sports services</a>
+                            <a class="btn btn-link" href="">Transportation services</a>
+                            <a class="btn btn-link" href="">Entertainment services</a>
+                            <a class="btn btn-link" href="">Other services</a>
+                        </div>
                     </div>
                 </div>
             </div>

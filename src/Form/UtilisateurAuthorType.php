@@ -15,17 +15,17 @@ class UtilisateurAuthorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Full_name', TextType::class, [
+            ->add('full_name', TextType::class, [
                 'attr' => ['placeholder' => 'Yassine Ben Mabrouk']
             ])
-            ->add('Phone_number', TextType::class, [
+            ->add('phone_number', TextType::class, [
                 'attr' => ['placeholder' => '71 221 332']
             ])
-            ->add('Password',PasswordType::class)
-            ->add('Email', TextType::class, [
+            ->add('password',PasswordType::class)
+            ->add('email', TextType::class, [
                 'attr' => ['placeholder' => 'example@swapcraze.tn']
             ])
-            ->add('Date_of_birth', TextType::class, [
+            ->add('date_of_birth', TextType::class, [
                 'attr' => ['placeholder' => 'dd/mm/yyyy']
             ])
             ->add('Sign_up',SubmitType::class)

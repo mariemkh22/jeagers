@@ -62,18 +62,19 @@ class UtilisateurController extends AbstractController
     }
 
     #[Route('/Profile', name: 'Profile')]
-    public function Profile(): Response
+    public function Profile(UserRepository $utilisateurRepository): Response
     {
+        $user=$utilisateurRepository->findAll();
         return $this->render('afterlogin/profile.html.twig', [
-            'controller_name' => 'UtilisateurController',
+            'table' => $user,
         ]);
     }
 
-    #[Route('/editProfile/{id}', name: 'editProfile')]
-    public function editProfile(UserRepository $userRepository, ManagerRegistry $managerRegistry, Request $request, $id): Response
+    #[Route('/editProfile', name: 'editProfile')]
+    public function editProfile(UserRepository $userRepository, ManagerRegistry $managerRegistry, Request $request): Response
     {
         $m=$managerRegistry->getManager();
-        $findid=$userRepository->find($id);
+        $findid=$this->getUser();
         $form=$this->createForm(EditUtilisateurType::class,$findid);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -87,4 +88,27 @@ class UtilisateurController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    #[Route('/WhoItsFor', name: 'WhoItsFor')]
+    public function WhoItsFor(): Response
+    {
+        return $this->render('afterlogin/whoitsfor.html.twig', [
+            'controller_name' => 'UtilisateurController',
+        ]);
+    }
+    #[Route('/HowToCraze', name: 'HowToCraze')]
+    public function HowToCraze(): Response
+    {
+        return $this->render('afterlogin/howtocraze.html.twig', [
+            'controller_name' => 'UtilisateurController',
+        ]);
+    }
+    #[Route('/WhereWeBarter', name: 'WhereWeBarter')]
+    public function WhereWeBarter(): Response
+    {
+        return $this->render('afterlogin/wherewebarter.html.twig', [
+            'controller_name' => 'UtilisateurController',
+        ]);
+    }
+
 }

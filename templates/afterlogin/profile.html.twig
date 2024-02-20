@@ -110,7 +110,7 @@
     color: white;
     font-weight: 500;
 }
-.buttonred {
+.buttondelete {
     width: 70%;
     height: 40px;
     background: red;
@@ -164,7 +164,7 @@
     <div class="container-fluid bg-dark px-0">
         <div class="row gx-0">
             <div class="col-lg-3 bg-dark d-none d-lg-block">
-                <a href="utilisateurHome" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <a href="Home" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
                     <style>
                         .logo{
                             width: 160px;
@@ -206,10 +206,10 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="utilisateurHome" class="nav-item nav-link">Home</a>
-                            <a href="utilisateurWhoItsFor" class="nav-item nav-link">Who it's for</a>
-                            <a href="utilisateurHowToCraze" class="nav-item nav-link">How to craze</a>
-                            <a href="utilisateurWhereWeBarter" class="nav-item nav-link">Where we barter</a>
+                            <a href="Home" class="nav-item nav-link">Home</a>
+                            <a href="WhoItsFor" class="nav-item nav-link">Who it's for</a>
+                            <a href="HowToCraze" class="nav-item nav-link">How to craze</a>
+                            <a href="WhereWeBarter" class="nav-item nav-link">Where we barter</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Managments</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -242,7 +242,7 @@
                                     <div class="form-box">
                                         <a><img src="assets/img/profiles/profile.png" class="photo"></a>
                                         {% if app.user!=null %}                                     
-                                        <div class="input-box">    
+                                        <div class="input-box"> 
                                             <label>{{app.user.getFullName()}}</label>    
                                         </div>
                                         <div class="input-box">
@@ -258,10 +258,11 @@
                                     <div class="form-box">
                                         <h2 class="section-title text-white text-uppercase mb-3 animated slideInown text">Profile</h2>   
                                         <br><br><br><br><br><br><br><br><br>
-                                        <a href="{{path('editProfile',{'id':app.user.getId()})}}">
+                                        <a href="{{path('editProfile')}}">
                                         <button type="submit" class="button">Edit</button></a>
                                         <br><br>
-                                        <button type="submit" class="buttonred">Delete</button>
+                                        <a href="Home"><button type="submit" class="buttondelete">Cancel</button>
+                                        </a>
                                         {% endif %}
                                     </div>
                             </div>
@@ -296,7 +297,7 @@
             <div class="row g-5">
                 <div class="col-md-6 col-lg-4">
                     <div class="bg-primary rounded p-4">
-                        <a href="utilisateurHome"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
+                        <a href="Home"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
                         <p class="text-white mb-0">
                             Stayed tuned for <a class="text-dark fw-medium" href="">SwapCraze – Desktop Application</a>
                         </p>

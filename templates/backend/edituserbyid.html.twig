@@ -4,20 +4,7 @@
 
 {% block body %}
 
-<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.jpg')}}">
 
-<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-
-<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
-
-<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
-
-<link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
-
-<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
-
-<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
 <style>
     .width{
@@ -189,26 +176,47 @@
     <div class="profileset">
     <span class="user-img"><img src="{{asset('assets/img/profiles/avator1.jpg')}}" alt="">
     <span class="status online"></span></span>
+    {% if app.user!=null %}
     <div class="profilesets">
-    <h6>John Doe</h6>
-    <h5>Admin</h5>
+        <h6>{{app.user.getFullName()}}</h6>
+        <h5>Admin</h5>
     </div>
+</div>
+<hr class="m-0">
+<a class="dropdown-item" href="adminProfile"> <i class="me-2" data-feather="user"></i> My Profile</a>
+<a class="dropdown-item" href="Home"> <i class="me-2" data-feather="user"></i> Website Home</a>
+<a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
+<hr class="m-0">
+<a class="dropdown-item logout pb-0" href="logout"><img src="assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+</div>
+</div>
+</li>
+</ul>
+    {% endif %}
+    {% if app.user==null %}
+    <div class="profilesets">
+        <h6>Guest</h6>
+        <h5>Admin</h5>
     </div>
-    <hr class="m-0">
-    <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My Profile</a>
-    <a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
-    <hr class="m-0">
-    <a class="dropdown-item logout pb-0" href="signin.html"><img src="{{asset('assets/img/icons/log-out.svg')}}" class="me-2" alt="img">Logout</a>
-    </div>
-    </div>
-    </li>
-    </ul>
+</div>
+<hr class="m-0">
+<a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My Profile</a>
+<a class="dropdown-item" href="utilisateurHome"> <i class="me-2" data-feather="user"></i> Website Home</a>
+<a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
+<hr class="m-0">
+<a class="dropdown-item logout pb-0" href="signin.html"><img src="assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+</div>
+</div>
+</li>
+</ul>
+    {% endif %}
+    
     
     
     <div class="dropdown mobile-user-menu">
     <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
     <div class="dropdown-menu dropdown-menu-right">
-    <a class="dropdown-item" href="profile.html">My Profile</a>
+    <a class="dropdown-item" href="profileAdmin">My Profile</a>
     <a class="dropdown-item" href="generalsettings.html">Settings</a>
     <a class="dropdown-item" href="signin.html">Logout</a>
     </div>
@@ -296,13 +304,11 @@
     <div class="col-lg-3 col-sm-6 col-12">
     <div class="form-group">
         {{ form_row(form.email) }}
-
     </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
     <div class="form-group">
         {{ form_row(form.phone_number) }}
-
     </div>
     </div>
     <div class="col-lg-3 col-sm-6 col-12">
@@ -311,38 +317,20 @@
     <div class="col-lg-3 col-sm-6 col-12">
     <div class="form-group">
         {{ form_row(form.date_of_birth) }}
-
     </div>
     </div>
     {{ form_row(form.update, {'attr': {'class': 'btn btn-submit me-2'}}) }}
-
+    </div>
+    </div>
     {{form_end(form)}}
     </div>
     </div>
     </div>
-    </div>
-    </div>
     
     </div>
     </div>
     </div>
 
-    <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
-
-    <script src="{{asset('assets/js/feather.min.js')}}"></script>
     
-    <script src="{{asset('assets/js/jquery.slimscroll.min.js')}}"></script>
-    
-    <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{('assets/js/dataTables.bootstrap4.min.js')}}"></script>
-    
-    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-    
-    <script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
-    
-    <script src="{{asset('assets/plugins/sweetalert/sweetalert2.all.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/sweetalert/sweetalerts.min.js')}}"></script>
-    
-    <script src="{{asset('assets/js/script.js')}}"></script>
 
 {% endblock %}
