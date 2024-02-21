@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\LivraisonRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,6 +15,7 @@ class Livraison
     #[ORM\Column]
     private ?int $id = null;
 
+    
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $DateDebut = null;
 
@@ -22,6 +24,9 @@ class Livraison
 
     #[ORM\Column(length: 255)]
     private ?string $entreprise = null;
+
+
+   
 
     #[ORM\Column]
     private ?int $frais = null;

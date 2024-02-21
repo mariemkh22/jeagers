@@ -56,7 +56,7 @@ class BackendController extends AbstractController
             return $this->redirectToRoute('Locationlist');
         }
         return $this->renderForm('backend/Addlocation.html.twig', [
-            'k' => $form,
+            'form' => $form,
         ]);
     }
     #[Route('/Editlocation/{id}', name: 'Editlocation')]
@@ -72,7 +72,7 @@ class BackendController extends AbstractController
             return $this->redirectToRoute('Locationlist');
         }
         return $this->renderForm('backend/Editlocation.html.twig', [
-            'p' => $form,
+            'form' => $form,
         ]);
     }
     #[Route('/Deletelocation/{id}', name: 'Deletelocation')]
@@ -98,7 +98,7 @@ class BackendController extends AbstractController
             return $this->redirectToRoute('Deliverylist');
         }
         return $this->renderForm('backend/Adddelivery.html.twig', [
-            'n' => $form,
+            'form' => $form,
         ]);
     }
     #[Route('/Editdelivery/{id}', name: 'Editdelivery')]
@@ -114,7 +114,7 @@ class BackendController extends AbstractController
             return $this->redirectToRoute('Deliverylist');
         }
         return $this->renderForm('backend/Editdelivery.html.twig', [
-            'c' => $form,
+            'form' => $form,
         ]);
     }
     #[Route('/DeleteDelivery/{id}', name: 'DeleteDelivery')]

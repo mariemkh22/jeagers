@@ -312,36 +312,37 @@
             <h4>UPDATE Location List</h4>
             </div>
             </div>
-            {{ form_start(p, {'attr': {'class': 'needs-validation'}}) }}
+            {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
 
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {{ form_label(p.region)}}
-                        {{ form_widget(p.region, {'attr': {'class': 'form-control', 'required': 'true'}}) }}
+                        {{ form_label(form.region)}}
+                        {{ form_widget(form.region, {'attr': {'class': 'form-control', 'required': 'true'}}) }}
                         <div class="invalid-feedback">
                             Veuillez entrerRegion valide.
                         </div>
                     </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        {{ form_label(p.codepostal) }}
-                        {{ form_widget(p.codepostal, {'attr': {'class': 'form-control', 'required': 'true'}}) }}
+                        {{ form_label(form.codepostal) }}
+                        {{ form_widget(form.codepostal, {'attr': {'class': 'form-control', 'required': 'true'}}) }}
                         <div class="invalid-feedback">
                             Veuillez entrer le codepostal
                         </div>
                     </div>
                     <div class="form-group">
-                        {{ form_label(p.adresse) }}
-                        {{ form_widget(p.adresse, {'attr': {'class': 'form-control', 'step': '0.01', 'required': 'true'}}) }}
+                        {{ form_label(form.adresse) }}
+                        {{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'step': '0.01', 'required': 'true'}}) }}
                         <div class="invalid-feedback">
                             Veuillez entrer adresse
                         </div>
                     </div>
                 </div>
             </div>
-            
-            
-            <button type="submit" class="btn btn-submit">Update</button>
-            {{ form_end(p) }}
+            <div class="col-12">
+                {{ form_row(form.Save, {'label': 'Update my Deli', 'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'submit'}}) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
             {% endblock %}

@@ -45,7 +45,7 @@ class LivraisonType extends AbstractType
             ->add('LocalisationGeographique',EntityType::class,[
                 'class'=>LocalisationGeographique::class,
             ])
-            ->add('Save',SubmitType::class );
+            ->add('ADD',SubmitType::class );
     }
 
     public function configureOptions(OptionsResolver $resolver): void

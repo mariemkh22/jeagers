@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\LocalisationGeographiqueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -18,8 +18,24 @@ class LocalisationGeographique
     #[ORM\Column(length: 255)]
     private ?string $region = null;
 
+  /**
+     * @ORM\Column(type="int")
+     * @Assert\NotBlank(message="Le champ code postal ne peut pas être vide")
+     * @Assert\Type(type="int", message="La valeur doit être un nombre ")
+     */
+
     #[ORM\Column]
     private ?int $codepostal = null;
+
+
+      /** 
+  * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="L'adresse ne peut pas être vide")
+     * @Assert\Length(
+      *     max=255,
+       *   maxMessage="La description ne peut pas dépasser {{ limit }} caractères"
+      *)
+     */
 
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
