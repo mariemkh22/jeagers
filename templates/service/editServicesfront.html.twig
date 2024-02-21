@@ -17,7 +17,7 @@
         <div class="container-fluid bg-dark px-0">
             <div class="row gx-0">
                 <div class="col-lg-3 bg-dark d-none d-lg-block">
-                    <a href="index" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
                         <h1 class="m-0 text-primary text-uppercase">SwapCraze</h1>
                     </a>
                 </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                        <a href="index" class="navbar-brand d-block d-lg-none">
+                        <a href="index.html" class="navbar-brand d-block d-lg-none">
                             <h1 class="m-0 text-primary text-uppercase">SwapCraze</h1>
                         </a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -96,11 +96,10 @@
 
 
         <!-- Booking Start -->
-        
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Add your service</h6>
+                    <h6 class="section-title text-center text-primary text-uppercase">Edit your service</h6>
                     <h1 class="mb-5">Share your expertise with  <span class="text-primary text-uppercase">SwapCraze</span></h1>
                 </div>
                 <div class="row g-5">
@@ -120,56 +119,46 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="col-lg-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            {{form_start(form)}}
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
-                                        <label for="{{ form.nameS.vars.id }}">Service name</label>
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                            <label for="name">Your Name</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
-                                        <label for="{{ form.descriptionS.vars.id }}">Description</label>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                            <label for="email">Your Email</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
-                                        <label for="{{ form.localisation.vars.id }}">Select your town</label>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" placeholder="Your phone number">
+                                            <label for="name">Your phone number</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.state, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        <label for="{{ form.state.vars.id }}">State</label>
+                                    <div class="col-md-6">
+                                        <div class="form-floating date" id="date3" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Service name" data-target="#date3" data-toggle="datetimepicker" />
+                                            <label for="checkin">Service name</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.dispoDate, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        <label for="{{ form.dispoDate.vars.id }}">Disponibility date</label>
+                                    <div class="col-md-6">
+                                        <div class="form-floating date" id="date3" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Service ID" data-target="#date3" data-toggle="datetimepicker" />
+                                            <label for="checkin">Service ID</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.categorie, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        <label for="{{ form.categorie.vars.id }}">Category ID</label>
+                                    <div class="col-md-6">
+                                        <div class="form-floating date" id="date4" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" id="checkout" placeholder="service availability" data-target="#date4" data-toggle="datetimepicker" />
+                                            <label for="checkout">Service availability</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    {{ form_row(form.Submit, {'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'button'}}) }}
-                                </div>
-                                
-                            </div>
-                            {{ form_end(form) }}
-                        </div>
-                    </div>
-                
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <select class="form-select" id="select1">
@@ -184,6 +173,31 @@
                                             </select>
                                             <label for="select1">Select your service category</label>
                                           </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <select class="form-select" id="select2">
+                                                <option value="1">Gabes</option>
+                                                <option value="2">Monastir</option>
+                                                <option value="3">Tunis</option>
+                                                <option value="4">Nabeul</option>
+                                                <option value="5">Kebilli</option>
+                                                <option value="6">Sousse</option>
+                                                <option value="7">Bizerte</option>
+                                                <option value="8">Tunis</option>
+                                            </select>
+                                            <label for="select2">Select your town</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                            <label for="message">Description</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="services" class="btn btn-primary w-100 py-3" type="submit">Submit</a>
+                                        
                                     </div>
                                     
                                     
@@ -222,7 +236,7 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-4">
                         <div class="bg-primary rounded p-4">
-                            <a href="index"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
+                            <a href="index.html"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
                             <p class="text-white mb-0">
 								Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">SwapCraze</a> & Let's create a world where everyone's excess becomes someone else's essentials.
                                 Join the barter revolution!
