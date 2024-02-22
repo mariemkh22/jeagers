@@ -24,8 +24,6 @@ class Produit
  * @Assert\NotBlank(message="Le nom du produit ne peut pas être vide")
  * @Assert\Length(max=255, maxMessage="Le nom du produit ne peut pas dépasser {{ limit }} caractères")
  */
-
-
     #[ORM\Column(length: 255)]
     private ?string $nom_produit = null;
 

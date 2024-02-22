@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,8 +14,12 @@ class Commande
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+     
 
+   
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\NotBlank(message: "Veuillez sélectionner une date")]
+    #[Assert\NotNull(message: "La date ne peut pas être vide")]
     private ?\DateTimeInterface $DateCmd = null;
 
     #[ORM\Column(length: 255)]
