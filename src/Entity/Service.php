@@ -15,36 +15,53 @@ class Service
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    /** 
-     * @Assert\NotBlank(message="This field should not be blank.")
-     */
-    private ?string $nameS = null;
-
-    #[ORM\Column(length: 255)]
     /**
      * @Assert\NotBlank(message="This field should not be blank.")
+     * @Assert\Length(
+     * min=5,
+     * minMessage="exemple"
+     * )
+     * @ORM\Column(type="string",length=255)
      */
+    #[ORM\Column(length: 255)]
+     private ?string $nameS = null;
+
+    /**
+     * @Assert\NotBlank(message="You should enter the service description.")
+     * @Assert\Length(
+     * min=5,
+     * minMessage="exemple"
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
+    #[ORM\Column(length: 255)]
     private ?string $descriptionS = null;
 
 
 
     #[ORM\Column(length: 255)]
-    /**
-     * @Assert\NotBlank(message="This field should not be blank.")
-     */
     private ?string $localisation = null;
 
-    #[ORM\Column(length: 255)]
     /**
-     * @Assert\NotBlank(message="This field should not be blank.")
+     * @Assert\NotBlank(message="Service's state is missing!")
+     * @Assert\Length(
+     * min=5,
+     * minMessage="exemple"
+     * )
+     * @ORM\Column(type="string",length=255)
      */
+    #[ORM\Column(length: 255)]
     private ?string $state = null;
 
-    #[ORM\Column(length: 255)]
     /**
      * @Assert\NotBlank(message="This field should not be blank.")
+     * @Assert\Length(
+     * min=5,
+     * minMessage="exemple"
+     * )
+     * @ORM\Column(type="string",length=255)
      */
+    #[ORM\Column(length: 255)]
     private ?string $dispoDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'services')]

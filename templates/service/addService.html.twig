@@ -123,41 +123,48 @@
                     
                     <div class="col-lg-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            {{form_start(form)}}
+                            {{form_start(form,{attr:{novalidate:'novalidate'}})}}
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         {{ form_widget(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
+                                        {{ form_errors(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
                                         <label for="{{ form.nameS.vars.id }}">Service name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         {{ form_widget(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+                                        {{ form_errors(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
                                         <label for="{{ form.descriptionS.vars.id }}">Description</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         {{ form_widget(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
+                                        {{ form_errors(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
                                         <label for="{{ form.localisation.vars.id }}">Select your town</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
                                         {{ form_widget(form.state, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
+                                        {{ form_errors(form.state, {'attr': {'class': 'form-control'}}) }}
+                                        
                                         <label for="{{ form.state.vars.id }}">State</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
                                         {{ form_widget(form.dispoDate, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
+                                        {{ form_errors(form.dispoDate, {'attr': {'class': 'form-control'}}) }}
                                         <label for="{{ form.dispoDate.vars.id }}">Disponibility date</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
                                         {{ form_widget(form.categorie, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
+                                        {{ form_errors(form.categorie, {'attr': {'class': 'form-control'}}) }}
                                         <label for="{{ form.categorie.vars.id }}">Category ID</label>
                                     </div>
                                 </div>
@@ -170,21 +177,7 @@
                         </div>
                     </div>
                 
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <select class="form-select" id="select1">
-                                              <option value="1">Educational barter</option>
-                                              <option value="2">DIY services</option>
-                                              <option value="3">Health and wellness services</option>
-                                              <option value="4">Cleaning services</option>
-                                              <option value="5">Sports services</option>
-                                              <option value="6">Transportation services</option>
-                                              <option value="7">Entertainment services</option>
-                                              <option value="8">Other services</option>
-                                            </select>
-                                            <label for="select1">Select your service category</label>
-                                          </div>
-                                    </div>
+                                    
                                     
                                     
                                 </div>

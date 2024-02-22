@@ -23,10 +23,11 @@ class ServiceController extends AbstractController
     }
    
     #[Route('/services', name: 'services')]
-    public function services(): Response
+    public function services(ServiceRepository $repo): Response
     {
+        $ser = $repo->findAll();
         return $this->render('service/services.html.twig', [
-            'controller_name' => 'ServiceController',
+            'services' => $ser,
         ]);
     }
 
