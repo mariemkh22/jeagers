@@ -21,6 +21,7 @@ class MessagingController extends AbstractController
         return $this->render('messaging/contact.html.twig', [
             'controller_name' => 'MessagingController',
         ]);
+        return $this->redirectToRoute('chatting.html.twig');
     }
     #[Route('/chatting', name: 'chatting')]
     public function chatting(): Response

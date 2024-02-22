@@ -419,7 +419,7 @@
 <h6>Create new Notification</h6>
 </div>
 </div>
-{{form_start(f)}}
+{{ form_start(f, {'attr': {'novalidate': 'novalidate'}}) }}
 <div class="card">
 <div class="card-body">
 <div class="row">
@@ -435,19 +435,33 @@
 <input type="text">
 </div>
 </div>-->
-<div class="col-lg-12">
-<div class="form-group">
-{{form_row(f.sujet)}}
-<!--<textarea class="form-control"></textarea>-->
-</div>
-</div>
-<div class="col-lg-12">
-    <div class="form-group">
-    {{form_row(f.contenue)}}
-    <!--<textarea class="form-control"></textarea>-->
-    </div>
-    </div>
 
+
+
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        {{ form_row(f.sujet) }}
+        {% if form_errors(f.sujet) %}
+            <div class="text-danger">
+                
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        {{ form_row(f.contenue) }}
+        {% if form_errors(f.contenue) %}
+            <div class="text-danger">
+                
+            </div>
+        {% endif %}
+    </div>
+</div>
 
 <div class="col-lg-12">
 {{ form_row(f.add_notification, {'attr': {'class': 'btn btn-submit me-2'}}) }}
