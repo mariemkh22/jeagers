@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\NotificationRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: NotificationRepository::class)]
 class Notification
@@ -14,12 +14,18 @@ class Notification
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateEnvoi = null;
+    #[ORM\Column(length: 255)]
+    private ?string $DateEnvoie = null;
 
+    /**
+     * @Assert\NotBlank(message="Subject is needed.")
+     */
     #[ORM\Column(length: 255)]
     private ?string $sujet = null;
 
+    /**
+     * @Assert\NotBlank(message="You need to write.")
+     */
     #[ORM\Column(length: 255)]
     private ?string $contenue = null;
 
@@ -28,14 +34,14 @@ class Notification
         return $this->id;
     }
 
-    public function getDateEnvoi(): ?\DateTimeInterface
+    public function getDateEnvoie(): ?string
     {
-        return $this->dateEnvoi;
+        return $this->DateEnvoie;
     }
 
-    public function setDateEnvoi(\DateTimeInterface $dateEnvoi): static
+    public function setDateEnvoie(string $DateEnvoie): static
     {
-        $this->dateEnvoi = $dateEnvoi;
+        $this->DateEnvoie = $DateEnvoie;
 
         return $this;
     }

@@ -31,6 +31,134 @@
     .buttonw {
         width: 165%;
     }
+    .page-wrapper{
+        background-image: url("assets/img/nightblue.png");
+    }
+    .wrapper{
+    position:static;
+    width: 1500px;
+    height: 480px;
+    transform: translateY(-70%);
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #FEA116;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #FEA116;
+    margin: 20px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #FEA116;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transform: translateY(90%);
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #FEA116;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #FEA116;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #FEA116;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #FEA116;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #FEA116;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.button {
+    width: 100%;
+    height: 45px;
+    background: #FEA116;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    color: #FEA116;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #FEA116;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
 </style>
 
 <div id="global-loader">
@@ -244,113 +372,138 @@
     </div>
 
 
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-inner">
-        <br>
-    <div id="sidebar-menu" class="sidebar-menu">
-        <br>
-    <ul>
-    <li>
-    <a href="backendHome" class="buttonw"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
-    </li>
-    <li class="submenu" class="active">
-        <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/users1.svg" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <br>    
+        <div id="sidebar-menu" class="sidebar-menu">
+            <br>
         <ul>
-        <li><a href="displayUsers">Users List</a></li>
-        <li><a href="dashBoardAdd" class="active">Add User</a></li>
-        </ul>
-    </li>
-    <li class="submenu">
-    <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Products</span> <span class="menu-arrow"></span></a>
-    <ul>
-    <li><a href="productlist.html">Product List</a></li>
-    <li><a href="addproduct.html">Add Product</a></li>
-    <li><a href="categorylist.html">Commands List</a></li>
-    <li><a href="addcategory.html">Add Command</a></li>
-    </ul>
-    </li>
-    <li class="submenu">
-        <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Delivery</span> <span class="menu-arrow"></span></a>
+        <li>
+        <a href="backendHome" class="buttonw active"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+        </li>
+        <li class="submenu" class="active">
+            <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/users1.svg" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="displayUsers">Users List</a></li>
+            <li><a href="dashBoardAdd">Add User</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+        <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Products</span> <span class="menu-arrow"></span></a>
         <ul>
-        <li><a href="productlist.html">Deliveries List</a></li>
-        <li><a href="addproduct.html">Add Delivery</a></li>
-        <li><a href="categorylist.html">Localisations List</a></li>
-        <li><a href="addcategory.html">Add Localisation</a></li>
+        <li><a href="displayProducts">Product List</a></li>
+        <li><a href="addProduct">Add Product</a></li>
+        <li><a href="displayComd">Commands List</a></li>
+        <li><a href="addComd">Add Command</a></li>
         </ul>
         </li>
-    <li class="submenu">
-        <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Services</span> <span class="menu-arrow"></span></a>
-        <ul>
-        <li><a href="productlist.html">Services List</a></li>
-        <li><a href="addproduct.html">Add Service</a></li>
-        <li><a href="categorylist.html">Categories List</a></li>
-        <li><a href="addcategory.html">Add Category</a></li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Delivery</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="Deliverylist">Deliveries List</a></li>
+            <li><a href="Adddelivery">Add Delivery</a></li>
+            <li><a href="Locationlist">Localisations List</a></li>
+            <li><a href="Addlocation">Add Localisation</a></li>
+            </ul>
+            </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Services</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="showS">Services List</a></li>
+            <li><a href="addservices">Add Service</a></li>
+            <li><a href="showC">Categories List</a></li>
+            <li><a href="addcategories">Add Category</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Chatting</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="chat.html">Chats list</a></li>
+            <li><a href="chat.html">Add Chat</a></li>
+            <li><a href="notiflist">Notifications list</a></li>
+            <li><a href="addnotif">Add Notification</a></li>
+            </ul>
+        </li>     
+        
+        </li>
         </ul>
-    </li>
-    <li class="submenu">
-        <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Chatting</span> <span class="menu-arrow"></span></a>
-        <ul>
-        <li><a href="chat.html">Chats list</a></li>
-        <li><a href="chat.html">Add Chat</a></li>
-        <li><a href="calendar.html">Notifications list</a></li>
-        <li><a href="email.html">Add Notification</a></li>
-        </ul>
-    </li>     
+        </div>
+        </div>
+        </div>
     
-    </li>
-    </ul>
-    </div>
-    </div>
-    </div>
 
 <div class="page-wrapper">
 <div class="content">
-<div class="page-header">
-<div class="page-title">
-<h4>User Management</h4>
-<h6>Add/Update User</h6>
-</div>
+
+<div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="assets/img/nightblue.png" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="">
+                        
+                        <!-- SignUp start -->
+                        <div class="wrapper">
+                            {{ form_start(form) }}
+                                <div class="form-box">
+                                    <div class="row">
+                                        <div class="page-header">
+                                            <div class="page-title">
+                                                <br>
+                                                <h4 style="color: aliceblue;">Add user</h4>
+                                                <h6 style="color: aliceblue;">Add new user</h6>
+                                                <br>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label style="color: aliceblue;font-size: 16px; transform: translateX(-35%);">Full Name</label>
+                                            {{ form_widget(form.full_name) }}
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Email address</label>
+                                            {{ form_widget(form.email) }}
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Phone number</label>
+                                            {{ form_widget(form.phone_number) }}
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Password</label>
+                                            {{ form_widget(form.password) }}
+                                        
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Date of birth</label>
+                                            {{ form_widget(form.date_of_birth) }}
+                                            <br>
+                                        </div>
+                                        </div>
+                                        
+                                        {{ form_widget(form.Sign_up, {'attr': {'class': 'btn btn-submit me-2'}}) }}
+                                        </div>
+                                        </div>
+                                </div>
+                            {{ form_end(form) }}
+                        </div>
+                        <!-- SignUp end -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-{{ form_start(form) }}
-
-<div class="card">
-<div class="card-body">
-<div class="row">
-<div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-    {{ form_row(form.full_name) }}
-</div>
-</div>
-<div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-    {{ form_row(form.email) }}
-</div>
-</div>
-<div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-    {{ form_row(form.phone_number) }}
-</div>
-</div>
-<div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-    {{ form_row(form.password) }}
-
-</div>
-</div>
-<div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-    {{ form_row(form.date_of_birth) }}
-</div>
-</div>
-
-{{ form_row(form.Sign_up, {'attr': {'class': 'btn btn-submit me-2'}}) }}
-</div>
-</div>
-</div>
-</div>
-
-{{ form_end(form) }}
 
 </div>
 </div>

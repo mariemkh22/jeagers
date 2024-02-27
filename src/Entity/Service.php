@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ServiceRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
@@ -13,68 +15,123 @@ class Service
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @Assert\NotBlank(message="This field should not be blank.")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
     #[ORM\Column(length: 255)]
-    private ?string $nomService = null;
+     private ?string $nameS = null;
+
+    /**
+     * @Assert\NotBlank(message="You should enter the service description.")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
+    #[ORM\Column(length: 255)]
+    private ?string $descriptionS = null;
+
+
 
     #[ORM\Column(length: 255)]
-    private ?string $typeService = null;
+    private ?string $localisation = null;
 
+    /**
+     * @Assert\NotBlank(message="Service's state is missing!")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    private ?string $state = null;
 
+    /**
+     * @Assert\NotBlank(message="This field should not be blank.")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
     #[ORM\Column(length: 255)]
-    private ?string $duree = null;
+    private ?string $dispoDate = null;
+
+    #[ORM\ManyToOne(inversedBy: 'services')]
+    private ?CategorieService $categorie = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNomService(): ?string
+    public function getNameS(): ?string
     {
-        return $this->nomService;
+        return $this->nameS;
     }
 
-    public function setNomService(string $nomService): static
+    public function setNameS(string $nameS): static
     {
-        $this->nomService = $nomService;
+        $this->nameS = $nameS;
 
         return $this;
     }
 
-    public function getTypeService(): ?string
+    public function getDescriptionS(): ?string
     {
-        return $this->typeService;
+        return $this->descriptionS;
     }
 
-    public function setTypeService(string $typeService): static
+    public function setDescriptionS(string $descriptionS): static
     {
-        $this->typeService = $typeService;
+        $this->descriptionS = $descriptionS;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+
+
+    public function getLocalisation(): ?string
     {
-        return $this->description;
+        return $this->localisation;
     }
 
-    public function setDescription(string $description): static
+    public function setLocalisation(string $localisation): static
     {
-        $this->description = $description;
+        $this->localisation = $localisation;
 
         return $this;
     }
 
-    public function getDuree(): ?string
+    public function getState(): ?string
     {
-        return $this->duree;
+        return $this->state;
     }
 
-    public function setDuree(string $duree): static
+    public function setState(string $state): static
     {
-        $this->duree = $duree;
+        $this->state = $state;
 
         return $this;
     }
+
+    public function getDispoDate(): ?string
+    {
+        return $this->dispoDate;
+    }
+
+    public function setDispoDate(string $dispoDate): static
+    {
+        $this->dispoDate = $dispoDate;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?CategorieService
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?CategorieService $categorie): static
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+    
 }

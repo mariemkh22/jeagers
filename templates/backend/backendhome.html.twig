@@ -14,6 +14,58 @@
     .buttonw {
         width: 165%;
     }
+    .page-wrapper{
+        background-image: url("assets/img/nightblue.png");
+    }
+    .backend{
+    width: 400px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-table {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border-collapse: collapse;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    font-size: 1em;
+    min-width: 1300px;
+    border-radius: 5px 5px 0 0;
+}
+
+.content-table thead tr {
+    background-color: #FEA116;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #FEA116;
+}
+
+.adjust{
+    transform: translateY(-80px);
+}
 </style>
 
 <div id="global-loader">
@@ -210,9 +262,7 @@
 <hr class="m-0">
 <a class="dropdown-item logout pb-0" href="signin.html"><img src="assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
 </div>
-</div>
-</li>
-</ul>
+
     {% endif %}
     
     
@@ -248,28 +298,28 @@
         <li class="submenu">
         <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Products</span> <span class="menu-arrow"></span></a>
         <ul>
-        <li><a href="productlist.html">Product List</a></li>
-        <li><a href="addproduct.html">Add Product</a></li>
-        <li><a href="categorylist.html">Commands List</a></li>
-        <li><a href="addcategory.html">Add Command</a></li>
+        <li><a href="displayProducts">Product List</a></li>
+        <li><a href="addProduct">Add Product</a></li>
+        <li><a href="displayComd">Commands List</a></li>
+        <li><a href="addComd">Add Command</a></li>
         </ul>
         </li>
         <li class="submenu">
             <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Delivery</span> <span class="menu-arrow"></span></a>
             <ul>
-            <li><a href="productlist.html">Deliveries List</a></li>
-            <li><a href="addproduct.html">Add Delivery</a></li>
-            <li><a href="categorylist.html">Localisations List</a></li>
-            <li><a href="addcategory.html">Add Localisation</a></li>
+            <li><a href="Deliverylist">Deliveries List</a></li>
+            <li><a href="Adddelivery">Add Delivery</a></li>
+            <li><a href="Locationlist">Localisations List</a></li>
+            <li><a href="Addlocation">Add Localisation</a></li>
             </ul>
             </li>
         <li class="submenu">
             <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Services</span> <span class="menu-arrow"></span></a>
             <ul>
-            <li><a href="productlist.html">Services List</a></li>
-            <li><a href="addproduct.html">Add Service</a></li>
-            <li><a href="categorylist.html">Categories List</a></li>
-            <li><a href="addcategory.html">Add Category</a></li>
+            <li><a href="showS">Services List</a></li>
+            <li><a href="addservices">Add Service</a></li>
+            <li><a href="showC">Categories List</a></li>
+            <li><a href="addcategories">Add Category</a></li>
             </ul>
         </li>
         <li class="submenu">
@@ -277,8 +327,8 @@
             <ul>
             <li><a href="chat.html">Chats list</a></li>
             <li><a href="chat.html">Add Chat</a></li>
-            <li><a href="calendar.html">Notifications list</a></li>
-            <li><a href="emailZZzzzY.html">Add Notification</a></li>
+            <li><a href="notiflist">Notifications list</a></li>
+            <li><a href="addnotif">Add Notification</a></li>
             </ul>
         </li>     
         
@@ -288,231 +338,77 @@
         </div>
         </div>
     <div class="page-wrapper">
-        <div>
-        <img src="assets/img/nightblue.png" alt="img" class="ms-2">
-
     <div class="content">
     <div class="row">
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="assets/img/nightblue.png" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="width: 1350px; transform: translateY(-235px);">
+                           {% if app.user!=null %}
+                                <h1 class="display-3 text-white mb-4 animated slideInDown adjust">Welcome back</h1>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown adjust">{{app.user.getFullName()}}</h1>
+                           {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="assets/img/nightblue.png" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="width: 1350px; transform: translateY(-235px);">
+                            <div class="card-body">
+                                <h4 class="card-title">List of users</h4>
+                                <div >
+                                <table class="content-table">
+                                <thead>
+                                <tr>
+                                <th>N° ID</th>
+                                <th>Full name</th>
+                                <th>E-mail</th>
+                                <th>Phone number</th>
+                                <th>Birth date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in table %}
+                                <tr>
+                                <td>{{i.getId()}}</td>
+                                <td>{{i.getFullName()}}</td>
+                                <td>{{i.getEmail()}}</td>
+                                <td>{{i.PhoneNumber()}}</td>
+                                <td>{{i.GetDateOfBirth()}}</td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                                </table>
+                                </div>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
     
     
-    <div class="col-lg-3 col-sm-6 col-12 d-flex">
-    <div class="dash-count">
-    <div class="dash-counts">
-    <h4>100</h4>
-    <h5>Customers</h5>
-    </div>
-    <div class="dash-imgs">
-    <i data-feather="user"></i>
-    </div>
-    </div>
-    </div>
-    
-    <div class="col-lg-3 col-sm-6 col-12 d-flex">
-    <div class="dash-count das2">
-    <div class="dash-counts">
-    <h4>100</h4>
-    <h5>Purchase Invoice</h5>
-    </div>
-    <div class="dash-imgs">
-    <i data-feather="file-text"></i>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-3 col-sm-6 col-12 d-flex">
-    <div class="dash-count das3">
-    <div class="dash-counts">
-    <h4>105</h4>
-    <h5>Sales Invoice</h5>
-    </div>
-    <div class="dash-imgs">
-    <i data-feather="file"></i>
-    </div>
-    </div>
-    </div>
-    </div>
-    
-    <div class="row">
-    <div class="col-lg-7 col-sm-12 col-12 d-flex">
-    <div class="card flex-fill">
-    <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-    <h5 class="card-title mb-0">Purchase & Sales</h5>
-    <div class="graph-sets">
-    <ul>
-    <li>
-    <span>Sales</span>
-    </li>
-    <li>
-    <span>Purchase</span>
-    </li>
-    </ul>
-    <div class="dropdown">
-    <button class="btn btn-white btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-     2024 <img src="assets/img/icons/dropdown.svg" alt="img" class="ms-2">
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li>
-    <a href="javascript:void(0);" class="dropdown-item">2024</a>
-    </li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    <div class="card-body">
-    <div id="sales_charts"></div>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-5 col-sm-12 col-12 d-flex">
-    <div class="card flex-fill">
-    <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-    <h4 class="card-title mb-0">Recently Added Products</h4>
-    <div class="dropdown">
-    <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false" class="dropset">
-    <i class="fa fa-ellipsis-v"></i>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li>
-    <a href="productlist.html" class="dropdown-item">Product List</a>
-    </li>
-    <li>
-    <a href="addproduct.html" class="dropdown-item">Product Add</a>
-    </li>
-    </ul>
-    </div>
-    </div>
-    <div class="card-body">
-    <div class="table-responsive dataview">
-    <table class="table datatable ">
-    <thead>
-    <tr>
-    <th>Sno</th>
-    <th>Products</th>
-    <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>1</td>
-    <td class="productimgname">
-    <a href="productlist.html" class="product-img">
-    <img src="assets/img/product/product22.jpg" alt="product">
-    </a>
-    <a href="productlist.html">Apple Earpods</a>
-    </td>
-    <td>$891.2</td>
-    </tr>
-    <tr>
-    <td>2</td>
-    <td class="productimgname">
-    <a href="productlist.html" class="product-img">
-    <img src="assets/img/product/product23.jpg" alt="product">
-    </a>
-    <a href="productlist.html">iPhone 11</a>
-    </td>
-    <td>$668.51</td>
-    </tr>
-    <tr>
-    <td>3</td>
-    <td class="productimgname">
-    <a href="productlist.html" class="product-img">
-    <img src="assets/img/product/product24.jpg" alt="product">
-    </a>
-    <a href="productlist.html">samsung</a>
-    </td>
-    <td>$522.29</td>
-    </tr>
-    <tr>
-    <td>4</td>
-    <td class="productimgname">
-    <a href="productlist.html" class="product-img">
-    <img src="assets/img/product/product6.jpg" alt="product">
-    </a>
-    <a href="productlist.html">Macbook Pro</a>
-    </td>
-    <td>$291.01</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="card mb-0">
-    <div class="card-body">
-    <h4 class="card-title">Expired Products</h4>
-    <div class="table-responsive dataview">
-    <table class="table datatable ">
-    <thead>
-    <tr>
-    <th>SNo</th>
-    <th>Product Code</th>
-    <th>Product Name</th>
-    <th>Brand Name</th>
-    <th>Category Name</th>
-    <th>Expiry Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>1</td>
-    <td><a href="javascript:void(0);">IT0001</a></td>
-    <td class="productimgname">
-    <a class="product-img" href="productlist.html">
-    <img src="assets/img/product/product2.jpg" alt="product">
-    </a>
-    <a href="productlist.html">Orange</a>
-    </td>
-    <td>N/D</td>
-    <td>Fruits</td>
-    <td>12-12-2022</td>
-    </tr>
-    <tr>
-    <td>2</td>
-    <td><a href="javascript:void(0);">IT0002</a></td>
-    <td class="productimgname">
-    <a class="product-img" href="productlist.html">
-    <img src="assets/img/product/product3.jpg" alt="product">
-    </a>
-    <a href="productlist.html">Pineapple</a>
-    </td>
-    <td>N/D</td>
-    <td>Fruits</td>
-    <td>25-11-2022</td>
-    </tr>
-    <tr>
-    <td>3</td>
-    <td><a href="javascript:void(0);">IT0003</a></td>
-    <td class="productimgname">
-    <a class="product-img" href="productlist.html">
-    <img src="assets/img/product/product4.jpg" alt="product">
-    </a>
-    <a href="productlist.html">Stawberry</a>
-    </td>
-    <td>N/D</td>
-    <td>Fruits</td>
-    <td>19-11-2022</td>
-    </tr>
-    <tr>
-    <td>4</td>
-    <td><a href="javascript:void(0);">IT0004</a></td>
-    <td class="productimgname">
-    <a class="product-img" href="productlist.html">
-    <img src="assets/img/product/product5.jpg" alt="product">
-    </a>
-    <a href="productlist.html">Avocat</a>
-    </td>
-    <td>N/D</td>
-    <td>Fruits</td>
-    <td>20-11-2022</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
 </div>
-    </div> 
+</div>
+</div>
+
 {% endblock %}

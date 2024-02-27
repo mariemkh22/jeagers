@@ -224,21 +224,27 @@
                                 {{ form_start(form) }}
                                     <div class="form-box">
                                         <div class="input-box">         
-                                            {{ form_row(form.email, {'attr': {'class': 'input-box'}}) }}
+                                            {{ form_widget(form.email, {'attr': {'class': 'input-box'}}) }}
                                         </div>
                                         <div class="input-box">         
-                                            {{ form_row(form.full_name, {'attr': {'class': 'input-box'}}) }}
+                                            {{ form_widget(form.full_name, {'attr': {'class': 'input-box'}}) }}
                                         </div>
                                         <div class="input-box">         
-                                            {{ form_row(form.phone_number, {'attr': {'class': 'input-box'}}) }}
+                                            {{ form_widget(form.full_name, {'attr': {'class': 'input-box'}}) }}
                                         </div>
                                         <div class="input-box">         
-                                            {{ form_row(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
+                                            {{ form_widget(form.phone_number, {'attr': {'class': 'input-box'}}) }}
                                         </div>
                                         <div class="input-box">         
-                                            {{ form_row(form.password, {'attr': {'type':'password', 'class': 'input-box'},}) }}
+                                            {{ form_widget(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        {{ form_row(form.Sign_up, {'attr': {'class': 'button'}}) }}
+                                        <div class="input-box">         
+                                            {{ form_widget(form.password, {'attr': {'type':'password', 'class': 'input-box'},}) }}
+                                        </div>
+                                        <div class="input-box">         
+                                            {{ form_widget(form.roles, {'attr': {'class': 'input-box'}}) }}
+                                        </div>
+                                        {{ form_widget(form.Sign_up, {'attr': {'class': 'button'}}) }}
                                         <div class="login-register">
                                             <p>You have an account ?
                                                 <a href="utilisateurLogIn" class="register-link"> Log in !</a>

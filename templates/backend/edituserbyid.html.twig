@@ -4,7 +4,22 @@
 
 {% block body %}
 
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.jpg')}}">
 
+<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
 <style>
     .width{
@@ -55,7 +70,7 @@
     <span><img src="assets/img/icons/closes.svg" alt="img"></span>
     </div>
     </div>
-    <a class="btn" id="searchdiv"><img src="assets/img/icons/search.svg" alt="img"></a>
+    <a class="btn" id="searchdiv"><img src="{{asset('assets/img/icons/search.svg')}}" alt="img"></a>
     </form>
     </div>
     </li>
@@ -331,6 +346,27 @@
     </div>
     </div>
 
-    
+{% endblock %}
 
+{% block javascripts %}
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
+
+<script src="{{asset('assets/js/feather.min.js')}}"></script>
+
+<script src="{{asset('assets/js/jquery.slimscroll.min.js')}}"></script>
+
+<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
+
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+
+<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+
+<script src="{{asset('assets/js/moment.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+
+<script src="{{asset('assets/plugins/sweetalert/sweetalert2.all.min.js')}}"></script>
+<script src="{{asset('assets/plugins/sweetalert/sweetalerts.min.js')}}"></script>
+
+<script src="{{asset('assets/js/script.js')}}"></script>
 {% endblock %}

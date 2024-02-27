@@ -4,10 +4,38 @@
 
 {% block body %}
 <style>
+    .form-group input{
+        background: transparent;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        width: 100%;
+        height: 80%;
+        transform: translateY(-20%);
+        outline: none;
+        color: #FEA116;
+        font-weight: 600;
+    }
+
+    .form-group label {
+    position:relative;
+    top: 20%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #FEA116;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.form-group input:focus~label,
+.form-group input:valid~label {
+    top: -5px;
+}
 .wrapper{
     position: relative;
-    width: 400px;
-    height: 600px;
+    width: 460px;
+    height: 750px;
     background: transparent;
     border: 2px solid rgba(255,255,255,.5);
     border-radius: 20px;
@@ -30,6 +58,7 @@
 }
 
 .input-box {
+    transform: translateY(50%);
     position: relative;
     width: 100%;
     height: 50px;
@@ -58,6 +87,7 @@
     width: 100%;
     height: 100%;
     background: transparent;
+    transform: translateY(90%);
     border: none;
     outline: none;
     font-size: 1em;
@@ -217,25 +247,30 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 700px;">
                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">SWAPCRAZE</h6>
-                            
-                            <!-- SignUp start -->
+                            <!-- LogIn Start -->
                             <div class="wrapper">
-                                {{ form_start(form) }}
-                                    <div class="form-box">
-                                        <div class="input-box">         
-                                            {{ form_row(form.email, {'attr': {'class': 'input-box'}}) }}
+                                <div class="form-box">
+                                    <h2>Register here!</h2>
+                                    {{ form_start(form) }}
+                                        <div class="form-group">
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 115%; width: 150%;">Email address</label>
+                                            {{ form_widget(form.email, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.full_name, {'attr': {'class': 'input-box'}}) }}
+                                        <div class="form-group">
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 113%; width: 140%;">Full name</label>
+                                            {{ form_widget(form.full_name, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.phone_number, {'attr': {'class': 'input-box'}}) }}
+                                        <div class="form-group">
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 135%; width: 170%;">Phone number</label>
+                                            {{ form_widget(form.phone_number, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
+                                        <div class="form-group">
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 110%; width: 140%;">Date of birth</label>
+                                            {{ form_widget(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.password, {'attr': {'type':'password', 'class': 'input-box'},}) }}
+                                        <div class="form-group">
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 110%; width: 137%;">Password</label>
+                                            {{ form_widget(form.password, {'attr': {'class': 'input-box'}}) }}
                                         </div>
                                         {{ form_row(form.Sign_up, {'attr': {'class': 'button'}}) }}
                                         <div class="login-register">
@@ -243,11 +278,10 @@
                                                 <a href="login" class="register-link"> Log in !</a>
                                             </p>
                                         </div>
-                                    </div>
-                                {{ form_end(form) }}
+                                    {{ form_end(form) }}
+                                </div>
                             </div>
-                            <!-- SignUp end -->
-
+                            <!-- LogIn End  -->
                         </div>
                     </div>
                 </div>

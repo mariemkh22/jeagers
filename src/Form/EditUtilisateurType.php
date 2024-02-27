@@ -15,18 +15,10 @@ class EditUtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('full_name', TextType::class, [
-                'attr' => ['placeholder' => 'Yassine Ben Mabrouk']
-            ])
-            ->add('phone_number', TextType::class, [
-                'attr' => ['placeholder' => '71 221 332']
-            ])
-            ->add('email', TextType::class, [
-                'attr' => ['placeholder' => 'example@swapcraze.tn']
-            ])
-            ->add('date_of_birth', TextType::class, [
-                'attr' => ['placeholder' => 'dd/mm/yyyy']
-            ])
+            ->add('full_name', TextType::class)
+            ->add('phone_number', TextType::class)
+            ->add('email', TextType::class)
+            ->add('date_of_birth', TextType::class)
             ->add('update',SubmitType::class)
         ;
     }

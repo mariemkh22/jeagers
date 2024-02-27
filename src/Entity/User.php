@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\Authentication\RememberMe\PersistentToken;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -15,6 +19,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @Assert\NotBlank(message="E-mail missing")
+     * @Assert\Length(
+     *      min = 11,
+     *      minMessage=" example@gmail.com"
+     *
+     *     )
+     * @ORM\Column(type="string", length=255)
+     */
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
@@ -22,19 +35,47 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private array $roles = [];
 
     /**
+     * * @Assert\NotBlank(message="Password missing")
      * @var string The hashed password
      */
     #[ORM\Column]
     private ?string $password = null;
 
+    /**
+     * @Assert\NotBlank(message="FullName missing")
+     * @ORM\Column(type="string", length=255)
+     */
     #[ORM\Column(length: 255)]
     private ?string $fullName = null;
 
+    /**
+     * @Assert\NotBlank(message="PhoneNumber missing")
+     */
     #[ORM\Column(length: 255)]
     private ?string $phoneNumber = null;
 
+    /**
+     * @Assert\NotBlank(message="Birthdate missing")
+     * @ORM\Column(type="string", length=255)
+     */
     #[ORM\Column(length: 255)]
     private ?string $dateOfBirth = null;
+
+    /**
+     * @ORM\OneToMany(mappedBy="sender", targetEntity=Messagerie::class, orphanRemoval=true, cascade={"persist"})
+    */
+    private Collection $sent;
+
+    /**
+    * @ORM\OneToMany(mappedBy="recepient", targetEntity=Messagerie::class, orphanRemoval=true, cascade={"persist"})
+    */
+    private Collection $received;
+
+    public function __construct()
+    {
+        $this->sent = new ArrayCollection();
+        $this->received = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,7 +110,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
-    }
+    }   
 
     /**
      * @see UserInterface
@@ -77,6 +118,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
+        
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
@@ -159,5 +201,69 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->dateOfBirth = $dateOfBirth;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Messagerie>
+     */
+    public function getSent(): Collection
+    {
+        return $this->sent;
+    }
+
+    public function addSent(Messagerie $sent): static
+    {
+        if (!$this->sent->contains($sent)) {
+            $this->sent->add($sent);
+            $sent->setSender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSent(Messagerie $sent): static
+    {
+        if ($this->sent->removeElement($sent)) {
+            // set the owning side to null (unless already changed)
+            if ($sent->getSender() === $this) {
+                $sent->setSender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Messagerie>
+     */
+    public function getReceived(): Collection
+    {
+        return $this->received;
+    }
+
+    public function addReceived(Messagerie $received): static
+    {
+        if (!$this->received->contains($received)) {
+            $this->received->add($received);
+            $received->setRecipient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReceived(Messagerie $received): static
+    {
+        if ($this->received->removeElement($received)) {
+            // set the owning side to null (unless already changed)
+            if ($received->getRecipient() === $this) {
+                $received->setRecipient(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->id;
     }
 }

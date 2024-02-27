@@ -8,19 +8,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProduitController extends AbstractController
 {
-    #[Route('/produit', name: 'produit')]
-    public function produit(): Response
+    #[Route('/home', name: 'app_home')]
+    public function home(): Response
     {
-        return $this->render('produit/produit.html.twig', [
+        return $this->render('frontend/produit.html.twig', [
             'controller_name' => 'ProduitController',
         ]);
     }
-
-    #[Route('/addProduct', name: 'addProduct')]
-    public function addProduct(): Response
+    #[Route('/produit', name: 'app_produit')]
+    public function produit(): Response
     {
-        return $this->render('produit/addProduct.html.twig', [
-            'controller_name' => 'AjoutpController',
+        return $this->render('frontend/produit.html.twig', [
+            'controller_name' => 'ProduitController',
         ]);
     }
 }

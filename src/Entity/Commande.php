@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,53 +14,73 @@ class Commande
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+     
 
+   
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
-
-    #[ORM\Column]
-    private ?bool $etat = null;
+    #[Assert\NotBlank(message: "Veuillez sélectionner une date")]
+    #[Assert\NotNull(message: "La date ne peut pas être vide")]
+    private ?\DateTimeInterface $DateCmd = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $methodeLivraison = null;
+    private ?string $methode_livraison = null;
+
+    #[ORM\ManyToOne(inversedBy: 'Commande')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Produit $Produit = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $ville = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDateCmd(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->DateCmd;
     }
 
-    public function setDate(\DateTimeInterface $date): static
+    public function setDateCmd(\DateTimeInterface $DateCmd): static
     {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    public function isEtat(): ?bool
-    {
-        return $this->etat;
-    }
-
-    public function setEtat(bool $etat): static
-    {
-        $this->etat = $etat;
+        $this->DateCmd = $DateCmd;
 
         return $this;
     }
 
     public function getMethodeLivraison(): ?string
     {
-        return $this->methodeLivraison;
+        return $this->methode_livraison;
     }
 
-    public function setMethodeLivraison(string $methodeLivraison): static
+    public function setMethodeLivraison(string $methode_livraison): static
     {
-        $this->methodeLivraison = $methodeLivraison;
+        $this->methode_livraison = $methode_livraison;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->Produit;
+    }
+
+    public function setProduit(?Produit $Produit): static
+    {
+        $this->Produit = $Produit;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): static
+    {
+        $this->ville = $ville;
 
         return $this;
     }
