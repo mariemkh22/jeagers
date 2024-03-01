@@ -151,8 +151,8 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>
-                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">My Services</h6>
+                    <h1 class="mb-5">Managing my <span class="text-primary text-uppercase">Services</span></h1>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -185,12 +185,12 @@
                             </div>
                         </div>
                     </div>
-                    
+                   
                     {% for i in services %}
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="product-image" src="images/services/{{i.getImageName()}}">
+                                <img class="product-image" src="{{ asset('images/products/' ~ i.getImageName()) }}">
 
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Our service</small>
                             </div>
@@ -208,22 +208,22 @@
                                 <div class="d-flex mb-3">
                                     <small class="border-end me-3 pe-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{i.localisation}}</small>
                                     <small class="border-end me-3 pe-3"><i class="fa fa-clock text-primary me-2"></i>{{i.dispoDate}}</small>
-                                    <small><i class="fa fa-key text-primary me-2"></i>{{i.getCategorie.getNameC()}}</small>
+                                    <small><i class="fa fa-key text-primary me-2"></i>{{i.categorie}}</small>
                                 </div>
                                 <p class="text-body mb-3">{{i.descriptionS}}</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Craze Now</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="{{path('editS',{'id':i.id})}}">Edit</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="{{path('deletemyServices',{'id':i.id})}}">Delete</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     {% endfor %}
-
+                    
                     {{ knp_pagination_render(services) }}
-                    
-                    
 
+                    
 
                     
                                 

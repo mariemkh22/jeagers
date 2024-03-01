@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ServiceType extends AbstractType
 {
@@ -30,6 +31,7 @@ class ServiceType extends AbstractType
             ->add('state', TextType::class, [
                 'attr' => ['placeholder' => 'Available']
                 ])
+            ->add('imageFile' , VichImageType::class)    
             ->add('categorie', EntityType::class, [
                 'class' => CategorieService::class,
                     ])
