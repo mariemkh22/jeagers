@@ -22,6 +22,13 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 <style>
+
+    .product-image {
+        width: 100px; 
+        height: auto; 
+    }
+
+
     .width{
         height: 90px;
         width: 170px;
@@ -306,61 +313,69 @@
         </div>
         
       
+
+
     
     
-    <div class="table-responsive">
-        <table class="table  datanew">
-        <thead>
-        <tr>
-        <th>
-        <label class="checkboxs">
-        <input type="checkbox" id="select-all">
-        <span class="checkmarks"></span>
-        </label>
-        </th>
-        <th>Product Name</th>
-        <th>id Product</th>
-        <th>type</th>
-        <th>Description</th>
-        <th>Equivalent Price</th>
-        <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for i in table %}
-            <tr>
-            <td>
-            <label class="checkboxs">
-            <input type="checkbox">
-            <span class="checkmarks"></span>
-            </label>
-            </td>
-            <td>{{i.getNomProduit()}}</td>
-            <td>{{i.getId}} </td>
-            <td>{{i.getType()}} </td>
-            <td>{{i.getDescription()}}</td>
-            <td>{{i.getEquiv()}}</td>
-            <td>
-                <a class="me-3" href="{{path('edit',{'id':i.id})}}">
-                    <img src="assets/img/icons/edit.svg" alt="img">
-                    </a>
-                <a href="{{path('delete',{'id':i.id})}}">
-                        <img src="assets/img/icons/delete.svg" alt="img">
-                    </a>    
-                      
-            </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-        </table>
-        </div>
-        </div>
+        <div class="table-responsive">
+            <table class="table  datanew">
+                <thead>
+                    <tr>
+                        <th>
+                            <label class="checkboxs">
+                                <input type="checkbox" id="select-all">
+                                <span class="checkmarks"></span>
+                            </label>
+                        </th>
+                        <th>Product Image</th> <!-- New column for product image -->
+                        <th>Product Name</th>
+                        <th>id Product</th>
+                        <th>type</th>
+                        <th>Description</th>
+                        <th>Equivalent Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in table %}
+                    <tr>
+                        <td>
+                            <label class="checkboxs">
+                                <input type="checkbox">
+                                <span class="checkmarks"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <img class="product-image" src="{{ asset('images/products/' ~ i.getImageName()) }}">
+                        </td>
+                        <td>{{ i.getNomProduit() }}</td>
+                        <td>{{ i.getId }}</td>
+                        <td>{{ i.getType() }}</td>
+                        <td>{{ i.getDescription() }}</td>
+                        <td>{{ i.getEquiv() }} TD</td>
+                        <td>
+                            <a class="me-3" href="{{ path('edit',{'id':i.id}) }}">
+                                <img src="assets/img/icons/edit.svg" alt="Edit">
+                            </a>
+                            <a href="{{ path('delete',{'id':i.id}) }}">
+                                <img src="assets/img/icons/delete.svg" alt="Delete">
+                            </a>    
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
         
-        </div>
-        </div>
-        </div>
-{% endblock %}  
+
+
+
+
+
+
+        {% endblock %}
+
+
 
 {% block javascripts %}
 <script src="assets/js/jquery-3.6.0.min.js"></script>

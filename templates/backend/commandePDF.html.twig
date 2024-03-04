@@ -1,0 +1,53 @@
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px; /* Adjust the padding as needed */
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .footer {
+        margin-top: 20px; /* Add space between the table and the footer */
+        text-align: center;
+        font-style: italic;
+    }
+</style>
+
+<table class="table datanew">
+    <thead>
+        <tr>
+            <th colspan="5">YOUR ORDERS</th> <!-- Spanning across all columns -->
+        </tr>
+        <tr>
+            <th>Commande ID</th>
+            <th>Date</th>
+            <th>City</th>
+            <th>Delivery Method</th> <!-- Fixed typo in "Method" -->
+            <th>Product Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for j in table %}
+            <tr>
+                <td>{{ j.getId() }}</td>
+                <td>{{ j.getDateCmd()|date('Y-m-d H:i:s') }}</td>
+                  <td>{{ j.getVille() }}</td>
+                <td>{{ j.getMethodeLivraison() }}</td>
+              
+                <td>{{ j.getProduit().getNomProduit() }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="footer">
+    SWAPCRAZE &copy; 2024
+</div>

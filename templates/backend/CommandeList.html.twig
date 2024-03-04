@@ -297,12 +297,27 @@
         <div class="table-top">
         <div class="search-set">
        
-        <div class="search-input">
-        <a class="btn btn-searchset"><img src="assets/img/icons/search-white.svg" alt="img"></a>
+            <div class="d-flex align-items-center">
+                <div class="search-input me-3">
+                    <a class="btn btn-searchset"><img src="assets/img/icons/search-white.svg" alt="img"></a>
+                </div>
+                <div>
+                    <a href="{{ path('generatePdf') }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Generate PDF">
+                        <img src="assets/img/icons/pdf.svg" alt="PDF">
+                    </a>
+                </div>
+            </div>
         </div>
-        </div>
+
+
+
+
+
         <div class="wordset">
         </div>
+
+      
+
         </div>
         
       
@@ -322,7 +337,7 @@
         <th>Date</th>
         <th>City</th>
         <th>Delivery Methode</th>
-        <th>Product ID</th>
+        <th>Product Name</th>
         <th>Action</th>
         </tr>
         </thead>
@@ -339,7 +354,7 @@
             <td>{{j.getDateCmd()|date('Y-m-d H:i:s') }}</td>
             <td>{{j.getMethodeLivraison()}} </td>
             <td>{{j.getVille()}}</td>
-            <td>{{j.getProduit()}}</td>
+            <td>{{ j.getProduit().getNomProduit() }}</td>
             <td>
                 <a class="me-3" href="{{path('editc',{'id':j.id})}}">
                     <img src="assets/img/icons/edit.svg" alt="img">

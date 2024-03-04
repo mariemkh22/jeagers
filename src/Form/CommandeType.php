@@ -25,9 +25,30 @@ class CommandeType extends AbstractType
 
         ->add('ville', ChoiceType::class,[
             'choices' => [
-                'Tunis' => 'Tunis',
-                'Nabeul' => 'Nabeul',
-                'Gbili' => 'Gbili',
+    'Tunis' => 'Tunis',
+    'Ariana' => 'Ariana',
+    'Beja' => 'Beja',
+    'Ben Arous' => 'Ben Arous',
+    'Bizerte' => 'Bizerte',
+    'Gabes' => 'Gabes',
+    'Gafsa' => 'Gafsa',
+    'Jendouba' => 'Jendouba',
+    'Kairouan' => 'Kairouan',
+    'Kasserine' => 'Kasserine',
+    'Kebili' => 'Kebili',
+    'Kef' => 'Kef',
+    'Mahdia' => 'Mahdia',
+    'Manouba' => 'Manouba',
+    'Medenine' => 'Medenine',
+    'Monastir' => 'Monastir',
+    'Nabeul' => 'Nabeul',
+    'Sfax' => 'Sfax',
+    'Sidi Bouzid' => 'Sidi Bouzid',
+    'Siliana' => 'Siliana',
+    'Sousse' => 'Sousse',
+    'Tataouine' => 'Tataouine',
+    'Tozeur' => 'Tozeur',
+    'Zaghouan' => 'Zaghouan',
             ],
         ])  
 
@@ -41,9 +62,9 @@ class CommandeType extends AbstractType
          
        
 
-      ->add('Produit',EntityType::class, [
-                'class'=>Produit::class,
-            ])
+        ->add('produit', EntityType::class, [
+            'class' => Produit::class,
+            'choice_label' => 'nom_produit',] ) 
 
 
 
@@ -58,3 +79,4 @@ class CommandeType extends AbstractType
         ]);
     }
 }
+

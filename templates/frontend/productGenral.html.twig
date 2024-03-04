@@ -25,22 +25,23 @@
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
 
-
 <style>
 
 
-    .room-item {
-        height: 100%; /* Adjust the height as needed */
-    }
-    
-    .product-image {
-        width: 100%; /* Set the width to 100% for responsiveness */
-        height: 200px; /* Set the desired fixed height */
-        object-fit: cover; /* Maintain aspect ratio and crop if necessary */
-    }
-    
-    </style>
-    
+.room-item {
+    height: 100%;
+}
+
+.product-image {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+</style>
+
+
+
 {% endblock %}
 <body>
     <div class="container-xxl bg-white p-0">
@@ -91,13 +92,20 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="displayPG" class="nav-item nav-link">Home</a>
+
+
+
+
+
+
+                                <a href="displayPG" class="nav-item nav-link active">Home</a>
+                            
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Products</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="addProductFE" class="dropdown-item">Add Product +</a>
-                                        <a href="displayP" class="dropdown-item">My Contributions</a> 
-                                        <a href="displayComdFE" class="dropdown-item"><i class="fas fa-shopping-cart"></i> My orders</a>          
+                                        <a href="displayP" class="dropdown-item">My Contributions</a>   
+                                        <a href="displayComdFE" class="dropdown-item"><i class="fas fa-shopping-cart"></i> My orders</a>        
                                         <a href="listFavorites" class="dropdown-item">My Favorites <span><i class="fas fa-heart"></i></span></a>
                                     </div>
                                 </div>
@@ -112,7 +120,7 @@
 
 
 
-                                
+
                             </div>
                             <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
@@ -127,12 +135,12 @@
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/head.png);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">My Contributions</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Products</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="displayPG">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">My Products</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">My Contributions</li>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Products</li>
                         </ol>
                     </nav>
                 </div>
@@ -149,8 +157,7 @@
                         <div class="col-md-10">
                             <div class="row g-2">
 
-                              
-                                                             
+                                                    
                                 
                         
                             </div>
@@ -164,27 +171,15 @@
 
         <!-- Room Start -->
        
+
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                   
-                    <h1 class="mb-5">Manage <span class="text-primary text-uppercase">your Products!</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">Deals of the Day</h6>
+                    <h1 class="mb-5">Explore, Barter <span class="text-primary text-uppercase">and more!</span></h1>
                 </div>
-          
+                <img class="w-75 mx-auto d-block" src="img/dl3.jpg" alt="Image">
                 <div class="row g-4">
-
-                    {% if table is empty %}
-        <div class="text-center"> <!-- Center the content -->
-            <p class="text-danger" style="font-size: 24px;">
-                 No Products Yet!
-            </p>
-        </div>
-        {% else %}
-
-
-
-
-
                     {% for i in table %}
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">
@@ -198,19 +193,29 @@
                                    
                                 </div>
                                 <div class="d-flex mb-3">
-                              
+                                   
                                     <small class="border-end me-3 pe-3"><i class="fa fa-list text-primary me-2"></i>{{ i.getType() }}</small>
                                     <small><i class="fa fa-truck text-primary me-2"></i>Delivery</small>
                                 </div>
-                                <p class="text-body mb-3">{{ i.getDescription()|slice(0, 50) }}</p> <!-- Limit description to 50 characters -->
-
+                                <p class="text-body mb-3">{{ i.getDescription()|slice(0, 50) }}</p> 
+                                
+                                
+                                
+                                
+                                
+                                
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-dark rounded py-2 px-4 me-3" href="{{ path('editFE', {'id': i.id}) }}">
-                                        <i class="fas fa-edit me-1"></i> Update Product
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="{{ path('addCart', {'id': i.id}) }}">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
                                     </a>
-                                    <a class="btn btn-danger rounded py-2 px-4" href="{{ path('deleteFE', {'id': i.id}) }}">
-                                        <i class="fas fa-trash-alt me-1"></i> Delete
+                                    <span>&nbsp;</span> 
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="addComdFE">
+                                        <i class="fas fa-exchange-alt"></i> Craze Now
                                     </a>
+                                    <span>&nbsp;</span> 
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="{{ path('markAsFavorite', {'id': i.id}) }}">
+                                        <i class="fas fa-heart"></i> Add to Favorites
+                                    </a>  
                                 </div>
                                 
 
@@ -225,15 +230,37 @@
                     {%endfor%}
                 </div>
             </div>
-            {% endif %}
         </div>
-        <div class="d-flex justify-content-center">
-            <a class="btn btn-primary rounded py-2 px-4 me-3" href="addProductFE">
-                Add Product+
-            </a>
-        </div>
+        
+        
+
+
+
+
+
+
+
        
-        <!-- Room End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
 
 
         <!-- Testimonial Start -->

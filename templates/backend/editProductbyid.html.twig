@@ -31,6 +31,10 @@
     .buttonw {
         width: 165%;
     }
+    .image-uploads img {
+    max-width: 200px; /* Adjust the maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
 </style>
 
 <div id="global-loader">
@@ -290,8 +294,7 @@
 <h6>Manage your Products</h6>
 </div>
 </div>
-
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
 <div class="card">
 <div class="card-body">
@@ -301,9 +304,13 @@
         <div class="form-group">
             <label>Product Name</label>
             {{ form_widget(form.nom_produit, {'attr': {'class': 'form-control'}}) }}
-        </div>
+            {% if form_errors(form.nom_produit) %}
+            <div class="alert alert-danger" role="alert">
+                {{ form_errors(form.nom_produit) }} 
+            </div>
+        {% endif %}
     </div>
-
+</div>
 
 <div class="col-lg-3 col-sm-6 col-12">
     <div class="form-group">
@@ -321,29 +328,41 @@
 
 <div class="col-lg-3 col-sm-6 col-12">
 <div class="form-group">
-    {{ form_row(form.equiv) }}
+    <label>Equivalent Price</label>
+    {{ form_widget(form.equiv) }} 
+
+    {% if form_errors(form.equiv) %}
+    <div class="alert alert-danger" role="alert">
+        {{ form_errors(form.equiv) }} 
+    </div>
+{% endif %}
 </div>
 </div>
+
+
+
 <div class="col-lg-3 col-sm-6 col-12">
 <div class="form-group">
     {{ form_row(form.description) }}
-
+    {% if form_errors(form.description) %}
+    <div class="alert alert-danger" role="alert">
+        {{ form_errors(form.description) }}
+    </div>
+{% endif %}
 </div>
 </div>
 
 
-<div class="col-lg-12">
+
+<div class="col-lg-3 col-sm-6 col-12">
     <div class="form-group">
-    <label> Product Image</label>
-    <div class="image-upload">
-    <input type="file">
-    <div class="image-uploads">
-        <img src="assets/img/icons/upload.svg" alt="img">
-    <h4>Drag and drop a file to upload</h4>
+        {{ form_label(form.imageFile)}}
+        {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
     </div>
     </div>
-    </div>
-    </div>
+
+
+
 
 
 
@@ -394,4 +413,20 @@
 <script src="{{asset('assets/plugins/sweetalert/sweetalerts.min.js')}}"></script>
 
 <script src="{{asset('assets/js/script.js')}}"></script>
+<script>
+    function previewImage(input) {
+        var preview = document.getElementById('preview');
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
+
+
 {% endblock %}

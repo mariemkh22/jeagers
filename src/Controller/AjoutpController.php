@@ -13,6 +13,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AjoutpController extends AbstractController
 {
+    #[Route('/displayP', name: 'displayP')]
+    public function displayP(ProduitRepository $repo, Request $request): Response
+    {
+        $prod = $repo->findAll();
+    
+    return $this->render('frontend/produit.html.twig', [
+            'table' => $prod,
+        ]);
+    }
+    
     #[Route('/addProductFE', name: 'addProductFE')]
     public function addProductFE(ManagerRegistry $managerRegistry, Request $request): Response
     {
@@ -25,15 +35,15 @@ class AjoutpController extends AbstractController
             $m->persist($produit);
             $m->flush();
 
-            return $this->redirectToRoute('addProductFE');
+            return $this->redirectToRoute('displayP');
         }
         return $this->render('frontend/ajouterproduit.html.twig', [
             'form' => $form->createView()
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
-    public function edit(ProduitRepository $ProduitRepository, ManagerRegistry $managerRegistry, Request $request, $id):Response
+    #[Route('/editFE/{id}', name: 'editFE')]
+    public function editFE(ProduitRepository $ProduitRepository, ManagerRegistry $managerRegistry, Request $request, $id):Response
     {
         $m=$managerRegistry->getManager();
         $findid=$ProduitRepository->find($id);
@@ -44,22 +54,22 @@ class AjoutpController extends AbstractController
             $m->persist($findid);
             $m->flush();
 
-            return $this->redirectToRoute('displayProducts');
+            return $this->redirectToRoute('displayP');
         }
-        return $this->render('backend/editProductbyid.html.twig', [
+        return $this->render('frontend/Editproduit.html.twig', [
             'form' => $form->createView()
         ]);
     }
 
 
-    #[Route('/delete/{id}', name: 'delete')]
-    public function delete(ProduitRepository $ProduitRepository, ManagerRegistry $managerRegistry, $id): Response
+    #[Route('/deleteFE/{id}', name: 'deleteFE')]
+    public function deleteFE(ProduitRepository $ProduitRepository, ManagerRegistry $managerRegistry, $id): Response
     {
         $m=$managerRegistry->getManager();
         $findid=$ProduitRepository->find($id);
         $m->remove($findid);
         $m->flush();
-        return $this->redirectToRoute('displayProducts');
+        return $this->redirectToRoute('displayP');
     }
 
 

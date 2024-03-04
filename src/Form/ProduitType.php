@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProduitType extends AbstractType
 {
@@ -38,7 +39,10 @@ class ProduitType extends AbstractType
         
         ->add('equiv', TextType::class, [
             'attr' => ['placeholder' => 'EquivPrice']
+            
         ])
+
+        ->add('imageFile',VichImageType::class)
 
         ->add('ADD',SubmitType::class);
     }

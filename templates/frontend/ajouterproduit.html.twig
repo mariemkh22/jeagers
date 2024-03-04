@@ -24,6 +24,14 @@
 
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
+<style>
+    .product-image {
+        max-width: 200px; /* Adjust the maximum width as needed */
+        max-height: 200px; /* Adjust the maximum height as needed */
+    }
+</style>
+
+
 {% endblock %}
 
 {% block javascripts %}
@@ -91,19 +99,27 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link">Home</a>
-                                <a href="about.html" class="nav-item nav-link">About</a>
-                                <a href="service.html" class="nav-item nav-link">Services</a>
-                                <a href="room.html" class="nav-item nav-link">Rooms</a>
+
+                                <a href="displayPG" class="nav-item nav-link">Home</a>
                                 <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Products</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="booking.html" class="dropdown-item active">Booking</a>
-                                        <a href="team.html" class="dropdown-item">Our Team</a>
-                                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                        <a href="addProductFE" class="dropdown-item">Add Product +</a>
+                                        <a href="displayP" class="dropdown-item">My Contributions</a> 
+                                        <a href=" displayComdFE" class="dropdown-item"><i class="fas fa-shopping-cart"></i> My orders</a>          
+                                        <a href="listFavorites" class="dropdown-item">My Favorites <span><i class="fas fa-heart"></i></span></a>
                                     </div>
                                 </div>
+                                <a href="about.html" class="nav-item nav-link">Services</a>
+                                <a href="about.html" class="nav-item nav-link">Mailing</a>
+                                <a href="about.html" class="nav-item nav-link">About</a>
                                 <a href="contact.html" class="nav-item nav-link">Contact</a>
+
+                                <a href="Dcart" class="btn btn-primary btn-sm d-flex align-items-center">
+                                    <i class="fas fa-shopping-cart me-1"></i> Cart
+                                </a>
+
+                                
                             </div>
                             <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
@@ -118,12 +134,12 @@
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/head.png);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Add Products</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Add a Product</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">User</a></li>
-                            <li class="breadcrumb-item"><a href="#">Managment</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Add Products</li>
+                            <li class="breadcrumb-item"><a href="displayPG">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">My Products</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Add a Product</li>
                         </ol>
                     </nav>
                 </div>
@@ -140,22 +156,23 @@
                     <h1 class="mb-5">Craze Up!<span class="text-primary text-uppercase">Don't Throw Up!</span></h1>
                 </div>
                 <div class="row g-5">
+
+
+
+
                     <div class="col-lg-6">
                         <div class="row g-3">
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="img/canap.jpg" style="margin-top: 25%;">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="img/castle.jpg">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="img/robo.jpg">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="img/table.jpg">
-                            </div>
+                            
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="img/product-add-to-cart-e1438362099361.png" >
+                           
+                         
                         </div>
                     </div>
+
+
+
+
+
                     <div class="col-lg-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
                             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
@@ -164,15 +181,27 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="productName">Product Name</label>
-                                            {{ form_widget(form.nom_produit, {'attr': {'class': 'form-control', 'id': 'productName'}}) }}
-                                            {{ form_errors(form.nom_produit, {'attr': {'class': 'text-danger'}}) }}
+                                            <label>Product Name</label>
+                                {{ form_widget(form.nom_produit, {'attr': {'class': 'form-control'}}) }} 
+                        
+                                {% if form_errors(form.nom_produit) %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ form_errors(form.nom_produit) }} 
+                                    </div>
+                                {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             
-                                            {{ form_row(form.equiv, {'attr': {'class': 'form-control', 'id': 'equivalent'}}) }}
+                                            <label>Equivalent Price</label>
+                                            {{ form_widget(form.equiv, {'attr': {'class': 'form-control'}}) }} 
+                                    
+                                            {% if form_errors(form.equiv) %}
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ form_errors(form.equiv) }} 
+                                                </div>
+                                            {% endif %}
                                          
                                         </div>
                                     </div>
@@ -184,11 +213,40 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="description">Description</label>
-                                            {{ form_widget(form.description, {'attr': {'class': 'form-control', 'id': 'description', 'rows': '4'}}) }}
-                                            {{ form_errors(form.description, {'attr': {'class': 'text-danger'}}) }}
+                                            <label>Description</label>
+                                {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': '5'}}) }}
+                        
+                                {% if form_errors(form.description) %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ form_errors(form.description) }}
+                                    </div>
+                                {% endif %}
                                         </div>
                                     </div>
+
+
+                                    <div class="form-group">
+                                        <label>Product Image</label>
+                                        <div class="image-upload">
+                                            {{ form_widget(form.imageFile, {'attr': {'class': 'form-control', 'onchange': 'previewImage(this)'}}) }}
+                                            <div class="image-uploads">
+                                                <!-- Adjust the width and height of the preview image -->
+                                                <img id="preview" class="product-image" src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
+                                                <h4>Drag and drop a file to upload</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
                                     <div class="col-12">
                                         {{ form_row(form.ADD, {'label': 'Add my Product', 'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'submit'}}) }}
                                     </div>
@@ -305,6 +363,18 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        function previewImage(input) {
+            var preview = document.getElementById('preview');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

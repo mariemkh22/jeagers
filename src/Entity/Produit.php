@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -9,6 +11,7 @@ use App\Repository\ProduitRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
+#[Vich\Uploadable]
 class Produit
 {
     #[ORM\Id]
@@ -21,7 +24,7 @@ class Produit
 
    /**
  * @ORM\Column(type="string", length=255)
- * @Assert\NotBlank(message="Le nom du produit ne peut pas être vide")
+ * @Assert\NotBlank(message=" Product Name can't be empty!")
  * @Assert\Length(max=255, maxMessage="Le nom du produit ne peut pas dépasser {{ limit }} caractères")
  */
     #[ORM\Column(length: 255)]
@@ -34,7 +37,7 @@ class Produit
 
    /** 
   * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="La description ne peut pas être vide")
+     * @Assert\NotBlank(message=" Description cannot be empty!")
      * @Assert\Length(
       *     max=255,
        *   maxMessage="La description ne peut pas dépasser {{ limit }} caractères"
@@ -47,13 +50,23 @@ class Produit
     private ?string $description = null;
 
 
- /**
+  /**
      * @ORM\Column(type="float")
-     * @Assert\NotBlank(message="Le champ équivalent ne peut pas être vide")
-     * @Assert\Type(type="float", message="La valeur doit être un nombre décimal")
+     * @Assert\NotBlank(message="Equivalent Price cannot be empty!")
+     * @Assert\Regex(
+     *     pattern="/^[+-]?\d+(\.\d+)?$/",
+     *     message="Equivalent Price must be a valid float value"
+     * )
      */
+    
     #[ORM\Column]
     private ?float $equiv = null;
+
+    #[Vich\UploadableField(mapping: 'products_images', fileNameProperty: 'imageName')]
+    private ?File $imageFile = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $imageName = null;
 
    
 #[ORM\OneToMany(mappedBy: 'Produit', targetEntity: Commande::class, cascade:["all"],orphanRemoval:true)]
@@ -119,6 +132,57 @@ class Produit
     }
 
     /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
      * @return Collection<int, Commande>
      */
     public function getCommande(): Collection
@@ -152,5 +216,6 @@ class Produit
     public function __toString()
     {
         return $this->id;
+      
     } 
 }
