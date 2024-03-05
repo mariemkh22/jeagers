@@ -36,7 +36,11 @@
     width: 100%; 
     height: 200px; 
     object-fit: cover; 
+
 }
+
+
+
 
 </style>
 
@@ -180,7 +184,18 @@
                 </div>
                 <img class="w-75 mx-auto d-block" src="img/dl3.jpg" alt="Image">
                 <div class="row g-4">
-                    {% for i in table %}
+
+
+                    <div class="row g-4">
+
+                        {% if pagination is empty %}
+            <div class="text-center"> <!-- Center the content -->
+                <p class="text-danger" style="font-size: 24px;">
+                     We are out of Stock!
+                </p>
+            </div>
+            {% else %}
+                    {% for i in pagination %}
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
@@ -228,7 +243,10 @@
                         </div>
                     </div>
                     {%endfor%}
+                    {% endif %}
+                    {{knp_pagination_render(pagination)}}
                 </div>
+                
             </div>
         </div>
         

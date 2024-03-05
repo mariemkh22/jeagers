@@ -6,6 +6,7 @@ use App\Form\EditProduitType;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProduitController extends AbstractController
 {
     #[Route('/displayPG', name: 'displayPG')]
-    public function displayPG(ProduitRepository $ProduitRepository): Response
+    public function displayPG(ProduitRepository $ProduitRepository,Request $request,PaginatorInterface $paginator): Response
     {
-        $produit=$ProduitRepository->findAll();
+        
+        $pagination = $paginator->paginate(
+            $ProduitRepository->paginationQuery(),
+            $request->query->get('page',1),3
+
+
+        );
         return $this->render('frontend/productGenral.html.twig', [
-            'table' => $produit
+           
+            'pagination'=>$pagination
         ]);
     }
 

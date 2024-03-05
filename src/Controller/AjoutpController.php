@@ -6,6 +6,7 @@ use App\Form\EditProduitType;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,12 +15,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class AjoutpController extends AbstractController
 {
     #[Route('/displayP', name: 'displayP')]
-    public function displayP(ProduitRepository $repo, Request $request): Response
+    public function displayP(ProduitRepository $repo,Request $request,PaginatorInterface $paginator): Response
     {
-        $prod = $repo->findAll();
-    
-    return $this->render('frontend/produit.html.twig', [
-            'table' => $prod,
+        $pagination = $paginator->paginate(
+            $repo->paginationQuery(),
+            $request->query->get('page',1),3
+
+
+        );
+        return $this->render('frontend/produit.html.twig', [
+           
+            'pagination'=>$pagination
         ]);
     }
     
