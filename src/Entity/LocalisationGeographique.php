@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Entity;
+
+use App\Entity\Livraison;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\LocalisationGeographiqueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,12 +16,16 @@ class LocalisationGeographique
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
+    /**
+     * @ORM\Column(length=255)
+     * @Assert\NotBlank(message="Le champ région ne peut pas être vide")
+     * @Assert\Choice(choices={"Kebili", "Tunis", "Nabeul", "Gabes", "Mounistir"}, message="Veuillez sélectionner une région valide")
+     */
     #[ORM\Column(length: 255)]
-    private ?string $region = null;
+    private ?string $region=null;
 
   /**
-     * @ORM\Column(type="int")
+     * @ORM\Column(type="integer", nullable=true)
      * @Assert\NotBlank(message="Le champ code postal ne peut pas être vide")
      * @Assert\Type(type="int", message="La valeur doit être un nombre ")
      */
@@ -89,6 +95,7 @@ class LocalisationGeographique
         return $this;
     }
 
+    
     /**
      * @return Collection<int, Livraison>
      */

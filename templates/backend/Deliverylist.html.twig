@@ -241,6 +241,9 @@
             <ul>
             <li><a href="Deliverylist"class="buttonw active">Deliveries List</a></li>
             <li><a href="Locationlist">Localisations List</a></li>
+            <li><a href="region_map">Traking Data</a></li>
+
+
             </ul>
             </li>
         <li class="submenu">
@@ -329,29 +332,54 @@
 </div>
 </div>
 </div>
+<div class="table-top">
 
-<div>
-<table class="table ">
-<thead>
-<tr>
+<div class="wordset">
+    <ul>
+    <li>
+    <a href="pdfD" data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img src="assets/img/icons/pdf.svg" alt="img"></a>
+    </li>
 
-<th>ID</th>
-<th>DateDebute</th>
-<th>DateFin</th>
-<th>Entreprise</th>
-<th>Frais</th>
-<th>Status</th>
-<th>Action</th>
+    </ul>
+    </div>
+</div>
+    
+<div class="table-responsive">
+    <table class="table  datanew">
+    <thead>
+    <tr>
+    <th>
+    <label class="checkboxs">
+    <input type="checkbox" id="select-all">
+    <span class="checkmarks"></span>
+    </label>
+    </th>
+    <th>ID</th>
+    <th>DateDebute</th>
+    <th>DateFin</th>
+    <th>Entreprise</th>
+    <th>Frais</th>
+    <th>Status</th>
+    <th>Region</th>
+    <th>Action</th>
 </tr>
 </thead>
 {% for i in Livraison %}
 <tbody>
+    <tr>
+    <td>
+<label class="checkboxs">
+<input type="checkbox">
+<span class="checkmarks"></span>
+</label>
+</td>            
     <th>{{i.id}}</th>
     <th>{{ i.DateDebut|date('Y-m-d') }}</th>
     <th>{{ i.DateFin|date('Y-m-d') }}</th>
     <th>{{i.entreprise}}</th>
     <th>{{i.frais}}</th>
     <th>{{i.status}}</th>
+    <th>{{ i.localisationGeographique.getRegion()}}</th>
     <td>
         <a class="me-3" href="{{path('Editdelivery',{'id':i.id})}}">
         <img src="assets/img/icons/edit.svg" alt="img">
@@ -363,10 +391,10 @@
 </tbody>
 {% endfor %}
 </table>
-</div>
-</div>
-</div>
 
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -279,6 +279,8 @@
             <ul>
             <li><a href="{{path('Deliverylist')}}"class="buttonw active">Deliveries List</a></li>
             <li><a href="{{path('Locationlist')}}">Localisations List</a></li>
+            <li><a href="{{path('region_map')}}">show data</a></li>
+
             </ul>
             </li>
         <li class="submenu">
@@ -335,7 +337,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="select3">Localisation geographique</label>
-                        {{ form_widget(form.LocalisationGeographique, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
+                        {{ form_widget(form.localisationGeographique, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
                     </div>
                 </div>
                 </div>

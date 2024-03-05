@@ -132,6 +132,9 @@
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">ADD DELIVERY</a></li>
                             <li class="breadcrumb-item"> <a href="Ajoutlocation">ADD LOCATION</a></li>
+                            <li class="breadcrumb-item"> <a href="checkout">PAY CRAZE</a></li>
+                            
+
                         </ol>
                     </nav>
                 </div>
@@ -188,25 +191,31 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="select3">Localisation geographique</label>
-                                            {{ form_widget(form.LocalisationGeographique, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
+                                            {{ form_widget(form.localisationGeographique, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
+                                            {{ form_errors(form.localisationGeographique) }}
+
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="select3">Company</label>
                                             {{ form_widget(form.entreprise, {'attr': {'class': 'form-control select', 'id': 'entreprise'}}) }}
+                                            {{ form_errors(form.entreprise) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="select3">Fees</label>
                                             {{ form_widget(form.frais, {'attr': {'class': 'form-control select', 'id': 'frais'}}) }}
+                                            {{ form_errors(form.frais) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="select3">Status</label>
                                             {{ form_widget(form.status, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
+                                            {{ form_errors(form.status) }}
+
                                         </div>
                                     </div>
                                     <div class="col-12">

@@ -240,6 +240,9 @@
             <ul>
             <li><a href="Deliverylist"class="buttonw active">Deliveries List</a></li>
             <li><a href="Locationlist">Localisations List</a></li>
+            <li><a href="region_map">Traking Data</a></li>
+
+
             </ul>
             </li>
         <li class="submenu">
@@ -272,23 +275,22 @@
             <div class="page-title">
             <h4>ADD Delivery List</h4>
             </div>
-            </div>{{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+            </div>
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         {{ form_label(form.DateDebut, 'Date de début (DD-MM-YYYY)') }}
                         {{ form_widget(form.DateDebut, {'attr': {'class': 'form-control', 'required': 'true', 'pattern': '\d{4}-\d{2}-\d{2}'}, 'invalid_message': 'Veuillez entrer une date de début au format YYYY-MM-DD.'}) }}
-                        <div class="invalid-feedback">
-                            Veuillez entrer une date de début valide.
-                        </div>
+                        {{ form_errors(form.DateDebut, {'attr': {'class': 'date'}}) }}
+
                     </div>
                     <div class="form-group"> 
                         {{ form_label(form.DateFin, 'Date de fin (DD-MM-YYYY)') }}
                         {{ form_widget(form.DateFin, {'attr': {'class': 'form-control', 'required': 'true', 'pattern': '\d{4}-\d{2}-\d{2}'}, 'invalid_message': 'Veuillez entrer une date de fin au format YYYY-MM-DD.'}) }}
-                        <div class="invalid-feedback">
-                            Veuillez entrer une date de fin valide.
-                        </div>
+                        {{ form_errors(form.DateFin, {'attr': {'class': 'date'}}) }}
+
                     </div>
                 </div>
                 
@@ -296,31 +298,35 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="select3">Localisation geographique</label>
-                        {{ form_widget(form.LocalisationGeographique, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
+                        {{ form_widget(form.localisationGeographique, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
+                        {{ form_errors(form.localisationGeographique) }}
+
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        {{ form_label(form.entreprise, 'Nom de l\'entreprise') }}
-                        {{ form_widget(form.entreprise, {'attr': {'class': 'form-control', 'required': 'true'}}) }}
-                        <div class="invalid-feedback">
-                            Veuillez entrer le nom de l'entreprise.
-                        </div>
+                        <label>Entreprise</label>
+                        {{ form_widget(form.entreprise, {'attr': {'class': 'form-control select', 'id': 'entreprise'}}) }}
+                        {{ form_errors(form.entreprise) }}
+
+                        
                     </div>
                     <div class="form-group">
-                        {{ form_label(form.frais, 'Montant des frais') }}
-                        {{ form_widget(form.frais, {'attr': {'class': 'form-control', 'step': '0.01', 'required': 'true', 'min': '0.01'}}) }}
+                        <label>Montant des frais</label>
+                        {{ form_widget(form.frais, {'attr': {'class': 'form-control select', 'id': 'frais'}}) }}
+                        {{ form_errors(form.frais) }}
+
                      
-                        <div class="invalid-feedback">
-                            Veuillez entrer un montant de frais valide.
-                        </div>
+                        
                     </div>
                 </div>
             </div>
             
             <div class="form-group">
-                {{ form_label(form.status, 'Statut') }}
-                {{ form_widget(form.status, {'attr': {'class': 'form-control', 'required': 'true'}}) }}
+                <label>Statut</label>
+                {{ form_widget(form.status, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
+                {{ form_errors(form.status) }}
+
             </div>
             <div class="col-12">
                 {{ form_row(form.ADD, {'label': 'Add my Deli', 'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'submit'}}) }}

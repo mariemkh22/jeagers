@@ -52,3 +52,26 @@
         {% block body %}{% endblock %}
     </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Region Map</title>
+    <!-- Ajoutez les styles CSS appropriés pour la carte ici -->
+</head>
+<body>
+    <h1>Region Map</h1>
+
+    <div id="regionMap">
+        {% for regionData in regionsData %}
+            <div class="region">
+                <h2>{{ regionData.region }}</h2>
+                <p>Number of locations: {{ regionData.count }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Ajoutez les scripts JavaScript appropriés pour la carte ici -->
+</body>
+</html>

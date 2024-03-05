@@ -132,6 +132,8 @@
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="Ajoutdelivery">ADD DELIVERY</a></li>
                             <li class="breadcrumb-item"> <a href="Ajoutlocation">ADD LOCATION</a></li>
+                            <li class="breadcrumb-item"> <a href="payment">PAY CRAZE</a></li>
+
                         </ol>
                     </nav>
                 </div>
@@ -175,6 +177,7 @@
                                         <div class="form-group">
                                             <label for="select3">Region</label>
                                             {{ form_widget(form.region, {'attr': {'class': 'form-control select', 'id': 'region'}}) }}
+                                            {{ form_errors(form.region) }}
                                         </div>
                                     </div>
                                     <div class="col-12">

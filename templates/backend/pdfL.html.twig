@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des livraisons</title>
+    <style>
+        /* Styles CSS pour le tableau */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des livraisons</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Region</th>
+                <th>Code Postal</th>
+                <th>Adresse</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in location %}
+                <tr>
+                    <th>{{i.ID}}</th>
+                    <th>{{i.region}}</th>
+                    <th>{{i.codepostal}}</th>
+                    <th>{{i.adresse}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="footer">
+        SWAPCRAZE &copy; 2024
+    </div>
+</body>
+</html>

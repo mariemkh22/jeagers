@@ -13,6 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 
 class LivraisonController extends AbstractController
 {
@@ -42,7 +44,10 @@ class LivraisonController extends AbstractController
         if($form->isSubmitted() and $form->isValid()){
             $w->persist($b);
             $w->flush();
-            return $this->redirectToRoute('Ajoutdelivery');
+            $response = new RedirectResponse($this->generateUrl('Ajoutdelivery'));
+            $response->setTargetUrl($this->generateUrl('sms'));
+            return $response;
+
         }
         
         return $this->renderForm('delivery/Ajoutdelivery.html.twig', [

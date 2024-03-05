@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
+use App\Entity\LocalisationGeographique;
 use App\Repository\LivraisonRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: LivraisonRepository::class)]
 class Livraison
@@ -13,26 +16,30 @@ class Livraison
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
+    
     
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $DateDebut = null;
-
+    
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $DateFin = null;
-
+    /**
+     * @Assert\NotBlank(message="Le champ entreprise ne peut pas être vide")
+     * @Assert\Length(max=255, maxMessage="La longueur maximale est de 255 caractères")
+     */
     #[ORM\Column(length: 255)]
     private ?string $entreprise = null;
-
-
-   
-
+    /**
+     * @ORM\Column
+     * @Assert\NotBlank(message="Le champ frais ne peut pas être vide")
+     * @Assert\Type(type="int", message="La valeur doit être un nombre entier")
+     */
     #[ORM\Column]
     private ?int $frais = null;
 
     #[ORM\Column(length: 255)]
     private ?string $status = null;
-
+    
     #[ORM\ManyToOne(inversedBy: 'Livraison')]
     #[ORM\JoinColumn(nullable: false)] 
     private ?LocalisationGeographique $localisationGeographique ;

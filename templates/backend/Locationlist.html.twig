@@ -241,6 +241,8 @@
             <ul>
             <li><a href="Deliverylist">Deliveries List</a></li>
             <li><a href="Locationlist"class="buttonw active">Localisations List</a></li>
+            <li><a href="region_map">show data</a></li>
+
             </ul>
             </li>
         <li class="submenu">
@@ -329,11 +331,24 @@
 </div>
 </div>
 </div>
-
-<div>
-<table class="table ">
-<thead>
-<tr>
+<div class="wordset">
+    <ul>
+    <li>
+    <a href="pdfL" data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img src="assets/img/icons/pdf.svg" alt="img"></a>
+    </li>
+    </ul>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table  datanew">
+    <thead>
+    <tr>
+    <th>
+    <label class="checkboxs">
+    <input type="checkbox" id="select-all">
+    <span class="checkmarks"></span>
+    </label>
+    </th>
     <th>ID</th>
     <th>Region</th>
     <th>Code Postal</th>
@@ -343,6 +358,13 @@
 </thead>
 {% for i in location %}
 <tbody>
+    <tr>
+        <td>
+            <label class="checkboxs">
+            <input type="checkbox">
+            <span class="checkmarks"></span>
+            </label>
+        </td>        
     <th>{{i.ID}}</th>
     <th>{{i.region}}</th>
     <th>{{i.codepostal}}</th>
@@ -355,6 +377,8 @@
         <img src="assets/img/icons/delete.svg" alt="img">
         </a>
     </td>
+    </tr>
+    
 </tbody>
 {% endfor %}
 </table>
