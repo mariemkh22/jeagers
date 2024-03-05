@@ -37,7 +37,7 @@ class Produit
 
    /** 
   * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message=" Description cannot be empty!")
+     * @Assert\NotBlank(message=" Description can't be empty!")
      * @Assert\Length(
       *     max=255,
        *   maxMessage="La description ne peut pas dépasser {{ limit }} caractères"
@@ -52,7 +52,7 @@ class Produit
 
   /**
      * @ORM\Column(type="float")
-     * @Assert\NotBlank(message="Equivalent Price cannot be empty!")
+     * @Assert\NotBlank(message="Equivalent Price can't be empty!")
      * @Assert\Regex(
      *     pattern="/^[+-]?\d+(\.\d+)?$/",
      *     message="Equivalent Price must be a valid float value"

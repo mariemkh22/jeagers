@@ -25,6 +25,16 @@
 <!-- Template Stylesheet -->
 <link href="{{ asset('css/style.css')}}" rel="stylesheet">
 
+<style>
+
+.row img {
+    width: 200px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+</style>
+
 
 
 {% endblock %}
@@ -93,7 +103,7 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Products</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="addProductFE" class="dropdown-item">Add Product +</a>
-                                        <a href="displayP" class="dropdown-item">My Contributions</a>   
+                                        <a href="displayP" class="dropdown-item active">My Contributions</a>   
                                         <a href=" displayComdFE" class="dropdown-item"><i class="fas fa-shopping-cart"></i> My orders</a>        
                                         <a href="listFavorites" class="dropdown-item">My Favorites <span><i class="fas fa-heart"></i></span></a>
                                     </div>
@@ -135,20 +145,18 @@
 
 
         <!-- Booking Start -->
-    
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="section-title text-center text-primary text-uppercase">Edit your Product</h6>
-                    <h1 class="mb-5">Craze Up!<span class="text-primary text-uppercase">Don't Throw Up!</span></h1>
+                    <h1 class="mb-5">Craze Up! <span class="text-primary text-uppercase">Don't Throw Up!</span></h1>
                 </div>
                 <div class="row g-5">
                     <div class="col-lg-6">
                         <div class="row g-3">
-                            
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="{{ asset('img/product-add-to-cart-e1438362099361.png')}}" >
-                           
-                         
+                            <div class="img-container">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="{{ asset('img/product-add-to-cart-e1438362099361.png')}}" >
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -184,32 +192,32 @@
                                             {{ form_errors(form.description, {'attr': {'class': 'text-danger'}}) }}
                                         </div>
                                     </div>
-
-
+        
+        
                                     <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
                                             {{ form_label(form.imageFile)}}
                                             {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
                                         </div>
                                         </div>
-
-
-
-
-
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
                                     <div class="col-12">
                                         {{ form_row(form.Update, {'label': 'Update my Product', 'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'submit'}}) }}
                                     </div>
-
+        
                             
-                                 
-
+                                    
+        
                                 </div>
                                 {{ form_end(form) }}
                             </form>
@@ -220,6 +228,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Booking End -->
 
 
