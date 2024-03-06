@@ -7,6 +7,7 @@ use App\Form\SerFrontType;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Form\ServiceType;
 use App\Form\UpdateFormType;
+use App\Repository\CalendarRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\ServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -205,31 +206,33 @@ public function serviceStats(ServiceRepository $repo): Response
 
     
 }
-#[Route('/rating')]
-public function rateService(Request $request, ManagerRegistry $entityManager, ServiceRepository $repo): Response
-{
-    $rating = $request->request->get('rating'); // Récupérer la note depuis la requête
 
-    // Enregistrez la note dans votre système (par exemple, dans votre entité Service)
-    // Assurez-vous de personnaliser cela en fonction de votre modèle de données
+#[Route('/calendrier', name: 'calendrier')]
+    public function calendrier(CalendarRepository $calendar): Response
+    {
+        $events = $calendar->findAll();
+        
+        $rdvs = [];
 
-    // Exemple d'enregistrement dans l'entité Service (vous devrez adapter cela à votre structure de données)
-    $serviceId = $request->request->get('service_id'); // Récupérer l'ID du service concerné
-    $service = $repo->find($serviceId);
+        foreach($events as $event){
+            $rdvs[] = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                'title' => $event->getTitle(),
+                'description' => $event->getDescription(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+                'allDay' => $event->isAllDay(),
 
-    if ($service) {
-        // Enregistrez la note dans l'entité Service
-        $service->setRating($rating);
+            ];
+        }
 
-        // Enregistrez les modifications dans la base de données
-        $entityManager = $entityManager->getManager();
-        $entityManager->flush();
+        $data = json_encode($rdvs);
+       
+        return $this->render('service/fullcalendar.html.twig', compact('data')); 
+       
+    } 
 
-        // Réponse de réussite
-        return new Response('Rating saved successfully!');
-    } else {
-        // Réponse d'erreur si le service n'est pas trouvé
-        return new Response('Service not found!', Response::HTTP_NOT_FOUND);
-    }
-}
 }
