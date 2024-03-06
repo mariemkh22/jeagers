@@ -9,9 +9,14 @@
 			<div class="col-12">
 				<h1>Messagerie</h1>
 				<h2>Eléments envoyés</h2>
+				{% if app.user is not null %}
 				<p>Vous avez envoyé
 					{{ app.user.sent|length }}
 					messages</p>
+					{% else %}
+					
+                    <p>User is not available.</p>
+                {% endif %}
 			</div>
 			<div class="col-3">De</div>
 			<div class="col-3">Sujet</div>

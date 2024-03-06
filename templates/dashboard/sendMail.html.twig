@@ -3,9 +3,25 @@
 {% block title %}Hello DashboardController!{% endblock %}
 
 {% block body %}
-<body>
-<div class="whirly-loader"> </div>
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg">
 
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="assets/css/animate.css">
+
+<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+
+<link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+
+<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div id="global-loader">
+<div class="whirly-loader"> </div>
+</div>
 
 <div class="main-wrapper">
 
@@ -13,7 +29,7 @@
 
 <div class="header-left active">
 <a href="index.html" class="logo">
-<img src="assets/img/test.png" alt="">
+<img src="assets/img/logo.png" alt="">
 </a>
 <a href="index.html" class="logo-small">
 <img src="assets/img/logo-small.png" alt="">
@@ -75,7 +91,7 @@
 <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
 <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill">4</span>
 </a>
-<div class="dropdown-menu notifications">
+ <div class="dropdown-menu notifications">
 <div class="topnav-dropdown-header">
 <span class="notification-title">Notifications</span>
 <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
@@ -198,15 +214,15 @@
 <div id="sidebar-menu" class="sidebar-menu">
 <ul>
 <li>
-<a href="index.html"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+<a href="index.html"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Notifications</span> </a>
 </li>
 <li class="submenu">
 <a href="javascript:void(0);"><img src="assets/img/icons/product.svg" alt="img"><span> Notifications</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="productlist.html">Notification List</a></li>
-<li><a href="addproduct.html">Add Notification</a></li>
-<li><a href="categorylist.html" class="active">Category List</a></li>
+<li><a href="notiflist">Notification List</a></li>
 <li><a href="addnotif">Add Notification</a></li>
+<li><a href="editnotif">Edit Notification</a></li>
+<!--<li><a href="addcategory.html">Add Category</a></li>
 <li><a href="subcategorylist.html">Sub Category List</a></li>
 <li><a href="subaddcategory.html">Add Sub Category</a></li>
 <li><a href="brandlist.html">Brand List</a></li>
@@ -214,7 +230,7 @@
 <li><a href="importproduct.html">Import Products</a></li>
 <li><a href="barcode.html">Print Barcode</a></li>
 </ul>
-</li>
+</li>-->
 <li class="submenu">
 <a href="javascript:void(0);"><img src="assets/img/icons/sales1.svg" alt="img"><span> Sales</span> <span class="menu-arrow"></span></a>
 <ul>
@@ -242,14 +258,14 @@
 </ul>
 </li>
 <li class="submenu">
-<a href="javascript:void(0);"><img src="assets/img/icons/quotation1.svg" alt="img"><span> Quotation</span> <span class="menu-arrow"></span></a>
+<!--<a href="javascript:void(0);"><img src="assets/img/icons/quotation1.svg" alt="img"><span> Quotation</span> <span class="menu-arrow"></span></a>
 <ul>
 <li><a href="quotationList.html">Quotation List</a></li>
 <li><a href="addquotation.html">Add Quotation</a></li>
 </ul>
 </li>
 <li class="submenu">
-<a href="javascript:void(0);"><img src="assets/img/icons/transfer1.svg" alt="img"><span> Transfer</span> <span class="menu-arrow"></span></a>
+<!--<a href="javascript:void(0);"><img src="assets/img/icons/transfer1.svg" alt="img"><span> Transfer</span> <span class="menu-arrow"></span></a>
 <ul>
 <li><a href="transferlist.html">Transfer List</a></li>
 <li><a href="addtransfer.html">Add Transfer </a></li>
@@ -257,7 +273,7 @@
 </ul>
 </li>
 <li class="submenu">
-<a href="javascript:void(0);"><img src="assets/img/icons/return1.svg" alt="img"><span> Return</span> <span class="menu-arrow"></span></a>
+<!--<a href="javascript:void(0);"><img src="assets/img/icons/return1.svg" alt="img"><span> Return</span> <span class="menu-arrow"></span></a>
 <ul>
 <li><a href="salesreturnlist.html">Sales Return List</a></li>
 <li><a href="createsalesreturn.html">Add Sales Return </a></li>
@@ -266,7 +282,7 @@
 </ul>
 </li>
 <li class="submenu">
-<a href="javascript:void(0);"><img src="assets/img/icons/users1.svg" alt="img"><span> People</span> <span class="menu-arrow"></span></a>
+<!--<a href="javascript:void(0);"><img src="assets/img/icons/users1.svg" alt="img"><span> People</span> <span class="menu-arrow"></span></a>
 <ul>
 <li><a href="customerlist.html">Customer List</a></li>
 <li><a href="addcustomer.html">Add Customer </a></li>
@@ -277,16 +293,16 @@
 <li><a href="storelist.html">Store List</a></li>
 <li><a href="addstore.html">Add Store</a></li>
 </ul>
-</li>
+</li>-->
 <li class="submenu">
-<a href="javascript:void(0);"><img src="assets/img/icons/places.svg" alt="img"><span> Places</span> <span class="menu-arrow"></span></a>
+<a href="javascript:void(0);"><img src="assets/img/icons/places.svg" alt="img"><span> Mailing</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="newcountry.html">New Country</a></li>
-<li><a href="countrieslist.html">Countries list</a></li>
+<li><a href="sendMail" class="active">New Mail</a></li>
+<!--<li><a href="countrieslist.html">Countries list</a></li>
 <li><a href="newstate.html">New State </a></li>
 <li><a href="statelist.html">State list</a></li>
 </ul>
-</li>
+</li>-->
 <li>
 <a href="components.html"><i data-feather="layers"></i><span> Components</span> </a>
 </li>
@@ -415,130 +431,36 @@
 <div class="content">
 <div class="page-header">
 <div class="page-title">
-<h4>List of Notifications</h4>
-<h6>View/Notification</h6>
-</div>
-<div class="page-btn">
-<a href="addnotif" class="btn btn-added">
-<img src="assets/img/icons/plus.svg" class="me-1" alt="img">Add Notification
-</a>
+<h4>E-Mails Management</h4>
+<h6>Add/Update E-mails</h6>
 </div>
 </div>
 
 <div class="card">
 <div class="card-body">
-<div class="table-top">
-<div class="search-set">
-<div class="search-path">
-<a class="btn btn-filter" id="filter_search">
-<img src="assets/img/icons/filter.svg" alt="img">
-<span><img src="assets/img/icons/closes.svg" alt="img"></span>
-</a>
-</div>
-<div class="search-input">
-<a class="btn btn-searchset"><img src="assets/img/icons/search-white.svg" alt="img"></a>
-</div>
-</div>
-<div class="wordset">
-<ul>
-<li>
-<a data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img src="assets/img/icons/pdf.svg" alt="img"></a>
-</li>
-<li>
-<a data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img src="assets/img/icons/excel.svg" alt="img"></a>
-</li>
-<li>
-<a data-bs-toggle="tooltip" data-bs-placement="top" title="print"><img src="assets/img/icons/printer.svg" alt="img"></a>
-</li>
-</ul>
-</div>
-</div>
-
-<div class="card" id="filter_inputs">
-<div class="card-body pb-0">
 <div class="row">
-<div class="col-lg-2 col-sm-6 col-12">
+<div class="col-lg-3 col-sm-6 col-12">
 <div class="form-group">
-<select class="select">
-<option>Choose Category</option>
-<option>Computers</option>
-</select>
+<label>sujet</label>
+<input type="text">
 </div>
 </div>
-<div class="col-lg-2 col-sm-6 col-12">
+<!--<div class="col-lg-3 col-sm-6 col-12">
 <div class="form-group">
-<select class="select">
-<option>Choose Sub Category</option>
-<option>Fruits</option>
-</select>
+<label>Region</label>
+<input type="text">
 </div>
-</div>
-<div class="col-lg-2 col-sm-6 col-12">
+</div>-->
+<div class="col-lg-12">
 <div class="form-group">
-<select class="select">
-<option>Choose Sub Brand</option>
-<option>Iphone</option>
-</select>
+<label>contenue</label>
+<textarea class="form-control"></textarea>
 </div>
 </div>
-<div class="col-lg-1 col-sm-6 col-12 ms-auto">
-<div class="form-group">
-<a class="btn btn-filters ms-auto"><img src="assets/img/icons/search-whites.svg" alt="img"></a>
+<div class="col-lg-12">
+<a href="sendnotif" class="btn btn-submit ">send</a>
+<a href="notiflist" class="btn btn-cancel">Cancel</a>
 </div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="table-responsive">
-<table class="table  datanew">
-<thead>
-<tr>
-<th>
-<label class="checkboxs">
-<input type="checkbox" id="select-all">
-<span class="checkmarks"></span>
-</label>
-</th>
-<th>date_envoie</th>
-<th>sujet</th>
-<th>contenue</th>
-<th>Actions</th>
-
-</tr>
-</thead>
-<tbody>
-    {%for i in table%}
-<tr>
-<td>
-
-</td>
-<td >
-{{i.getDateEnvoie()}}
-</td>
-<td >
-{{i.getSujet()}}
-</td>
-<td >
-    {{i.getContenue()}}
-</td>
-<td>
-    <a href="{{path('editnotif',{'id':i.id})}}">
-        <img src="assets/img/icons/edit.svg" alt="img">
-    </a>
-    <a href="{{path('deletenotif',{'id':i.id})}}">
-    <img src="assets/img/icons/delete.svg" alt="img">
-    </a>
-    <a href="{{path('signalernotif',{'id':i.id})}}">
-        <img src="assets/img/icons/settings.svg" alt="img">
-        </a>
-    </td>
-    
-</tr>
-{%endfor%}
-
-</tbody>
-</table>
 </div>
 </div>
 </div>

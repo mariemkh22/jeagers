@@ -7,6 +7,7 @@ use App\Entity\Messages;
 use App\Form\MessagerieType;
 use App\Form\MessagesType;
 use App\Repository\MessagerieRepository;
+use App\Notification\NotificationMailer;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +15,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Label\Font\NotoSans;
+use Endroid\QrCode\ErrorCorrectionLevel;
+
 
 class MessagerieController extends AbstractController
 {
@@ -118,4 +127,8 @@ class MessagerieController extends AbstractController
 
         return $this->redirectToRoute("received");
     }
+
+
+
+    
 }

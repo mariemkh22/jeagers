@@ -3,6 +3,24 @@
 {% block title %}Hello DashboardController!{% endblock %}
 
 {% block body %}
+
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg">
+
+<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
 <div id="global-loader">
 <div class="whirly-loader"> </div>
 </div>
@@ -89,7 +107,7 @@
 <img alt="" src="assets/img/profiles/avatar-02.jpg">
 </span>
 <div class="media-body flex-grow-1">
-<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+<p class="noti-details"><span class="noti-title">Mariem Khelifi</span> added new task <span class="noti-title">Patient appointment booking</span></p>
 <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
 </div>
 </div>
@@ -164,7 +182,7 @@
 <div class="profilename">
 <div class="profileset">
 <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="">
-<span class="status online"></span></span>
+<span class="status online"></span></span>f
 <div class="profilesets">
 <h6>John Doe</h6>
 <h5>Admin</h5>
@@ -205,7 +223,7 @@
 <ul>
 <li><a href="notiflist">Notification  List</a></li>
 <li><a href="addnotif">Add Notification</a></li>
-<li><a href="categorylist.html">Edit Notification</a></li>
+<li><a href="editnotif">Edit Notification</a></li>
 <!--<li><a href="addcategory.html" class="active">Add Category</a></li>
 <li><a href="subcategorylist.html">Edit Notification</a></li>
 <li><a href="subaddcategory.html">Add Sub Category</a></li>
@@ -279,14 +297,14 @@
 </ul>
 </li>
 <li class="submenu">
-<a href="javascript:void(0);"><img src="assets/img/icons/places.svg" alt="img"><span> Places</span> <span class="menu-arrow"></span></a>
+<a href="javascript:void(0);"><img src="assets/img/icons/places.svg" alt="img"><span> Mailing</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="newcountry.html">New Country</a></li>
-<li><a href="countrieslist.html">Countries list</a></li>
+<li><a href="sendMail">New Mail</a></li>
+<!--<li><a href="countrieslist.html">Countries list</a></li>
 <li><a href="newstate.html">New State </a></li>
 <li><a href="statelist.html">State list</a></li>
 </ul>
-</li>
+</li>-->
 <li>
 <a href="components.html"><i data-feather="layers"></i><span> Components</span> </a>
 </li>

@@ -1,0 +1,13 @@
+{# templates/signalernotif.html.twig #}
+{% extends 'back.html.twig' %}
+
+{% block title %}Signaler une notification{% endblock %}
+
+{% block body %}
+    <h1>Signaler une notification</h1>
+
+    {{ form_start(x) }}
+    {{ form_widget(x) }}
+    <button type="submit">Signaler</button>
+    {{ form_end(x) }}
+{% endblock %}

@@ -6,6 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Repository\MessagingRepository;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Label\Font\NotoSans;
+use Endroid\QrCode\ErrorCorrectionLevel;
+
+
 class MessagingController extends AbstractController
 {
     #[Route('/messaging', name: 'app_messaging')]
@@ -30,4 +40,7 @@ class MessagingController extends AbstractController
             'controller_name' => 'MessagingController',
         ]);
     }
+
+
+   
 }

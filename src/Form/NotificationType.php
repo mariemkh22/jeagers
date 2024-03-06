@@ -17,6 +17,7 @@ class NotificationType extends AbstractType
         ->add('sujet')
         ->add('contenue')
         ->add('add_notification',SubmitType::class)
+        ->add('signaler_notification',SubmitType::class)
         ;
     }
 

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}Messagerie
 {% endblock %}
@@ -9,19 +9,26 @@
 			<div class="col-12">
 				<h1>Messagerie</h1>
 				<h2>Boîte de réception</h2>
+				{% if app.user is not null %}
 				<p>Vous avez reçu
 					{{ app.user.received|length }}
+				{% else %}
+                    <p>User is not available.</p>
+             
 					messages</p>
+				ny {% endif %}
 			</div>
 			<div class="col-3">De</div>
 			<div class="col-3">Sujet</div>
 			<div class="col-3">Date</div>
 			<div class="col-3">Actions</div>
-			{% for message in app.user.received %}
+			{% if app.user is not null and app.user.received is not null %}
+			   {% for message in app.user.received %}
 				{% set bold = "" %}
 				{% if message.isRead == 0 %}
 					{% set bold = "fw-bold" %}
 				{% endif %}
+			
 
 				<div class="col-3 {{bold}}">{{ message.sender.email }}</div>
 				<div class="col-3 {{bold}}">
@@ -36,6 +43,10 @@
                     </a>
 				</div>
 			{% endfor %}
+			{% else %}
+    {# Handle the case when app.user or app.user.received is null #}
+    <p>No messages available.</p>
+{% endif %}
 
 
 			<div class="col">

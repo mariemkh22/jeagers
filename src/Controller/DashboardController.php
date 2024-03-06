@@ -12,6 +12,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use App\Notification\NotificationMailer;
+use App\Repository\MessagerieRepository;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Label\Font\NotoSans;
+use Endroid\QrCode\ErrorCorrectionLevel;
 
 
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -97,14 +108,67 @@ class DashboardController extends AbstractController
         return $this->redirectToRoute('notiflist');
 
     
-
-    
-       
-        
-
-
-    
-    
 }
+#[Route('/signalernotif', name: 'signalernotif')]
+public function report(Request $request): Response
+{
+    $notif = new Notification();
+    $form = $this->createForm(NotificationType::class, $notif);
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($notif);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Le message a été signalé avec succès.');
+
+        return $this->redirectToRoute('notiflist');
+    }
+
+    return $this->render('dashboard/signalernotif.html.twig', [
+        'x' => $form->createView(),
+    ]);
+}
+
+
+
+
+
+
+
+
+
+
+ /**
+     * @Route("/sendEmail", name="sendnotif")
+     */
+    public function sendEmail($name,MailerInterface $mailer): Response
+    {
+        $email = (new Email())
+            ->from('mariemkhelifi3@gmail.com')
+            ->to('khadijaft12@gmail.com')
+            ->subject('Your Subject')
+            ->text('Hello, this is the email body.');
+
+        $mailer->send($name);
+
+        return new Response('Email sent successfully!');
+    }
+
+    public function someAction(NotificationMailer $mailer)
+    {
+        // ...
+
+        $mailer->sendEmail('recipient@example.com', 'Subject', 'Email content');
+       
+
+        // ...
+    }
+
+
+   
+
 }
 
