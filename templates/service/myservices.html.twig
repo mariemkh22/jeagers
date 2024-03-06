@@ -78,11 +78,12 @@
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="displayS">Services</a></li>
                             <li class="breadcrumb-item"><a href="addServic">Add service</a></li>
                             <li class="breadcrumb-item"><a href="myservices">My services</a></li>
                             <li class="breadcrumb-item"><a href="statstic">View statistics</a></li>
                             <li class="breadcrumb-item"><a href="calendrier">Our calendar</a></li>
+
 
                             
                         </ol>
@@ -100,9 +101,7 @@
                         <div class="col-md-10">
                             <div class="row g-2">
                                 <div class="col-md-3 espace">
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Calendar" data-target="#date2" data-toggle="datetimepicker"/>
-                                    </div>
+                                    
                                 </div>
                                 <style>
                                     .espace {
@@ -112,41 +111,50 @@
                                         width: 350px;
                                     }
                                 </style>
-                                <div class="col-md-3 espace1">
-                                    <select class="form-select">
-                                        <option selected>Categories of services</option>
-                                        <option value="1">Educational barter</option>
-                                        <option value="2">DIY services</option>
-                                        <option value="3">Health and wellness services</option>
-                                        <option value="4">Cleaning services</option>
-                                        <option value="5">Sports services</option>
-                                        <option value="6">Transportation services</option>
-                                        <option value="7">Entertainment services</option>
-                                        <option value="8">Other services</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3 espace1">
-                                    <select class="form-select">
-                                        <option selected>Location</option>
-                                        <option value="1">Gabes</option>
-                                        <option value="2">Monastir</option>
-                                        <option value="3">Sfax</option>
-                                        <option value="4">Djerba</option>
-                                        <option value="5">Sousse</option>
-                                        <option value="6">Douz</option>
-                                        <option value="7">Ariana</option>
-                                        <option value="8">Nabeul</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary w-100">Submit</button>
-                        </div>
-                    </div>
-                </div>
+                             <div class="row mb-4">
+    <div class="col position-relative">
+        <div class="input-group">
+            <input type="text" class="form-control search-input" placeholder="Search Application" aria-label="Search Application" aria-describedby="searchIcon" id="searchapplication">
+            <div class="input-group-append">
+                <span class="input-group-text" id="searchIcon"><i class="bi bi-search"></i></span>
             </div>
         </div>
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" id="locationFilter">
+            <option value="" selected>Filter by Location</option>
+            <option value="Gabes">Gabes</option>
+            <option value="Monastir">Monastir</option>
+            <option value="Tunis">Tunis</option>
+            <option value="Sousse">Sousse</option>
+            <option value="Bizerte">Bizerte</option>
+            <option value="Sfax">Sfax</option>
+            <option value="Siliana">Siliana</option>
+            <option value="Kasserine">Kasserine</option>
+            <option value="Mahdia">Mahdia</option>
+            <option value="Kairouan">Kairouan</option>
+            <option value="Nabeul">Nabeul</option>
+            <option value="Ariana">Ariana</option>
+            <!-- Add other locations as needed -->
+        </select>
+    </div>
+</div>
+<div class="col-md-3">
+        <select class="form-select" id="categoryFilter">
+            <option value="" selected>Filter by Gategory</option>
+            <option value="Educational barter">Educational barter</option>
+            <option value="DIY services">DIY services</option>
+            <option value="Cleaning services">Cleaning services</option>
+            <option value="Health and wellness services">Health and wellness services</option>
+            <option value="Sports services">Sports services</option>
+            <option value="Transportation services">Transportation services</option>
+            <option value="Entertainment services">Entertainment services</option>
+            <option value="Other services">Other services</option>
+        
+            <!-- Add other locations as needed -->
+        </select>
+    </div>
+</div>
         <!-- Booking end -->
 
 
@@ -369,5 +377,31 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <script>
+    $(document).ready(function () {
+        // Function to perform the search based on the specified keyword, location, and category
+        function filterServices(keyword, location, category) {
+            $(".room-item").each(function () {
+                var textContent = $(this).text().toLowerCase();
+                var foundKeyword = textContent.includes(keyword.toLowerCase());
+                var foundLocation = (location === "" || textContent.includes(location.toLowerCase()));
+                var foundCategory = (category === "" || textContent.includes(category.toLowerCase()));
+
+                $(this).toggle(foundKeyword && foundLocation && foundCategory); // Show/hide the card based on search result, location, and category
+            });
+        }
+
+        // Event handler for the search input, location filter, and category filter
+        $("#searchapplication, #locationFilter, #categoryFilter").on("change keyup", function () {
+            var searchText = $("#searchapplication").val();
+            var locationFilter = $("#locationFilter").val();
+            var categoryFilter = $("#categoryFilter").val();
+            filterServices(searchText, locationFilter, categoryFilter);
+        });
+    });
+</script>
 </body>
 {% endblock %}
