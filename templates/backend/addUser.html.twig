@@ -36,9 +36,9 @@
     }
     .wrapper{
     position:static;
-    width: 1500px;
-    height: 480px;
-    transform: translateY(-70%);
+    width: 500px;
+    height: 700px;
+    transform: translateY(-10%);
     background: transparent;
     border: 2px solid rgba(255,255,255,.5);
     border-radius: 20px;
@@ -379,13 +379,13 @@
             <br>
         <ul>
         <li>
-        <a href="backendHome" class="buttonw active"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+        <a href="backendHome" class="buttonw "><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
         </li>
         <li class="submenu" class="active">
             <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/users1.svg" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
             <ul>
             <li><a href="displayUsers">Users List</a></li>
-            <li><a href="dashBoardAdd">Add User</a></li>
+            <li><a href="dashBoardAdd" class="active">Add User</a></li>
             </ul>
         </li>
         <li class="submenu">
@@ -445,55 +445,31 @@
                         
                         <!-- SignUp start -->
                         <div class="wrapper">
+                            <div class="form-box">
                             {{ form_start(form) }}
-                                <div class="form-box">
-                                    <div class="row">
-                                        <div class="page-header">
-                                            <div class="page-title">
-                                                <br>
-                                                <h4 style="color: aliceblue;">Add user</h4>
-                                                <h6 style="color: aliceblue;">Add new user</h6>
-                                                <br>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label style="color: aliceblue;font-size: 16px; transform: translateX(-35%);">Full Name</label>
-                                            {{ form_widget(form.full_name) }}
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 130%; width: 170%;">Email address</label>
+                                            {{ form_widget(form.email, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Email address</label>
-                                            {{ form_widget(form.email) }}
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 130%; width: 160%;">Full name</label>
+                                            {{ form_widget(form.full_name, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Phone number</label>
-                                            {{ form_widget(form.phone_number) }}
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 155%; width: 190%;">Phone number</label>
+                                            {{ form_widget(form.phone_number, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Password</label>
-                                            {{ form_widget(form.password) }}
-                                        
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 170%; width: 200%;">Date of birth</label>
+                                            {{ form_widget(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label style="color: aliceblue;font-size: 16px;transform: translateX(-30%);">Date of birth</label>
-                                            {{ form_widget(form.date_of_birth) }}
-                                            <br>
+                                            <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 110%; width: 137%;">Password</label>
+                                            {{ form_widget(form.password, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        </div>
-                                        
-                                        {{ form_widget(form.Sign_up, {'attr': {'class': 'btn btn-submit me-2'}}) }}
-                                        </div>
-                                        </div>
-                                </div>
-                            {{ form_end(form) }}
+                                        {{ form_row(form.Sign_up, {'attr': {'class': 'button'}}) }}
+                                    {{ form_end(form) }}
+                                    </div>
                         </div>
                         <!-- SignUp end -->
 

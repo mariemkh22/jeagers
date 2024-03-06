@@ -71,6 +71,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     */
     private Collection $received;
 
+    #[ORM\Column]
+    private ?bool $enabled = null;
+
     public function __construct()
     {
         $this->sent = new ArrayCollection();
@@ -265,5 +268,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString()
     {
         return $this->id;
+    }
+
+    public function isEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(bool $enabled): static
+    {
+        $this->enabled = $enabled;
+
+        return $this;
     }
 }

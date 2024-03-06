@@ -21,7 +21,7 @@ class CategorieService
     #[ORM\Column(length: 255)]
     private ?string $descriptionC = null;
 
-    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Service::class)]
+    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Service::class, cascade:["all"], orphanRemoval:true)]
     private Collection $services;
 
     public function __construct()

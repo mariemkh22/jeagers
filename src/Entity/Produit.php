@@ -16,9 +16,6 @@ class Produit
     #[ORM\Column]
     private ?int $id = null;
 
-
-
-
    /**
  * @ORM\Column(type="string", length=255)
  * @Assert\NotBlank(message="Le nom du produit ne peut pas être vide")

@@ -43,7 +43,7 @@ class LocalisationGeographique
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
 
-    #[ORM\OneToMany(mappedBy: 'LocalisationGeographique', targetEntity: Livraison::class)]
+    #[ORM\OneToMany(mappedBy: 'localisationGeographique', targetEntity: Livraison::class, cascade:["all"], orphanRemoval:true)]
     private Collection $Livraison;
 
     public function __construct()

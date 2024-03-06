@@ -292,7 +292,7 @@
         <br>
     <ul>
     <li>
-    <a href="backendHome" class="buttonw active"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+    <a href="backendHome" class="buttonw "><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
     </li>
     <li class="submenu" class="active">
         <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/users1.svg" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
@@ -322,7 +322,7 @@
     <li class="submenu">
         <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Services</span> <span class="menu-arrow"></span></a>
         <ul>
-        <li><a href="showS">Services List</a></li>
+        <li><a href="showS" class="active">Services List</a></li>
         <li><a href="addservices">Add Service</a></li>
         <li><a href="showC">Categories List</a></li>
         <li><a href="addcategories">Add Category</a></li>
@@ -358,7 +358,7 @@
                             <div class="p-3" style="width: 1350px; transform: translateY(-235px);">
                                 <div class="card-body">
                                     <div class="page-btn">
-                                        <a href="dashBoardAdd" class="btn btn-added adjust"><img src="assets/img/icons/plus.svg" alt="img" class="me-2">Add service</a>
+                                        <a href="addservices" class="btn btn-added adjust"><img src="assets/img/icons/plus.svg" alt="img" class="me-2">Add service</a>
                                     </div>
                                     <h4 class="card-title">List of services</h4>
 
@@ -366,8 +366,8 @@
                                     <table class="content-table">
                                     <thead>
                                     <tr>
-                                        <th>Service ID</th>
-<th>Category ID</th>
+<th>Service ID</th>
+<th>Category name</th>
 <th>Service name</th>
 <th>Description</th>
 <th>Availability date</th>
@@ -381,20 +381,17 @@
 <tr>
 </td>
 <td>{{i.getId()}}</td>
-<td>{{i.getCategorie()}}</td>
+<td>{{i.categorie.getNameC}}</td>
 <td>{{i.getNameS()}}</td>
 <td>{{i.getDescriptionS()}}</td>
 <td>{{i.getDispoDate()}}</td>
 <td>{{i.getLocalisation()}}</td>
 <td>{{i.getState()}}</td>
 <td>
-<a class="me-3" href="serviceDetails">
-<img src="assets/img/icons/eye.svg" alt="img">
-</a>
 <a class="me-3" href="{{path('updateS',{'id':i.id})}}">
 <img src="assets/img/icons/edit.svg" alt="img">
 </a>
-<a class="confirm-text" href="{{path('deleteService',{'id':i.id})}}">
+<a href="{{path('deleteService',{'id':i.id})}}">
 <img src="assets/img/icons/delete.svg" alt="img">
 </a>
 </td>
@@ -424,22 +421,22 @@
 {% block javascripts %}
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
 
-<script src="{{asset('assets/js/feather.min.js')}}"></script>
+<script src="assets/js/feather.min.js"></script>
 
-<script src="{{asset('assets/js/jquery.slimscroll.min.js')}}"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
 
-<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
 
-<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
 
-<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+<script src="assets/plugins/select2/js/select2.min.js"></script>
 
-<script src="{{asset('assets/js/moment.min.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 
-<script src="{{asset('assets/plugins/sweetalert/sweetalert2.all.min.js')}}"></script>
-<script src="{{asset('assets/plugins/sweetalert/sweetalerts.min.js')}}"></script>
+<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
 
-<script src="{{asset('assets/js/script.js')}}"></script>
+<script src="assets/js/script.js"></script>
 {% endblock %}

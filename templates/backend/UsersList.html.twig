@@ -370,6 +370,7 @@
                                         <th>E-mail</th>
                                         <th>Phone number</th>
                                         <th>Birth date</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                         </tr>
                                         </thead>
@@ -381,6 +382,7 @@
                                         <td>{{i.getEmail()}}</td>
                                         <td>{{i.PhoneNumber()}}</td>
                                         <td>{{i.GetDateOfBirth()}}</td>
+                                        <td>{{i.isEnabled()}}</td>
                                         <td>
                                         <a class="me-3" href="{{path('editUser',{'id':i.id})}}">
                                         <img src="assets/img/icons/edit.svg" alt="img">
@@ -388,6 +390,12 @@
                                         <a href="{{path('deleteUser',{'id':i.id})}}">
                                         <img src="assets/img/icons/delete.svg" alt="img">
                                         </a>
+                                        
+                                        <form id="blockForm" action="{{ path('app_adminblockuser', { 'id': i.id }) }}" method="POST">
+                                            <a href="{{ path('app_adminblockuser', { 'id': i.id }) }}" onclick="return confirm('Are you sure you want to block  ?')">
+                                                <img style="height: 25px;" src="assets/img/icons/block.png" alt="img">
+                                            </a>
+										</form>
                                         </td>
                                         </tr>
                                         {% endfor %}

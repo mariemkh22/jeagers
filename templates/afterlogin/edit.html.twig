@@ -237,19 +237,24 @@
                                     <div class="form-box">
                                         <h2 class="section-title text-white text-uppercase mb-3 animated slideInown text">Update</h2>   
 
-                                        <div class="input-box">         
-                                            {{ form_row(form.email, {'attr': {'class': 'input-box'}}) }}
+                                        <div class="input-box"> 
+                                            <label style="transform: translateY(-110%);"> Email </label>        
+                                            {{ form_widget(form.email, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.full_name, {'attr': {'class': 'input-box'}}) }}
+                                        <div class="input-box">
+                                            <label style="transform: translateY(-110%);"> Full name </label>                 
+                                            {{ form_widget(form.full_name, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.phone_number, {'attr': {'class': 'input-box'}}) }}
+                                        <div class="input-box">   
+                                            <label style="transform: translateY(-110%);"> Phone number </label>              
+                                            {{ form_widget(form.phone_number, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        <div class="input-box">         
-                                            {{ form_row(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
+                                        <div class="input-box"> 
+                                            <label style="transform: translateY(-110%);"> Date of birth </label>                
+                                            {{ form_widget(form.date_of_birth, {'attr': {'class': 'input-box'}}) }}
                                         </div>
-                                        {{ form_row(form.update, {'attr': {'class': 'button'}}) }}
+                                        {{ form_widget(form.update, {'attr': {'class': 'button'}}) }}
+                                        <br>
                                         <br>
                                         <a href="Profile"><button type="submit" class="buttondelete">Cancel</button>
                                         </a>

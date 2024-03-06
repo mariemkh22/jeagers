@@ -220,6 +220,9 @@
                             <div class="wrapper">
                                 <div class="form-box">
                                     <h2>Login</h2>
+                                    {% if error %}
+								        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+							        {% endif %}
                                     <form method="post">
                                         <div class="input-box">        
                                             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" required>

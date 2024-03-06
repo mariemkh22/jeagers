@@ -61,6 +61,14 @@ class UtilisateurController extends AbstractController
         ]);
     }
 
+    #[Route('/adminHome', name: 'adminHome')]
+    public function adminHome(): Response
+    {
+        return $this->render('afterlogin/adminHome.html.twig', [
+            'controller_name' => 'UtilisateurController',
+        ]);
+    }
+
     #[Route('/Profile', name: 'Profile')]
     public function Profile(UserRepository $utilisateurRepository): Response
     {

@@ -22,7 +22,7 @@ class LocalisationGeographiqueType extends AbstractType
                 'Tunis' => 'Tunis',
                 'Nabeul' => 'Nabeul',
                 'Gabes' => 'Gabes',
-                'Mounistir' => 'Mounistir',
+                'Mistir' => 'Mistir',
             ],
             'placeholder' => 'Select a region',
             'constraints' => [

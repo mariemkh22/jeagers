@@ -27,7 +27,9 @@ class CommandeType extends AbstractType
             'choices' => [
                 'Tunis' => 'Tunis',
                 'Nabeul' => 'Nabeul',
-                'Gbili' => 'Gbili',
+                'Kebili' => 'Kebili',
+                'Mistir' => 'Mistir',
+                'Gabes' => 'Gabes',
             ],
         ])  
 
@@ -43,6 +45,7 @@ class CommandeType extends AbstractType
 
       ->add('Produit',EntityType::class, [
                 'class'=>Produit::class,
+                'choice_label'=>'nom_produit'
             ])
 
 

@@ -35,7 +35,7 @@ class LivraisonType extends AbstractType
                     'FedEX' => 'FedEX',
                     'JTM' => 'JTM',
                 ],
-                'placeholder' => 'Select a entreprise',
+                'placeholder' => 'Select the company',
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le champ entreprise ne peut pas être vide']),
                     new Assert\Length(['max' => 255, 'maxMessage' => 'La longueur maximale est de 255 caractères']),
@@ -44,10 +44,10 @@ class LivraisonType extends AbstractType
             ->add('frais', ChoiceType::class, [
                 'choices' => [
                     24 => 24,
-                    3 => 3,
-                    1 => 1,
+                    15 => 15,
+                    7 => 7,
                 ],
-                'placeholder' => 'Select frais',
+                'placeholder' => 'Select the fees',
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le champ frais ne peut pas être vide']),
                     new Assert\Type(['type' => 'integer', 'message' => 'La valeur doit être un nombre entier']),
@@ -55,17 +55,18 @@ class LivraisonType extends AbstractType
             ])
             ->add('status', ChoiceType::class, [
                 'choices' => [
-                    'completed' => 'COMPLETED',
-                    'inprogress' => 'INPROGRESS',
-                    'inCompleted' => 'INCOMPLETED',
+                    'completed' => 'Completed',
+                    'in progress' => 'In progress',
+                    'not completed' => 'Not completed',
                 ],
-                'placeholder' => 'Select a status',
+                'placeholder' => 'Select the status',
                 ])
             ->add('localisationGeographique', EntityType::class, [
                 'class' => LocalisationGeographique::class,
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le champ localisation géographique ne peut pas être vide']),
                 ],
+                'choice_label' => 'region'
             ])
             ->add('Add_delivery', SubmitType::class);
     }

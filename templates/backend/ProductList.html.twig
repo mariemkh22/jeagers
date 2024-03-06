@@ -293,7 +293,7 @@
             <br>
         <ul>
         <li>
-        <a href="backendHome" class="buttonw active"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+        <a href="backendHome" class="buttonw"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
         </li>
         <li class="submenu" class="active">
             <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/users1.svg" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
@@ -305,7 +305,7 @@
         <li class="submenu">
         <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/product.svg" alt="img"><span> Products</span> <span class="menu-arrow"></span></a>
         <ul>
-        <li><a href="displayProducts">Product List</a></li>
+        <li><a href="displayProducts" class="active">Product List</a></li>
         <li><a href="addProduct">Add Product</a></li>
         <li><a href="displayComd">Commands List</a></li>
         <li><a href="addComd">Add Command</a></li>
@@ -360,7 +360,7 @@
                                 <div class="p-3" style="width: 1350px; transform: translateY(-235px);">
                                     <div class="card-body">
                                         <div class="page-btn">
-                                            <a href="dashBoardAdd" class="btn btn-added adjust"><img src="assets/img/icons/plus.svg" alt="img" class="me-2">Add product</a>
+                                            <a href="addProduct" class="btn btn-added adjust"><img src="assets/img/icons/plus.svg" alt="img" class="me-2">Add product</a>
                                         </div>
                                         <h4 class="card-title">List of products</h4>
 
@@ -368,8 +368,8 @@
                                         <table class="content-table">
                                         <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Product name</th>
-                                            <th>Product id</th>
                                             <th>Type</th>
                                             <th>Description</th>
                                             <th>Equivalent Price</th>
@@ -379,8 +379,8 @@
                                         <tbody>
                                         {% for i in table %}
                                         <tr>
-                                            <td>{{i.getNomProduit()}}</td>
                                             <td>{{i.getId}} </td>
+                                            <td>{{i.getNomProduit()}}</td>
                                             <td>{{i.getType()}} </td>
                                             <td>{{i.getDescription()}}</td>
                                             <td>{{i.getEquiv()}} TND</td>
@@ -388,7 +388,7 @@
                                             <a class="me-3" href="{{path('edit',{'id':i.id})}}">
                                                 <img src="assets/img/icons/edit.svg" alt="img">
                                             </a>
-                                            <a href="{{path('delete',{'id':i.id})}}">
+                                            <a href="{{path('deleteP',{'id':i.id})}}">
                                                 <img src="assets/img/icons/delete.svg" alt="img">
                                             </a>    
                                                       

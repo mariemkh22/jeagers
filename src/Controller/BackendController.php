@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Controller;
 
 use App\Entity\CategorieService;
@@ -34,12 +35,15 @@ use App\Repository\UserRepository;
 use App\Repository\UtilisateurRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BackendController extends AbstractController
 {
+
     #[Route('/backendHome', name: 'backendHome')]
     public function backendHome(UserRepository $utilisateurRepository): Response
     {
@@ -188,20 +192,15 @@ class BackendController extends AbstractController
         }
     
     
-        #[Route('/delete/{id}', name: 'delete')]
-        public function delete(ProduitRepository $ProduitRepository, ManagerRegistry $managerRegistry, $id): Response
-        {
-            $m=$managerRegistry->getManager();
-            $findid=$ProduitRepository->find($id);
-            $m->remove($findid);
-            $m->flush();
-            return $this->redirectToRoute('displayProducts');
-        }
-    
-    
-    
-    
-    
+        #[Route('/deleteP/{id}', name: 'deleteP')]
+    public function deleteP(ProduitRepository $produitRepository, ManagerRegistry $managerRegistry, $id): Response
+    {
+        $m=$managerRegistry->getManager();
+        $findid=$produitRepository->find($id);
+        $m->remove($findid);
+        $m->flush();
+        return $this->redirectToRoute('displayProducts');
+    }
     
     #backendCommande
         #[Route('/displayComd', name: 'displayComd')]
@@ -557,6 +556,17 @@ class BackendController extends AbstractController
         $x->remove($a);
         $x->flush();
         return $this->redirectToRoute('Deliverylist');
+    }
+
+    #[Route('/adminblockuser/{id}', name: 'app_adminblockuser')]
+    public function adminblockuser($id, UserRepository $userRepository, ManagerRegistry $managerRegistry ): Response
+    {
+        $em = $managerRegistry->getManager();
+        $data = $userRepository->find($id);
+        $data->setEnabled(!$data->isEnabled());
+        $em->persist($data);
+        $em->flush();
+        return $this->redirectToRoute('displayUsers');  
     }
 
 }

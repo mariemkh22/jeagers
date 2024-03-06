@@ -31,364 +31,451 @@
     .buttonw {
         width: 165%;
     }
+    .page-wrapper{
+        background-image: url("assets/img/nightblue.png");
+    }
+    .wrapper{
+    position:static;
+    width: 500px;
+    height: 700px;
+    transform: translateY(-10%);
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #FEA116;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #FEA116;
+    margin: 20px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #FEA116;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transform: translateY(90%);
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #FEA116;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #FEA116;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #FEA116;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #FEA116;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #FEA116;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.button {
+    width: 100%;
+    height: 45px;
+    background: #FEA116;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    color: #FEA116;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #FEA116;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
 </style>
 
-<div id="global-loader">
 <div class="whirly-loader"> </div>
-</div>
 
 <div class="main-wrapper">
 
-    <div class="header">
-    
-        <div class="header-left active">
-        <a href="backendHome" class="logo width">
-        <img src="assets/img/test.png" alt="">
-        </a>
-        <a href="backendHome" class="logo-small">
-        <img src="assets/img/logo-small.png" alt="">
-        </a>
-        <a id="toggle_btn" href="javascript:void(0);">
-        </a>
-        </div>
-        
-        <a id="mobile_btn" class="mobile_btn" href="#sidebar">
-        <span class="bar-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-        </span>
-        </a>
-        
-        <ul class="nav user-menu">
-        
-        <li class="nav-item">
-        <div class="top-nav-search">
-        <a href="javascript:void(0);" class="responsive-search">
-        <i class="fa fa-search"></i>
-        </a>
-        <form action="#">
-        <div class="searchinputs">
-        <input type="text" placeholder="Search Here ...">
-        <div class="search-addon">
-        <span><img src="assets/img/icons/closes.svg" alt="img"></span>
-        </div>
-        </div>
-        <a class="btn" id="searchdiv"><img src="assets/img/icons/search.svg" alt="img"></a>
-        </form>
-        </div>
-        </li>
-        
-        
-        <li class="nav-item dropdown has-arrow flag-nav">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
-        <img src="assets/img/flags/us1.png" alt="" height="20">
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-        <a href="javascript:void(0);" class="dropdown-item">
-        <img src="assets/img/flags/us.png" alt="" height="16"> English
-        </a>
-        <a href="javascript:void(0);" class="dropdown-item">
-        <img src="assets/img/flags/fr.png" alt="" height="16"> French
-        </a>
-        <a href="javascript:void(0);" class="dropdown-item">
-        <img src="assets/img/flags/es.png" alt="" height="16"> Spanish
-        </a>
-        <a href="javascript:void(0);" class="dropdown-item">
-        <img src="assets/img/flags/de.png" alt="" height="16"> German
-        </a>
-        </div>
-        </li>
-        
-        
-        <li class="nav-item dropdown">
-        <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-        <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill">4</span>
-        </a>
-        <div class="dropdown-menu notifications">
-        <div class="topnav-dropdown-header">
-        <span class="notification-title">Notifications</span>
-        <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
-        </div>
-        <div class="noti-content">
-        <ul class="notification-list">
-        <li class="notification-message">
-        <a href="activities.html">
-        <div class="media d-flex">
-        <span class="avatar flex-shrink-0">
-        <img alt="" src="assets/img/profiles/avatar-02.jpg">
-        </span>
-        <div class="media-body flex-grow-1">
-            {% if app.user!=null %}
-        <p class="noti-details"><span class="noti-title">{{app.user.getFullName()}}</span> Login <span class="noti-title">Welcome back to your dashboard</span></p>
-        <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
-        </div>
-        {% endif %}
-        </div>
-        </a>
-        </li>
-        <li class="notification-message">
-        <a href="activities.html">
-        <div class="media d-flex">
-        <span class="avatar flex-shrink-0">
-        <img alt="" src="assets/img/profiles/avatar-03.jpg">
-        </span>
-        <div class="media-body flex-grow-1">
-        <p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
-        <p class="noti-time"><span class="notification-time">6 mins ago</span></p>
-        </div>
-        </div>
-        </a>
-        </li>
-        <li class="notification-message">
-        <a href="activities.html">
-        <div class="media d-flex">
-        <span class="avatar flex-shrink-0">
-        <img alt="" src="assets/img/profiles/avatar-06.jpg">
-        </span>
-        <div class="media-body flex-grow-1">
-        <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
-        <p class="noti-time"><span class="notification-time">8 mins ago</span></p>
-        </div>
-        </div>
-        </a>
-        </li>
-        <li class="notification-message">
-        <a href="activities.html">
-        <div class="media d-flex">
-        <span class="avatar flex-shrink-0">
-        <img alt="" src="assets/img/profiles/avatar-17.jpg">
-        </span>
-        <div class="media-body flex-grow-1">
-        <p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
-        <p class="noti-time"><span class="notification-time">12 mins ago</span></p>
-        </div>
-        </div>
-        </a>
-        </li>
-        <li class="notification-message">
-        <a href="activities.html">
-        <div class="media d-flex">
-        <span class="avatar flex-shrink-0">
-        <img alt="" src="assets/img/profiles/avatar-13.jpg">
-        </span>
-        <div class="media-body flex-grow-1">
-        <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
-        <p class="noti-time"><span class="notification-time">2 days ago</span></p>
-        </div>
-        </div>
-        </a>
-        </li>
-        </ul>
-        </div>
-        <div class="topnav-dropdown-footer">
-        <a href="activities.html">View all Notifications</a>
-        </div>
-        </div>
-        </li>
-        
-        <li class="nav-item dropdown has-arrow main-drop">
-        <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-        <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="">
-        <span class="status online"></span></span>
-        </a>
-        <div class="dropdown-menu menu-drop-user">
-        <div class="profilename">
-        <div class="profileset">
-        <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="">
-        <span class="status online"></span></span>
-        {% if app.user!=null %}
-        <div class="profilesets">
-            <h6>{{app.user.getFullName()}}</h6>
-            <h5>Admin</h5>
-        </div>
-    </div>
-    <hr class="m-0">
-    <a class="dropdown-item" href="adminProfile"> <i class="me-2" data-feather="user"></i> My Profile</a>
-    <a class="dropdown-item" href="Home"> <i class="me-2" data-feather="user"></i> Website Home</a>
-    <a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
-    <hr class="m-0">
-    <a class="dropdown-item logout pb-0" href="logout"><img src="assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
-    </div>
-    </div>
-    </li>
-    </ul>
-        {% endif %}
-        {% if app.user==null %}
-        <div class="profilesets">
-            <h6>Guest</h6>
-            <h5>Admin</h5>
-        </div>
-    </div>
-    <hr class="m-0">
-    <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My Profile</a>
-    <a class="dropdown-item" href="utilisateurHome"> <i class="me-2" data-feather="user"></i> Website Home</a>
-    <a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
-    <hr class="m-0">
-    <a class="dropdown-item logout pb-0" href="signin.html"><img src="assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
-    </div>
-    
-        {% endif %}
-        
-        
-        
-        <div class="dropdown mobile-user-menu">
-        <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-        <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="profileAdmin">My Profile</a>
-        <a class="dropdown-item" href="generalsettings.html">Settings</a>
-        <a class="dropdown-item" href="signin.html">Logout</a>
-        </div>
-        </div>
-        
-        </div>
+<div class="header">
+
+<div class="header-left active">
+<a href="backendHome" class="logo width">
+<img src="{{asset('assets/img/test.png')}}" alt="">
+</a>
+<a href="index.html" class="logo-small">
+<img src="{{asset('assets/img/logo-small.png')}}" alt="">
+</a>
+<a id="toggle_btn" href="javascript:void(0);">
+</a>
+</div>
+
+<a id="mobile_btn" class="mobile_btn" href="#sidebar">
+<span class="bar-icon">
+<span></span>
+<span></span>
+<span></span>
+</span>
+</a>
+
+<ul class="nav user-menu">
+
+<li class="nav-item">
+<div class="top-nav-search">
+<a href="javascript:void(0);" class="responsive-search">
+<i class="fa fa-search"></i>
+</a>
+<form action="#">
+<div class="searchinputs">
+<input type="text" placeholder="Search Here ...">
+<div class="search-addon">
+<span><img src="{{asset('assets/img/icons/closes.svg')}}" alt="img"></span>
+</div>
+</div>
+<a class="btn" id="searchdiv"><img src="{{asset('assets/img/icons/search.svg')}}" alt="img"></a>
+</form>
+</div>
+</li>
 
 
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-inner">
-        <br>
-    <div id="sidebar-menu" class="sidebar-menu">
-        <br>
-    <ul>
-    <li>
-    <a href="backendHome" class="buttonw"><img src="{{asset('assets/img/icons/dashboard.svg')}}" alt="img"><span> Dashboard</span> </a>
-    </li>
-    <li class="submenu" class="active">
-        <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/users1.svg')}}" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
+<li class="nav-item dropdown has-arrow flag-nav">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
+<img src="{{asset('assets/img/flags/us1.png')}}" alt="" height="20">
+</a>
+<div class="dropdown-menu dropdown-menu-right">
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{{asset('assets/img/flags/us.png')}}" alt="" height="16"> English
+</a>
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{{asset('assets/img/flags/fr.png')}}" alt="" height="16"> French
+</a>
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{{asset('assets/img/flags/es.png')}}" alt="" height="16"> Spanish
+</a>
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{{asset('assets/img/flags/de.png')}}" alt="" height="16"> German
+</a>
+</div>
+</li>
+
+
+<li class="nav-item dropdown">
+<a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+<img src="{{asset('assets/img/icons/notification-bing.svg')}}" alt="img"> <span class="badge rounded-pill">4</span>
+</a> 
+<div class="dropdown-menu notifications">
+<div class="topnav-dropdown-header">
+<span class="notification-title">Notifications</span>
+<a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+</div>
+<div class="noti-content">
+<ul class="notification-list">
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{{asset('assets/img/profiles/avatar-02.jpg')}}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+<p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{{asset('assets/img/profiles/avatar-03.jpg')}}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
+<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{{asset('assets/img/profiles/avatar-06.jpg')}}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{{asset('assets/img/profiles/avatar-17.jpg')}}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
+<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{{asset('assets/img/profiles/avatar-13.jpg')}}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
+<p class="noti-time"><span class="notification-time">2 days ago</span></p>
+</div>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="topnav-dropdown-footer">
+<a href="activities.html">View all Notifications</a>
+</div>
+</div>
+</li>
+
+<li class="nav-item dropdown has-arrow main-drop">
+<a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
+<span class="user-img"><img src="{{asset('assets/img/profiles/avator1.jpg')}}" alt="">
+<span class="status online"></span></span>
+</a>
+<div class="dropdown-menu menu-drop-user">
+<div class="profilename">
+<div class="profileset">
+<span class="user-img"><img src="{{asset('assets/img/profiles/avator1.jpg')}}" alt="">
+<span class="status online"></span></span>
+{% if app.user!=null %}
+    <div class="profilesets">
+        <h6>{{app.user.getFullName()}}</h6>
+        <h5>Admin</h5>
+    </div>
+</div>
+<hr class="m-0">
+<a class="dropdown-item" href="adminProfile"> <i class="me-2" data-feather="user"></i> My Profile</a>
+<a class="dropdown-item" href="Home"> <i class="me-2" data-feather="user"></i> Website Home</a>
+<a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
+<hr class="m-0">
+<a class="dropdown-item logout pb-0" href="logout"><img src="{{asset('assets/img/icons/log-out.svg')}}" class="me-2" alt="img">Logout</a>
+</div>
+</div>
+</li>
+</ul>
+    {% endif %}
+    {% if app.user==null %}
+    <div class="profilesets">
+        <h6>Guest</h6>
+        <h5>Admin</h5>
+    </div>
+</div>
+<hr class="m-0">
+<a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My Profile</a>
+<a class="dropdown-item" href="utilisateurHome"> <i class="me-2" data-feather="user"></i> Website Home</a>
+<a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
+<hr class="m-0">
+<a class="dropdown-item logout pb-0" href="signin.html"><img src="{{asset('assets/img/icons/log-out.svg')}}" class="me-2" alt="img">Logout</a>
+</div>
+</div>
+</li>
+</ul>
+    {% endif %}
+    
+    
+    
+    <div class="dropdown mobile-user-menu">
+    <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+    <div class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item" href="profileAdmin">My Profile</a>
+    <a class="dropdown-item" href="generalsettings.html">Settings</a>
+    <a class="dropdown-item" href="signin.html">Logout</a>
+    </div>
+    </div>
+    
+    </div>
+
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <br>    
+        <div id="sidebar-menu" class="sidebar-menu">
+            <br>
         <ul>
-        <li><a href="displayUsers">Users List</a></li>
-        <li><a href="addUser" >Add User</a></li>
-        </ul>
-    </li>
-    <li class="submenu">
-    <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Products</span> <span class="menu-arrow"></span></a>
-    <ul>
-        <li><a href="{{ path('displayProducts') }}">Product List</a></li>
-        <li><a href="{{ path('addProduct') }}">Add Product</a></li>
-        <li><a href="{{path('displayComd')}}">Commands List</a></li>
-        <li><a href="{{path('addComd')}}">Add Command</a></li>
-    </ul>
-    </li>
-    <li class="submenu">
-        <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Delivery</span> <span class="menu-arrow"></span></a>
+        <li>
+        <a href="backendHome" class="buttonw"><img src="{{asset('assets/img/icons/dashboard.svg')}}" alt="img"><span> Dashboard</span> </a>
+        </li>
+        <li class="submenu" class="active">
+            <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/users1.svg')}}" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="displayUsers">Users List</a></li>
+            <li><a href="dashBoardAdd">Add User</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+        <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Products</span> <span class="menu-arrow"></span></a>
         <ul>
-            <li><a href="displayProducts">Products List</a></li>
-            <li><a href="addProduct">Add Product</a></li>
+        <li><a href="displayProducts">Product List</a></li>
+        <li><a href="addProduct">Add Product</a></li>
         <li><a href="displayComd">Commands List</a></li>
         <li><a href="addComd">Add Command</a></li>
         </ul>
         </li>
-    <li class="submenu">
-        <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Services</span> <span class="menu-arrow"></span></a>
-        <ul>
-        <li><a href="productlist.html">Services List</a></li>
-        <li><a href="addproduct.html">Add Service</a></li>
-        <li><a href="categorylist.html">Categories List</a></li>
-        <li><a href="addcategory.html">Add Category</a></li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Delivery</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="Deliverylist">Deliveries List</a></li>
+            <li><a href="Adddelivery">Add Delivery</a></li>
+            <li><a href="Locationlist">Localisations List</a></li>
+            <li><a href="Addlocation">Add Localisation</a></li>
+            </ul>
+            </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Services</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="showS">Services List</a></li>
+            <li><a href="addservices">Add Service</a></li>
+            <li><a href="showC">Categories List</a></li>
+            <li><a href="addcategories">Add Category</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Chatting</span> <span class="menu-arrow"></span></a>
+            <ul>
+            <li><a href="chat.html">Chats list</a></li>
+            <li><a href="chat.html">Add Chat</a></li>
+            <li><a href="notiflist">Notifications list</a></li>
+            <li><a href="addnotif">Add Notification</a></li>
+            </ul>
+        </li>     
+        
+        </li>
         </ul>
-    </li>
-    <li class="submenu">
-        <a href="javascript:void(0);" class="buttonw"><img src="{{asset('assets/img/icons/product.svg')}}" alt="img"><span> Chatting</span> <span class="menu-arrow"></span></a>
-        <ul>
-        <li><a href="chat.html">Chats list</a></li>
-        <li><a href="chat.html">Add Chat</a></li>
-        <li><a href="calendar.html">Notifications list</a></li>
-        <li><a href="email.html">Add Notification</a></li>
-        </ul>
-    </li>     
-    
-    </li>
-    </ul>
-    </div>
-    </div>
-    </div>
-
-<div class="page-wrapper">
-<div class="content">
-<div class="page-header">
-<div class="page-title">
-<h4>Edit Product</h4>
-<h6>Manage your Products</h6>
-</div>
-</div>
-
-{{ form_start(form) }}
-
-<div class="card">
-<div class="card-body">
-<div class="row">
-
-    <div class="col-lg-3 col-sm-6 col-12">
-        <div class="form-group">
-            <label>Product Name</label>
-            {{ form_widget(form.nom_produit, {'attr': {'class': 'form-control'}}) }}
         </div>
-    </div>
+        </div>
+        </div>
 
-
-<div class="col-lg-3 col-sm-6 col-12">
-    <div class="form-group">
-        <label>Category</label>
-        {{ form_widget(form.type, {'attr': {'class': 'select'}}) }}
-    </div>
-</div>
-
-
-
-
-
-
-
-
-<div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-    {{ form_row(form.equiv) }}
-</div>
-</div>
-<div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-    {{ form_row(form.description) }}
-
-</div>
-</div>
-
-
-<div class="col-lg-12">
-    <div class="form-group">
-    <label> Product Image</label>
-    <div class="image-upload">
-    <input type="file">
-    <div class="image-uploads">
-        <img src="assets/img/icons/upload.svg" alt="img">
-    <h4>Drag and drop a file to upload</h4>
-    </div>
-    </div>
-    </div>
-    </div>
-
-
-
-
-
-<div class="row justify-content-center">
-    <div class="col-lg-3 col-sm-6 col-12">
-        {{ form_row(form.Update, {'attr': {'class': 'btn btn-submit me-2'}}) }}
-    </div>
-    <div class="col-lg-3 col-sm-6 col-12">
-        <a href="{{ path('displayProducts') }}" class="btn btn-cancel">Cancel</a>
-    </div>
-</div>
-
-{{ form_end(form) }}
-
-</div>
-</div>
-</div>
-</div>
-
-
-
-</div>
+        <div class="page-wrapper">
+            <div class="content">
+            
+            <div class="container-fluid p-0 mb-5">
+                <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="w-100" src="{{asset('assets/img/nightblue.png')}}" alt="Image">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3">
+                                    
+                                    <!-- SignUp start -->
+                                    <div class="wrapper">
+                                        <div class="form-box">
+                                            {{form_start(form)}}
+                                                    <div class="form-group">
+                                                        <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 150%; width: 180%;">Product name</label>
+                                                        {{ form_widget(form.nom_produit, {'attr': {'class': 'input-box'}}) }}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 150%; width: 180%;">Category name</label>
+                                                        {{ form_widget(form.type, {'attr': {'class': 'input-box'}}) }}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 130%; width: 160%;">Equivalent price</label>
+                                                        {{ form_widget(form.equiv, {'attr': {'class': 'input-box'}}) }}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="color: #FEA116;font-size: 16px; transform: translateY(40%); padding-right: 170%; width: 190%;">Description</label>
+                                                        {{ form_widget(form.description, {'attr': {'class': 'input-box'}}) }}
+                                                    </div>
+                                                    {{ form_row(form.Update, {'label': 'Update','attr': {'class': 'button'}}) }}
+                                            {{ form_end(form) }}
+                                        </div>
+                                    </div>
+                                    <!-- SignUp end -->
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            </div>
+            </div>
 </div>
 </div>
 

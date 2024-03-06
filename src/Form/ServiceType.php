@@ -32,6 +32,7 @@ class ServiceType extends AbstractType
                 ])
             ->add('categorie', EntityType::class, [
                 'class' => CategorieService::class,
+                'choice_label'=>'nameC'
                     ])
             ->add('Add_service',SubmitType::class);
             

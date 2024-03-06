@@ -293,7 +293,7 @@
             <br>
         <ul>
         <li>
-        <a href="backendHome" class="buttonw active"><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+        <a href="backendHome" class="buttonw "><img src="assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
         </li>
         <li class="submenu" class="active">
             <a href="javascript:void(0);" class="buttonw"><img src="assets/img/icons/users1.svg" alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
@@ -307,7 +307,7 @@
         <ul>
         <li><a href="displayProducts">Product List</a></li>
         <li><a href="addProduct">Add Product</a></li>
-        <li><a href="displayComd">Commands List</a></li>
+        <li><a href="displayComd" class="active">Commands List</a></li>
         <li><a href="addComd">Add Command</a></li>
         </ul>
         </li>
@@ -360,7 +360,7 @@
                                 <div class="p-3" style="width: 1350px; transform: translateY(-235px);">
                                     <div class="card-body">
                                         <div class="page-btn">
-                                            <a href="dashBoardAdd" class="btn btn-added adjust"><img src="assets/img/icons/plus.svg" alt="img" class="me-2">Add command</a>
+                                            <a href="addComd" class="btn btn-added adjust"><img src="assets/img/icons/plus.svg" alt="img" class="me-2">Add command</a>
                                         </div>
                                         <h4 class="card-title">List of products</h4>
 
@@ -368,11 +368,11 @@
                                         <table class="content-table">
                                         <thead>
                                         <tr>
-                                            <th>Commande ID</th>
+                                            <th>Command ID</th>
                                             <th>Date</th>
-                                            <th>City</th>
                                             <th>Delivery Methode</th>
-                                            <th>Product ID</th>
+                                            <th>City</th>
+                                            <th>Product name</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -383,7 +383,7 @@
                                             <td>{{j.getDateCmd()|date('Y-m-d H:i:s') }}</td>
                                             <td>{{j.getMethodeLivraison()}} </td>
                                             <td>{{j.getVille()}}</td>
-                                            <td>{{j.getProduit()}}</td>
+                                            <td>{{j.produit.getNomProduit}}</td>
                                             <td>
                                             <a class="me-3" href="{{path('editc',{'id':j.id})}}">
                                                 <img src="assets/img/icons/edit.svg" alt="img">
