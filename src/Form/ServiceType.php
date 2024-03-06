@@ -31,7 +31,7 @@ class ServiceType extends AbstractType
             ->add('state', TextType::class, [
                 'attr' => ['placeholder' => 'Available']
                 ])
-            ->add('imageFile' , VichImageType::class)    
+            ->add('imageFile' , VichImageType::class)
             ->add('categorie', EntityType::class, [
                 'class' => CategorieService::class,
                     ])

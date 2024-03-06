@@ -81,6 +81,8 @@
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="addServic">Add service</a></li>
                             <li class="breadcrumb-item"><a href="myservices">My services</a></li>
+                            <li class="breadcrumb-item"><a href="statstic">View statistics</a></li>
+
                             
                         </ol>
                     </nav>
@@ -155,55 +157,27 @@
                     <h1 class="mb-5">Managing my <span class="text-primary text-uppercase">Services</span></h1>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/itE.jpg" alt="">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Educational barter</small>
-                            </div>
-                            <div class="p-4 mt-2">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Java Programming Course</h5>
-                                    <div class="ps-2">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                    </div>
-                                </div>
-                                <div class="d-flex mb-3">
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Gabes</small>
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-clock text-primary me-2"></i>01/03/2024</small>
-                                    <small><i class="fa fa-key text-primary me-2"></i>13</small>
-                                </div>
-                                <p class="text-body mb-3">We propose to share our rich knowledge of Java programming and learn another skill on the other hand.</p>
-                                <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Craze Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                    
                     {% for i in services %}
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="product-image" src="{{ asset('images/products/' ~ i.getImageName()) }}">
+                                <img class="product-image" src="images/services/{{i.getImageName()}}">
+                                <style>
+                                    .product-image {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}  
+                                </style>
 
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Our service</small>
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
                                     <h5 class="mb-0">{{i.nameS}}</h5>
-                                    <div class="ps-2">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                    </div>
+
                                 </div>
                                 <div class="d-flex mb-3">
                                     <small class="border-end me-3 pe-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{i.localisation}}</small>
@@ -220,8 +194,9 @@
                     </div>
                     
                     {% endfor %}
+                                        {{ knp_pagination_render(services) }}
+
                     
-                    {{ knp_pagination_render(services) }}
 
                     
 

@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class SerFrontType extends AbstractType
 {
@@ -34,7 +36,7 @@ class SerFrontType extends AbstractType
                     'Kebilli' => 6,
                     'Sousse' => 7,
                     'Bizerte' => 8,
-                    'Tunis' => 9,
+                    'Sfax' => 9,
                 ],
                 'attr' => [
                     'class' => 'form-control',
@@ -49,6 +51,10 @@ class SerFrontType extends AbstractType
             ->add('categorie', EntityType::class, [
                 'class' => CategorieService::class,
                 'choice_label' => 'nameC',                    ])
+                ->add('imageFile' , VichImageType::class)
+                
+                
+
             
             ->add('Submit',SubmitType::class);
         ;

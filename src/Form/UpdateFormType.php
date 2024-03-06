@@ -35,9 +35,12 @@ class UpdateFormType extends AbstractType
             ])
         ->add('imageFile', VichImageType::class)
         ->add('categorie', EntityType::class, [
+            
                 'class' => CategorieService::class,
+                'choice_label' => 'nameC',                    ])
+
                 
-            ])
+            
 
         ->add('Submit',SubmitType::class);
         ;

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
 #[Vich\Uploadable]
 class Service
@@ -78,6 +79,8 @@ class Service
 
     #[ORM\ManyToOne(inversedBy: 'services')]
     private ?CategorieService $categorie = null;
+
+  
 
 
 
@@ -185,5 +188,10 @@ class Service
 
         return $this;
     }
+
+    
+
+    
+    
     
 }

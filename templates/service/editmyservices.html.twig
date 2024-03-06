@@ -109,6 +109,8 @@
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="addServic">Add service</a></li>
                             <li class="breadcrumb-item"><a href="myservices">My services</a></li>
+                            <li class="breadcrumb-item"><a href="statstic">View statistics</a></li>
+
                             
                         </ol>
                     </nav>
@@ -191,9 +193,16 @@
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
                                         {{ form_widget(form.categorie, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
                                         {{ form_errors(form.categorie, {'attr': {'class': 'form-control'}}) }}
-                                        <label for="{{ form.categorie.vars.id }}">Category ID</label>
+                                        <label for="{{ form.categorie.vars.id }}">Category name</label>
                                     </div>
                                 </div>
+                                <div class="col-lg-3 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{ form_label(form.imageFile)}}
+                                        {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
+                                        
+                                    </div>
+                                    </div>
                                 <div class="col-12">
                                     {{ form_row(form.Submit, {'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'button'}}) }}
                                 </div>

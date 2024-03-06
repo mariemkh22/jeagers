@@ -14,6 +14,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
+
 
 class BackController extends AbstractController
 {
@@ -191,6 +193,71 @@ class BackController extends AbstractController
         $em->flush();
         return $this->redirectToRoute("showC");
     }
+
+    // ContratController.php
+#[Route('/stats', name: 'app_mon_stats')]
+public function contratStats(CategorieServiceRepository $repo): Response
+{
+    // Récupérez les données des contrats depuis votre base de données
+    $cat = $repo->findAll();
+
+    // Initialisez un tableau pour stocker les statistiques des categories
+    $stats = [
+        'Educational barter' => 0,
+        'DIY services' => 0,
+        'Health and wellness services' => 0,
+        'Cleaning services' => 0,
+        'Sports services' => 0,
+        'Entertainment services' => 0,
+        'Transportation services' => 0,
+        'Other services' => 0,
+        // Ajoutez d'autres cat si nécessaire
+    ];
+
+    // Calculez les statistiques des contrats
+    foreach ($cat as $cat) {
+        $nameC = $cat->getNameC();
+
+        // Vérifiez si la clé existe dans le tableau $stats
+        if (array_key_exists($nameC, $stats)) {
+            $stats[$nameC]++;
+        } else {
+            // Si la clé n'existe pas, vous pouvez choisir de l'ignorer ou de la gérer d'une autre manière
+            // Ici, nous ajoutons le statut inconnu dans le tableau $stats avec une valeur de 1
+            $stats[$nameC] = 1;
+        }
+    }
+   
+
+    // Créez le Pie Chart
+    $pieChart = new PieChart();
+    $pieChart->getData()->setArrayToDataTable([
+        ['nameC', 'Nombre de categories'],
+        ['Educational barter', $stats['Educational barter']],
+        ['DIY services', $stats['DIY services']],
+        ['Health and wellness services', $stats['Health and wellness services']],
+        ['Cleaning services', $stats['Cleaning services']],
+        ['Sports services', $stats['Sports services']],
+        ['Entertainment services', $stats['Entertainment services']],
+        ['Transportation services', $stats['Transportation services']],
+        ['Other services', $stats['Other services']],
+
+
+    
+        // Ajoutez d'autres statuts si nécessaire
+    ]);
+    $pieChart->getOptions()->setTitle('Distribution of categories by name');
+
+    // Renvoyez la vue avec le Pie Chart
+    return $this->render('back/statst.html.twig', [
+        'pieChart' => $pieChart,
+        'stats' => $stats,
+    ]);
+}
+
+
+
+
 
 
 

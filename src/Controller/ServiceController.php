@@ -13,6 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
+
 
 class ServiceController extends AbstractController
 {
@@ -53,17 +55,30 @@ class ServiceController extends AbstractController
     public function displayS(ServiceRepository $repo, PaginatorInterface $paginator, Request $request): Response
     {
         $ser = $repo->findAll();
-        
         $ser= $paginator->paginate(
             $ser, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            2 /*limit per page*/
+            6 /*limit per page*/
         );
-        
-    return $this->render('service/services.html.twig', [
+        $someInteger = 3;
+        return $this->render('service/services.html.twig', [
             'services' => $ser,
+            'someInteger' => $someInteger,
+    
         ]);
     }
+    
+    
+     
+    #[Route('/searchServices', name: 'searchServices')]
+public function getServicesByLocationAndCategory(ServiceRepository $serviceRepository, $location, $categoryName): Response
+{
+    $services = $serviceRepository->findServicesByLocationAndCategory($location, $categoryName);
+
+    return $this->render('service/recherche_service.html.twig', [
+        'services' => $services,
+    ]);
+}
 
     #[Route('/addServic', name: 'addServic')]  
 public function addServic(Request $req, ManagerRegistry $manager):Response{
@@ -81,18 +96,21 @@ return $this->renderForm('service/addService.html.twig', ['form'=>$form]);}
 
 
 #[Route('/myservices', name: 'myservices')]
-public function myservices(ServiceRepository $repo, PaginatorInterface $paginator, Request $request ): Response
+public function myservices(ServiceRepository $repo, PaginatorInterface $paginator, Request $request): Response
 {
-    $ser = $repo->findAll();
-    
-    $ser= $paginator->paginate(
-        $ser, /* query NOT result */
+    $serv = $repo->findAll();
+    $serv= $paginator->paginate(
+        $serv, /* query NOT result */
         $request->query->getInt('page', 1), /*page number*/
-        2 /*limit per page*/
+        3 /*limit per page*/
     );
+
+    
+
     
     return $this->render('service/myservices.html.twig', [
-        'services' => $ser,
+        'services' => $serv,
+
     ]);
 }
 
@@ -123,4 +141,95 @@ public function myservices(ServiceRepository $repo, PaginatorInterface $paginato
         $em->flush();
         return $this->redirectToRoute("myservices");
     }
+
+    #[Route('/statstic', name: 'app_mon_statstic')]
+public function serviceStats(ServiceRepository $repo): Response
+{
+    // Récupérez les données des services depuis votre base de données
+    $ser = $repo->findAll();
+
+    // Initialisez un tableau pour stocker les statistiques des services
+    $stats = [
+        'Gabes' => 0,
+        'Monastir' => 0,
+        'Tunis' => 0,
+        'Nabeul' => 0,
+        'Kebilli' => 0,
+        'Sousse' => 0,
+        'Bizerte' => 0,
+        'Sfax' => 0,
+        // Ajoutez d'autres services si nécessaire
+    ];
+
+    // Calculez les statistiques des contrats
+    foreach ($ser as $ser) {
+        $localisation = $ser->getLocalisation();
+
+        // Vérifiez si la clé existe dans le tableau $stats
+        if (array_key_exists($localisation, $stats)) {
+            $stats[$localisation]++;
+        } else {
+            // Si la clé n'existe pas, vous pouvez choisir de l'ignorer ou de la gérer d'une autre manière
+            // Ici, nous ajoutons le statut inconnu dans le tableau $stats avec une valeur de 1
+            $stats[$localisation] = 1;
+        }
+    }
+   
+
+    // Créez le Pie Chart
+    $pieChart = new PieChart();
+    $pieChart->getData()->setArrayToDataTable([
+        ['localisation', 'Nombre de services'],
+        ['Gabes', $stats['Gabes']],
+        ['Monastir', $stats['Monastir']],
+        ['Tunis', $stats['Tunis']],
+        ['Nabeul', $stats['Nabeul']],
+        ['Kebilli', $stats['Kebilli']],
+        ['Sousse', $stats['Sousse']],
+        ['Bizerte', $stats['Bizerte']],
+        ['Sfax', $stats['Sfax']],
+
+
+    
+        // Ajoutez d'autres statuts si nécessaire
+    ]);
+    $pieChart->getOptions()->setTitle('Distribution of services by location');
+
+    // Renvoyez la vue avec le Pie Chart
+    return $this->render('service/statistic.html.twig', [
+        'pieChart' => $pieChart,
+        'stats' => $stats,
+    ]);
+
+    
+
+    
+}
+#[Route('/rating')]
+public function rateService(Request $request, ManagerRegistry $entityManager, ServiceRepository $repo): Response
+{
+    $rating = $request->request->get('rating'); // Récupérer la note depuis la requête
+
+    // Enregistrez la note dans votre système (par exemple, dans votre entité Service)
+    // Assurez-vous de personnaliser cela en fonction de votre modèle de données
+
+    // Exemple d'enregistrement dans l'entité Service (vous devrez adapter cela à votre structure de données)
+    $serviceId = $request->request->get('service_id'); // Récupérer l'ID du service concerné
+    $service = $repo->find($serviceId);
+
+    if ($service) {
+        // Enregistrez la note dans l'entité Service
+        $service->setRating($rating);
+
+        // Enregistrez les modifications dans la base de données
+        $entityManager = $entityManager->getManager();
+        $entityManager->flush();
+
+        // Réponse de réussite
+        return new Response('Rating saved successfully!');
+    } else {
+        // Réponse d'erreur si le service n'est pas trouvé
+        return new Response('Service not found!', Response::HTTP_NOT_FOUND);
+    }
+}
 }

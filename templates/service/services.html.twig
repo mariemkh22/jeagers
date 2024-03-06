@@ -81,7 +81,8 @@
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="addServic">Add service</a></li>
                             <li class="breadcrumb-item"><a href="myservices">My services</a></li>
-                            
+                            <li class="breadcrumb-item"><a href="statstic">View statistics</a></li>
+
                         </ol>
                     </nav>
                 </div>
@@ -97,9 +98,8 @@
                         <div class="col-md-10">
                             <div class="row g-2">
                                 <div class="col-md-3 espace">
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Calendar" data-target="#date2" data-toggle="datetimepicker"/>
-                                    </div>
+                                    
+                                    
                                 </div>
                                 <style>
                                     .espace {
@@ -109,43 +109,61 @@
                                         width: 350px;
                                     }
                                 </style>
-                                <div class="col-md-3 espace1">
-                                    <select class="form-select">
-                                        <option selected>Categories of services</option>
-                                        <option value="1">Educational barter</option>
-                                        <option value="2">DIY services</option>
-                                        <option value="3">Health and wellness services</option>
-                                        <option value="4">Cleaning services</option>
-                                        <option value="5">Sports services</option>
-                                        <option value="6">Transportation services</option>
-                                        <option value="7">Entertainment services</option>
-                                        <option value="8">Other services</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3 espace1">
-                                    <select class="form-select">
-                                        <option selected>Location</option>
-                                        <option value="1">Gabes</option>
-                                        <option value="2">Monastir</option>
-                                        <option value="3">Sfax</option>
-                                        <option value="4">Djerba</option>
-                                        <option value="5">Sousse</option>
-                                        <option value="6">Douz</option>
-                                        <option value="7">Ariana</option>
-                                        <option value="8">Nabeul</option>
-                                    </select>
+                                
+                                
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary w-100">Submit</button>
-                        </div>
-                    </div>
-                </div>
+                        
+                        
+
+
+ <div class="row mb-4">
+
+          <div class="row mb-4">
+    <div class="col position-relative">
+        <div class="input-group">
+            <input type="text" class="form-control search-input" placeholder="Search Application" aria-label="Search Application" aria-describedby="searchIcon" id="searchapplication">
+            <div class="input-group-append">
+                <span class="input-group-text" id="searchIcon"><i class="bi bi-search"></i></span>
             </div>
         </div>
-        <!-- Booking end -->
-
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" id="locationFilter">
+            <option value="" selected>Filter by Location</option>
+            <option value="Gabes">Gabes</option>
+            <option value="Monastir">Monastir</option>
+            <option value="Tunis">Tunis</option>
+            <option value="Sousse">Sousse</option>
+            <option value="Bizerte">Bizerte</option>
+            <option value="Sfax">Sfax</option>
+            <option value="Siliana">Siliana</option>
+            <option value="Kasserine">Kasserine</option>
+            <option value="Mahdia">Mahdia</option>
+            <option value="Kairouan">Kairouan</option>
+            <option value="Nabeul">Nabeul</option>
+            <option value="Ariana">Ariana</option>
+            <!-- Add other locations as needed -->
+        </select>
+    </div>
+</div>
+<div class="col-md-3">
+        <select class="form-select" id="categoryFilter">
+            <option value="" selected>Filter by Gategory</option>
+            <option value="Educational barter">Educational barter</option>
+            <option value="DIY services">DIY services</option>
+            <option value="Cleaning services">Cleaning services</option>
+            <option value="Health and wellness services">Health and wellness services</option>
+            <option value="Sports services">Sports services</option>
+            <option value="Transportation services">Transportation services</option>
+            <option value="Entertainment services">Entertainment services</option>
+            <option value="Other services">Other services</option>
+        
+            <!-- Add other locations as needed -->
+        </select>
+    </div>
+</div>
 
         <!-- Room Start -->
         <div class="container-xxl py-5">
@@ -155,56 +173,93 @@
                     <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/itE.jpg" alt="">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Educational barter</small>
-                            </div>
-                            <div class="p-4 mt-2">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Java Programming Course</h5>
-                                    <div class="ps-2">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                    </div>
-                                </div>
-                                <div class="d-flex mb-3">
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Gabes</small>
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-clock text-primary me-2"></i>01/03/2024</small>
-                                    <small><i class="fa fa-key text-primary me-2"></i>13</small>
-                                </div>
-                                <p class="text-body mb-3">We propose to share our rich knowledge of Java programming and learn another skill on the other hand.</p>
-                                <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Craze Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  
                     
                     {% for i in services %}
+                    
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="product-image" src="images/services/{{i.getImageName()}}">
+                                <style>
+                                    .product-image {
+
+                                    width: 100%; 
+                                    height: 200px; 
+                                    object-fit: cover; 
+a                                   }
+                                </style>
 
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Our service</small>
                             </div>
-                            <div class="p-4 mt-2">
+                            <div class="searchc p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
                                     <h5 class="mb-0">{{i.nameS}}</h5>
-                                    <div class="ps-2">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
+                                    <style>
+                                        .star {
+                                            font-size: 1.5rem;
+                                        }
+                                        
+                                        .hover {
+                                            color: rgb(255, 196, 0);
+                                        }
+                                    </style>
+
+                                    <div><i class="star" data-note="1">&#9733;</i>
+                                    <i class="star" data-note="2">&#9733;</i>
+                                    <i class="star" data-note="3">&#9733;</i>
+                                    <i class="star" data-note="4">&#9733;</i>
+                                    <i class="star" data-note="5">&#9733;</i>
+                                    <i class="note">Note:</i>
+                                    <script>
+                                        const stars = document.querySelectorAll('.star');
+                                        let check = false;
+                                        stars.forEach(star => {
+                                            star.addEventListener('mouseover', selectStars);
+                                            star.addEventListener('mouseleave', unselectStars);
+                                            star.addEventListener('click', activeSelect);
+                                        })
+
+                                        function selectStars(e) {
+                                            const data = e.target;
+                                            const etoiles = priviousSiblings(data);
+                                            if (!check) {
+                                                etoiles.forEach(etoile => {
+                                                    etoile.classList.add('hover');
+                                                })
+                                            }
+
+                                        }
+
+                                        function unselectStars(e) {
+                                            const data = e.target;
+                                            const etoiles = priviousSiblings(data);
+                                            if (!check) {
+                                                etoiles.forEach(etoile => {
+                                                    etoile.classList.remove('hover');
+                                                })
+                                            }
+                                        }
+
+                                        function activeSelect(e) {
+                                            if (!check) {
+                                                check = true;
+                                                document.querySelector('.note').innerHTML = 'Note ' + e.target.dataset.note;
+                                            }
+                                        }
+
+                                        function priviousSiblings(data) {
+                                            let values = [data];
+                                            while (data = data.previousSibling) {
+                                                if (data.nodeName === 'I') {
+                                                    values.push(data);
+                                                }
+                                            }
+                                            return values;
+                                        }
+                                    </script>
                                     </div>
-                                </div>
+                                    </div>
                                 <div class="d-flex mb-3">
                                     <small class="border-end me-3 pe-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{i.localisation}}</small>
                                     <small class="border-end me-3 pe-3"><i class="fa fa-clock text-primary me-2"></i>{{i.dispoDate}}</small>
@@ -212,15 +267,14 @@
                                 </div>
                                 <p class="text-body mb-3">{{i.descriptionS}}</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Craze Now</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" style="margin-left: 28.5%;" href="">Craze Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
-
                     {{ knp_pagination_render(services) }}
+
                     
                     
 
@@ -231,10 +285,11 @@
                           
                     
                                 
-                        </div>
+                       </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Room End -->
 
@@ -393,5 +448,31 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <script>
+    $(document).ready(function () {
+        // Function to perform the search based on the specified keyword, location, and category
+        function filterServices(keyword, location, category) {
+            $(".room-item").each(function () {
+                var textContent = $(this).text().toLowerCase();
+                var foundKeyword = textContent.includes(keyword.toLowerCase());
+                var foundLocation = (location === "" || textContent.includes(location.toLowerCase()));
+                var foundCategory = (category === "" || textContent.includes(category.toLowerCase()));
+
+                $(this).toggle(foundKeyword && foundLocation && foundCategory); // Show/hide the card based on search result, location, and category
+            });
+        }
+
+        // Event handler for the search input, location filter, and category filter
+        $("#searchapplication, #locationFilter, #categoryFilter").on("change keyup", function () {
+            var searchText = $("#searchapplication").val();
+            var locationFilter = $("#locationFilter").val();
+            var categoryFilter = $("#categoryFilter").val();
+            filterServices(searchText, locationFilter, categoryFilter);
+        });
+    });
+</script>
 </body>
 {% endblock %}

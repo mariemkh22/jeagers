@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello ServiceController!{% endblock %}
-
 {% block body %}
-<body> 
+<body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -71,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <!-- Header End -->    
+        <!-- Header End -->
 
 
         <!-- Page Header Start -->
@@ -84,8 +81,6 @@
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="addServic">Add service</a></li>
                             <li class="breadcrumb-item"><a href="myservices">My services</a></li>
-                            <li class="breadcrumb-item"><a href="statstic">View statistics</a></li>
-
                             
                         </ol>
                     </nav>
@@ -93,132 +88,84 @@
             </div>
         </div>
         <!-- Page Header End -->
-
-
-        
-
-
-        <!-- Booking Start -->
-        
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Add your service</h6>
-                    <h1 class="mb-5">Share your expertise with  <span class="text-primary text-uppercase">SwapCraze</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>
+                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
                 </div>
-                <div class="row g-5">
-                    <div class="col-lg-6">
-                        <div class="row g-3">
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="img/service5.jpg" style="margin-top: 25%;">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="img/service2.jpg">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="img/service7.jpg">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="img/service3.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-6">
-                        <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            {{form_start(form,{attr:{novalidate:'novalidate'}})}}
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
-                                        {{ form_errors(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
-                                        <label for="{{ form.nameS.vars.id }}">Service name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
-                                        {{ form_errors(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
-                                        <label for="{{ form.descriptionS.vars.id }}">Description</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
-                                        {{ form_errors(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
-                                        <label for="{{ form.localisation.vars.id }}">Select your town</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.state, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        {{ form_errors(form.state, {'attr': {'class': 'form-control'}}) }}
-                                        
-                                        <label for="{{ form.state.vars.id }}">State</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.dispoDate, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        {{ form_errors(form.dispoDate, {'attr': {'class': 'form-control'}}) }}
-                                        <label for="{{ form.dispoDate.vars.id }}">Disponibility date</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.categorie, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        {{ form_errors(form.categorie, {'attr': {'class': 'form-control'}}) }}
-                                        <label>Category name</label>
-                                    </div>
-                                    
-                                </div>
+            </div>
+        </div>    
 
-                                <div class="col-lg-3 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        {{ form_label(form.imageFile)}}
-                                        {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
-                                    </div>
-                                    </div>
-                                <div class="col-12">
-                                    {{ form_row(form.Submit, {'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'button'}}) }}
-                                </div>
-                                
+        <!-- Booking start -->
+    <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="bg-white shadow" style="padding: 35px;">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-3 espace">
+                                <form action="{{ path('searchServices') }}" method="get">
+                                    <select class="form-select" name="category">
+                                        <option disabled selected hidden>Categories of services</option>
+                                        <option value="Educational barter ">Educational barter</option>
+                                        <option value="DIY services">DIY services</option>
+                                    </select>
                             </div>
-                            {{ form_end(form) }}
-                        </div>
-                    </div>
-                
-                                
-                                    
-                                    
+
+                            <div class="col-md-3 espace1">
+                                <select class="form-select" name="location">
+                                    <option disabled selected hidden>Location</option>
+                                    <option value="1">Gabes</option>
+                                    <option value="2">Monastir</option>
+                                </select>
+                            </div>
+
+                           <div class="col-md-2">
+    <form action="{{ path('searchServices') }}" method="get">
+        <button class="btn btn-primary w-100" type="submit">Search</button>
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+                    {% for i in services %}
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="room-item shadow rounded overflow-hidden">
+                                <div class="position-relative">
+                                    <img class="product-image" src="images/services/{{i.getImageName()}}">
+                                    <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Our service</small>
                                 </div>
-                            </form>
+                                <div class="p-4 mt-2">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h5 class="mb-0">{{i.nameS}}</h5>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <small class="border-end me-3 pe-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{i.localisation}}</small>
+                                        <small class="border-end me-3 pe-3"><i class="fa fa-clock text-primary me-2"></i>{{i.dispoDate}}</small>
+                                        <small><i class="fa fa-key text-primary me-2"></i>{{i.getCategorie.getNameC()}}</small>
+                                    </div>
+                                    <p class="text-body mb-3">{{i.descriptionS}}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Craze Now</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        <!-- Booking End -->
+    </div>
+    <!-- Room End -->
 
 
-        <!-- Newsletter Start -->
-        <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 border rounded p-1">
-                    <div class="border rounded text-center p-1">
-                        <div class="bg-white rounded text-center p-5">
-                            <h4 class="mb-4">Evaluate & comment on our <span class="text-primary text-uppercase">Services </span></h4>
-                            <div class="position-relative mx-auto" style="max-width: 400px;">
-                                <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                                <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter Start -->
+
+        
+
+        
+       
         
 
         <!-- Footer Start -->
@@ -227,7 +174,7 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-4">
                         <div class="bg-primary rounded p-4">
-                            <a href="index"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
+                            <a href="index.html"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
                             <p class="text-white mb-0">
 								Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">SwapCraze</a> & Let's create a world where everyone's excess becomes someone else's essentials.
                                 Join the barter revolution!
@@ -298,6 +245,7 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -310,6 +258,8 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>

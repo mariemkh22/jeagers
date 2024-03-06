@@ -21,7 +21,18 @@ class ServiceRepository extends ServiceEntityRepository
         parent::__construct($registry, Service::class);
     }
 
-
+    public function findServicesByLocationAndCategory($location, $categoryName)
+    {
+        return $this->createQueryBuilder('s')
+            ->leftJoin('s.categorie', 'cs') // Assuming 'categorie' is the association in Service entity
+            ->andWhere('s.localisation = :location')
+            ->andWhere('cs.nameC = :categoryName') // Assuming 'id' is the primary key in CategorieService entity
+            ->setParameter('location', $location)
+            ->setParameter('categoryName', $categoryName)
+            ->getQuery()
+            ->getResult();
+    }
+}
 
 //    /**
 //     * @return Service[] Returns an array of Service objects
@@ -47,4 +58,4 @@ class ServiceRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+
