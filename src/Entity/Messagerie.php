@@ -33,7 +33,6 @@ class Messagerie
     private ?User $sender = null;
 
     #[ORM\ManyToOne(inversedBy: 'received')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?User $recipient = null;
 
     public function __construct()

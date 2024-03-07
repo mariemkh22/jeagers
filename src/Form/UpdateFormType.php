@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\CategorieService;
 use App\Entity\Service;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -29,6 +31,10 @@ class UpdateFormType extends AbstractType
         ->add('state', TextType::class, [
             'attr' => ['placeholder' => 'Available']
             ])
+            ->add('categorie', EntityType::class, [
+                'class' => CategorieService::class,
+                'choice_label' => 'nameC'
+                    ])
         ->add('Submit',SubmitType::class);
         ;
     }

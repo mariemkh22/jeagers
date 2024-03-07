@@ -101,11 +101,10 @@
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Managments</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="utilisateurSignUp" class="dropdown-item">User Managment</a>
-                                        <a href="produit" class="dropdown-item">Product Managment</a>
-                                        <a href="services" class="dropdown-item">Service Managment</a>
-                                        <a href="deliveryList" class="dropdown-item">Delivery Managment</a>
-                                        <a href="messagerie" class="dropdown-item">Messaging Managment</a>
+                                        <a href="displayP" class="dropdown-item">Product Managment</a>
+                                        <a href="myservices" class="dropdown-item">Service Managment</a>
+                                        <a href="Ajoutdelivery" class="dropdown-item">Delivery Managment</a>
+                                        <a href="chatting" class="dropdown-item">Messaging Managment</a>
                                     </div>
                                 </div>
                             </div>
@@ -166,31 +165,77 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title text-center text-primary text-uppercase">Our categories</h6>
-                <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">categories</span></h1>
-                <table class="content-table">
-                    <thead>
-                      <tr>
-                        <th>Products</th>
-                        <th>Services</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Phones</td>
-                        <td>Babysitting</td>
-                      </tr>
-                      <tr class="active-row">
-                        <td>Laptops</td>
-                        <td>DYI</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <h6 class="section-title text-center text-primary text-uppercase">Our products</h6>
+                <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">products</span></h1>
+                
             </div>
         </div>
     </div>
     <!-- Service End -->
 
+    <!-- Testimonial Start -->
+    <div class="container-xxl testimonial mt-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
+        <div class="container">
+            <div class="owl-carousel testimonial-carousel py-5">
+                {% for i in table %}
+
+                <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                    <h5 class="mb-0">{{ i.getNomProduit() }}</h5>
+                    <div class="d-flex align-items-center">
+                            <p class="text-body mb-3">{{ i.getDescription()}}</p>
+                    </div>
+                    <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">Our services</h6>
+                <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">services</span></h1>
+                products
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl testimonial mt-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
+        <div class="container">
+            <div class="owl-carousel testimonial-carousel py-5">
+                {% for i in services %}
+
+                <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                    <h5 class="mb-0">{{ i.nameS }}</h5>
+                    <div class="d-flex align-items-center">
+                            <p class="text-body mb-3">{{ i.descriptionS}}</p>
+                    </div>
+                    <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">Feedbacks</h6>
+                <h1 class="mb-5">Our <span class="text-primary text-uppercase">feedbacks</span></h1>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
 
     <!-- Testimonial Start -->
     <div class="container-xxl testimonial mt-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
@@ -246,7 +291,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="rounded shadow overflow-hidden">
                         <div class="position-relative">
-                            <img class="img-fluid" src="img/team1.jpg" alt="">
+                            <img class="img-fluid" src="img/member2.jpg" alt="">
                             <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
@@ -262,7 +307,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="rounded shadow overflow-hidden">
                         <div class="position-relative">
-                            <img class="img-fluid" src="img/team2.jpg" alt="">
+                            <img class="img-fluid" src="img/member5.jpg" alt="">
                             <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
@@ -278,7 +323,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="rounded shadow overflow-hidden">
                         <div class="position-relative">
-                            <img class="img-fluid" src="img/team3.jpg" alt="">
+                            <img class="img-fluid" src="img/member4.jpg" alt="">
                             <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
@@ -294,7 +339,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="rounded shadow overflow-hidden">
                         <div class="position-relative">
-                            <img class="img-fluid" src="img/team4.jpg" alt="">
+                            <img class="img-fluid" src="img/member3.jpg" alt="">
                             <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
@@ -310,7 +355,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="rounded shadow overflow-hidden">
                         <div class="position-relative">
-                            <img class="img-fluid" src="img/team5.jpg" alt="">
+                            <img class="img-fluid" src="img/member1.jpg" alt="">
                             <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-linkedin-in"></i></a>

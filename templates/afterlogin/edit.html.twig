@@ -4,6 +4,12 @@
 
 {% block body %}
 <style>
+
+.profile{
+        width: 50px;
+        transform: translate(-40%);
+    }
+
 .wrapper{
     position: relative;
     width: 400px;
@@ -198,11 +204,11 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="Home" class="nav-item nav-link">Home</a>
-                            <a href="WhoItsFor" class="nav-item nav-link">Who it's for</a>
-                            <a href="HowToCraze" class="nav-item nav-link">How to craze</a>
-                            <a href="WhereWeBarter" class="nav-item nav-link">Where we barter</a>
-                            <div class="nav-item dropdown">
+                            <a href="displayP" class="dropdown-item">Product Managment</a>
+                                        <a href="myservices" class="dropdown-item">Service Managment</a>
+                                        <a href="Ajoutdelivery" class="dropdown-item">Delivery Managment</a>
+                                        <a href="chatting" class="dropdown-item">Messaging Managment</a>
+                                        <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Managments</a>
                                 <div class="dropdown-menu rounded-0 m-0">
                                     <a href="utilisateurSignUp" class="dropdown-item">User Managment</a>
@@ -213,6 +219,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="assets/img/profiles/profile.png" class="profile"></a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="Profile" class="dropdown-item">My profile</a>
+                                <a href="logout" class="dropdown-item">Log out</a>
+                            </div>
                     </div>
                 </nav>
             </div>

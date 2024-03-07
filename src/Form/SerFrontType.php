@@ -48,6 +48,7 @@ class SerFrontType extends AbstractType
             ])
             ->add('categorie', EntityType::class, [
                 'class' => CategorieService::class,
+                'choice_label' => 'nameC'
                     ])
             
             ->add('Submit',SubmitType::class);

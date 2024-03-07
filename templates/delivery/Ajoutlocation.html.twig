@@ -1,95 +1,98 @@
 {% extends 'base.html.twig' %}
-{% block title %}Add delivery
-{% endblock %}
+{% block title %}Location List{% endblock %}
 {% block body %}
+
 <style>
     .profile{
-         width: 50px;
-         transform: translate(-40%);
-     }
- </style>
- <div class="container-xxl bg-white p-0">
-         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-             <span class="sr-only">Loading...</span>
-         </div>
-     </div>
-     <!-- Spinner End -->
- 
-     <!-- Header Start -->
-     <div class="container-fluid bg-dark px-0">
-         <div class="row gx-0">
-             <div class="col-lg-3 bg-dark d-none d-lg-block">
-                 <a href="Home" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                     <style>
-                         .logo{
-                             width: 160px;
-                             height: 113px;
-                         }
-                     </style>
-                     <img src="img/test.png" class="logo">
-                 </a>
-             </div>
-             <div class="col-lg-9">
-                 <div class="row gx-0 bg-white d-none d-lg-flex">
-                     <div class="col-lg-7 px-5 text-start">
-                         <div class="h-100 d-inline-flex align-items-center py-2 me-4">
-                             <i class="fa fa-envelope text-primary me-2"></i>
-                             <p class="mb-0">contact@swapcraze.com</p>
-                         </div>
-                         <div class="h-100 d-inline-flex align-items-center py-2">
-                             <i class="fa fa-phone-alt text-primary me-2"></i>
-                             <p class="mb-0">+216 55 462 001</p>
-                         </div>
-                     </div>
-                     <div class="col-lg-5 px-5 text-end">
-                         <div class="d-inline-flex align-items-center py-2">
-                             <a class="me-3" href="https://www.facebook.com/profile.php?id=61552363545156"><i class="fab fa-facebook-f"></i></a>
-                             <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
-                             <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                             <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
-                             <a class="" href="https://www.youtube.com/channel/UC5OrDvL9DscpcAstz7JnQGA"><i class="fab fa-youtube"></i></a>
-                         </div>
-                     </div>
-                 </div>
-                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                     <a href="index.html" class="navbar-brand d-block d-lg-none">
-                         <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
-                     </a>
-                     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                         <span class="navbar-toggler-icon"></span>
-                     </button>
-                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                         <div class="navbar-nav mr-auto py-0">
-                            <div class="navbar-nav mr-auto py-0">
-                                <a href="Home" class="nav-item nav-link">Home</a>
-                                <a href="Ajoutdelivery" class="nav-item nav-link">Add delivery</a>
-                                <a href="Ajoutlocation" class="nav-item nav-link">Add location</a>
-                            </div>
-                         </div>
-                         <div class="nav-item dropdown">
-                             <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="assets/img/profiles/profile.png" class="profile"></a>
-                             <div class="dropdown-menu rounded-0 m-0">
-                                 <a href="Profile" class="dropdown-item">My profile</a>
-                                 <a href="backendHome" class="dropdown-item">Dashboard</a>
-                                 <a href="logout" class="dropdown-item">Log out</a>
-                             </div>
-                         </div>
-                     </div>
-                 </nav>
-             </div>
-         </div>
-     </div>
-     <!-- Header End -->
+        width: 50px;
+        transform: translate(-40%);
+    }
+    </style>
+    <body>
+    
+    <div class="container-xxl bg-white p-0">
+       <!-- Spinner Start -->
+       <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+           <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+               <span class="sr-only">Loading...</span>
+           </div>
+       </div>
+       <!-- Spinner End -->
+    
+       <!-- Header Start -->
+       <div class="container-fluid bg-dark px-0">
+           <div class="row gx-0">
+               <div class="col-lg-3 bg-dark d-none d-lg-block">
+                   <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                       <style>
+                           .logo{
+                               width: 160px;
+                               height: 113px;
+                               border-radius: 90px;
+                           }
+                       </style>
+                       <img src="img/test.png" class="logo">
+                       <!--<h1 class="m-0 text-primary text-uppercase">Hotelier</h1>-->
+                   </a>
+               </div>
+               <div class="col-lg-9">
+                   <div class="row gx-0 bg-white d-none d-lg-flex">
+                       <div class="col-lg-7 px-5 text-start">
+                           <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                               <i class="fa fa-envelope text-primary me-2"></i>
+                               <p class="mb-0">info@example.com</p>
+                           </div>
+                           <div class="h-100 d-inline-flex align-items-center py-2">
+                               <i class="fa fa-phone-alt text-primary me-2"></i>
+                               <p class="mb-0">+012 345 6789</p>
+                           </div>
+                       </div>
+                       <div class="col-lg-5 px-5 text-end">
+                           <div class="d-inline-flex align-items-center py-2">
+                               <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                               <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                               <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                               <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                               <a class="" href=""><i class="fab fa-youtube"></i></a>
+                           </div>
+                       </div>
+                   </div>
+                   <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                       <a href="index.html" class="navbar-brand d-block d-lg-none">
+                           <h1 class="m-0 text-primary text-uppercase">Swapcraze</h1>
+                       </a>
+                       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                           <span class="navbar-toggler-icon"></span>
+                       </button>
+                       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                           <div class="navbar-nav mr-auto py-0">
+                               <a href="Home" class="nav-item nav-link">Home</a>
+                               <a href="displayP" class="nav-item nav-link">Deliveries list</a>
+                               <a href="addProductFE" class="nav-item nav-link">Add delivery</a>
+                               <a href="displayComdFE" class="nav-item nav-link">Orders list</a>
+                               <a href="addComdFE" class="nav-item nav-link">Add command</a>
+                           </div>
+                           <div class="nav-item dropdown">
+                               <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="assets/img/profiles/profile.png" class="profile"></a>
+                               <div class="dropdown-menu rounded-0 m-0">
+                                   <a href="Profile" class="dropdown-item">My profile</a>
+                                   <a href="backendHome" class="dropdown-item">Dashboard</a>
+                                   <a href="logout" class="dropdown-item">Log out</a>
+                               </div>
+                           </div>
+                       </div>
+                   </nav>
+               </div>
+           </div>
+       </div>
+       <!-- Header End -->
 
 
         <!-- Page Header Start -->
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/barter.png);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Add your Delivery</h1>
-                    
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Add location</h1>
                 </div>
             </div>
         </div>
@@ -101,7 +104,7 @@
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="section-title text-center text-primary text-uppercase">SWAPCRASE DELIVERY</h6>
-                    <h1 class="mb-5">GET YOUR <span class="text-primary text-uppercase">DELIVERY NOW!</span></h1>
+                    <h1 class="mb-5">GET YOUR <span class="text-primary text-uppercase">DELIVERY NOW</span></h1>
                 </div>
                 <div class="row g-5">
                     <div class="col-lg-6">
@@ -127,52 +130,29 @@
                                 
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="DateDebut">Start Date</label>
-                                            {{ form_widget(form.DateDebut, {'attr': {'class': 'form-control', 'id': 'DateDebut'}}) }}
-                                            {{ form_errors(form.DateDebut, {'attr': {'class': 'date'}}) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="DateFin">Finally Date</label>
-                                            {{ form_widget(form.DateFin, {'attr': {'class': 'form-control', 'id': 'DateFin'}}) }}
-                                            {{ form_errors(form.DateFin, {'attr': {'class': 'date'}}) }}
-                                        </div>
-                                    </div>
-                                    
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="select3">Localisation geographique</label>
-                                            {{ form_widget(form.localisationGeographique, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
-                                            {{ form_errors(form.localisationGeographique) }}
-
+                                            <label for="select3">Region</label>
+                                            {{ form_widget(form.region, {'attr': {'class': 'form-control select', 'id': 'region'}}) }}
+                                            {{ form_errors(form.region) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="select3">Company</label>
-                                            {{ form_widget(form.entreprise, {'attr': {'class': 'form-control select', 'id': 'entreprise'}}) }}
-                                            {{ form_errors(form.entreprise) }}
+                                            <label for="select3">Code Postal</label>
+                                            {{ form_widget(form.codepostal, {'attr': {'class': 'form-control select', 'id': 'codepostal'}}) }}
+                                            {{ form_errors(form.codepostal, {'attr': {'class': 'text-danger'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="select3">Fees</label>
-                                            {{ form_widget(form.frais, {'attr': {'class': 'form-control select', 'id': 'frais'}}) }}
-                                            {{ form_errors(form.frais) }}
+                                            <label for="select3">Adresse</label>
+                                            {{ form_widget(form.adresse, {'attr': {'class': 'form-control ', 'id': 'adresse'}}) }}
+                                            {{ form_errors(form.adresse, {'attr': {'class': 'text-danger'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="select3">Status</label>
-                                            {{ form_widget(form.status, {'attr': {'class': 'form-control select', 'id': 'status'}}) }}
-                                            {{ form_errors(form.status) }}
-
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        {{ form_row(form.Add_delivery, {'label': 'Add delivery', 'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'submit'}}) }}
+                                        {{ form_row(form.Add_localisation, {'label': 'Add location', 'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'submit'}}) }}
                                     </div>
                                 </div>
                                 {{ form_end(form) }}

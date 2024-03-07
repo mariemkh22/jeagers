@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\EditUtilisateurType;
 use App\Form\UserType;
+use App\Repository\ProduitRepository;
+use App\Repository\ServiceRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,10 +56,13 @@ class UtilisateurController extends AbstractController
     #After Log in
 
     #[Route('/Home', name: 'Home')]
-    public function Home(): Response
+    public function Home(ProduitRepository $produitRepository, ServiceRepository $serviceRepository): Response
     {
+        $product=$produitRepository->findAll();
+        $service=$serviceRepository->findAll();
         return $this->render('afterlogin/home.html.twig', [
-            'controller_name' => 'UtilisateurController',
+            'table' => $product,
+            'services' =>$service
         ]);
     }
 

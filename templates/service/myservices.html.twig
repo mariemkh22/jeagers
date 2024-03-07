@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Add your service{% endblock %}
-
 {% block body %}
-<body> 
+<body>
     <style>
         .profile{
             width: 50px;
@@ -25,7 +22,7 @@
            <div class="container-fluid bg-dark px-0">
                <div class="row gx-0">
                    <div class="col-lg-3 bg-dark d-none d-lg-block">
-                       <a href="Home" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                       <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
                            <style>
                                .logo{
                                    width: 160px;
@@ -60,7 +57,7 @@
                            </div>
                        </div>
                        <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                           <a href="Home" class="navbar-brand d-block d-lg-none">
+                           <a href="index.html" class="navbar-brand d-block d-lg-none">
                                <h1 class="m-0 text-primary text-uppercase">Swapcraze</h1>
                            </a>
                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -68,14 +65,15 @@
                            </button>
                            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                <div class="navbar-nav mr-auto py-0">
-                                <a href="Home" class="nav-item nav-link">Home</a>
-                                <a href="myservices" class="nav-item nav-link">Services list</a>
-                                <a href="addServic" class="nav-item nav-link">Add a service</a>
+                                   <a href="Home" class="nav-item nav-link">Home</a>
+                                   <a href="myservices" class="nav-item nav-link">Services list</a>
+                                   <a href="addServic" class="nav-item nav-link">Add a service</a>
                                </div>
                                <div class="nav-item dropdown">
                                    <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="assets/img/profiles/profile.png" class="profile"></a>
                                    <div class="dropdown-menu rounded-0 m-0">
                                        <a href="Profile" class="dropdown-item">My profile</a>
+                                       <a href="backendHome" class="dropdown-item">Dashboard</a>
                                        <a href="logout" class="dropdown-item">Log out</a>
                                    </div>
                                </div>
@@ -84,119 +82,180 @@
                    </div>
                </div>
            </div>
-           <!-- Header End -->  
+           <!-- Header End -->
 
 
         <!-- Page Header Start -->
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/barter.png);">
             <div class="container-fluid page-header-inner py-5">
-                
+                <div class="container text-center pb-5">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>
+                </div>
             </div>
         </div>
         <!-- Page Header End -->
 
-
+        <!-- Booking start -->
+        <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="bg-white shadow" style="padding: 35px;">
+                    <div class="row g-2">
+                        <div class="col-md-10">
+                            <div class="row g-2">
+                                <div class="col-md-3 espace">
+                                    
+                                </div>
+                                <style>
+                                    .espace {
+                                        width: 300px;
+                                    }
+                                    .espace1 {
+                                        width: 350px;
+                                    }
+                                </style>
+                             <div class="row mb-4">
+    <div class="col position-relative">
+        <div class="input-group">
+            <input type="text" class="form-control search-input" placeholder="Search Application" aria-label="Search Application" aria-describedby="searchIcon" id="searchapplication">
+            <div class="input-group-append">
+                <span class="input-group-text" id="searchIcon"><i class="bi bi-search"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" id="locationFilter">
+            <option value="" selected>Filter by Location</option>
+            <option value="Gabes">Gabes</option>
+            <option value="Monastir">Monastir</option>
+            <option value="Tunis">Tunis</option>
+            <option value="Sousse">Sousse</option>
+            <option value="Bizerte">Bizerte</option>
+            <option value="Sfax">Sfax</option>
+            <option value="Siliana">Siliana</option>
+            <option value="Kasserine">Kasserine</option>
+            <option value="Mahdia">Mahdia</option>
+            <option value="Kairouan">Kairouan</option>
+            <option value="Nabeul">Nabeul</option>
+            <option value="Ariana">Ariana</option>
+            <!-- Add other locations as needed -->
+        </select>
+    </div>
+</div>
+<div class="col-md-3">
+        <select class="form-select" id="categoryFilter">
+            <option value="" selected>Filter by Gategory</option>
+            <option value="Educational barter">Educational barter</option>
+            <option value="DIY services">DIY services</option>
+            <option value="Cleaning services">Cleaning services</option>
+            <option value="Health and wellness services">Health and wellness services</option>
+            <option value="Sports services">Sports services</option>
+            <option value="Transportation services">Transportation services</option>
+            <option value="Entertainment services">Entertainment services</option>
+            <option value="Other services">Other services</option>
         
+            <!-- Add other locations as needed -->
+        </select>
+    </div>
+</div>
+        <!-- Booking end -->
 
 
-        <!-- Booking Start -->
-        
+        <!-- Room Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Add your service</h6>
-                    <h1 class="mb-5">Share your expertise with  <span class="text-primary text-uppercase">SwapCraze</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">My Services</h6>
+                    <h1 class="mb-5">Managing my <span class="text-primary text-uppercase">Services</span></h1>
                 </div>
-                <div class="row g-5">
-                    <div class="col-lg-6">
-                        <div class="row g-3">
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="img/service5.jpg" style="margin-top: 25%;">
+                <div class="row g-4">
+                    
+                   
+                    {% if services is empty %}
+                    <div class="text-center"> <!-- Center the content -->
+                        <p class="text-danger" style="font-size: 24px;">
+                            <i class="fas fa-shopping-cart"></i> Your services list is empty!
+                        </p>
+                    </div>
+                    
+                    {% else %}
+                    {% for i in services %}
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <br>
+
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Our service</small>
                             </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="img/service2.jpg">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="img/service7.jpg">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="img/service3.jpg">
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">{{i.nameS}}</h5>
+
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{i.localisation}}</small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-clock text-primary me-2"></i>{{i.dispoDate}}</small>
+                                    <small><i class="fa fa-key text-primary me-2"></i>{{i.categorie}}</small>
+                                </div>
+                                <p class="text-body mb-3">{{i.descriptionS}}</p>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="{{path('editS',{'id':i.id})}}">Edit</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="{{path('deletemyServices',{'id':i.id})}}">Delete</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-lg-6">
-                        <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            {{form_start(form,{attr:{novalidate:'novalidate'}})}}
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
-                                        {{ form_errors(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
-                                        <label for="{{ form.nameS.vars.id }}">Service name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
-                                        {{ form_errors(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
-                                        <label for="{{ form.descriptionS.vars.id }}">Description</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        {{ form_widget(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
-                                        {{ form_errors(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
-                                        <label for="{{ form.localisation.vars.id }}">Select your town</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.state, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        {{ form_errors(form.state, {'attr': {'class': 'form-control'}}) }}
-                                        
-                                        <label for="{{ form.state.vars.id }}">State</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.dispoDate, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        {{ form_errors(form.dispoDate, {'attr': {'class': 'form-control'}}) }}
-                                        <label for="{{ form.dispoDate.vars.id }}">Disponibility date</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        {{ form_widget(form.categorie, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
-                                        {{ form_errors(form.categorie, {'attr': {'class': 'form-control'}}) }}
-                                        <label>Category name</label>
-                                    </div>
-                                    
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-12">
-                                    </div>
-                                <div class="col-12">
-                                    {{ form_row(form.Submit, {'attr': {'class': 'btn btn-primary w-100 py-3', 'type': 'button'}}) }}
-                                </div>
-                                
-                            </div>
-                            {{ form_end(form) }}
-                        </div>
-                    </div>
-                
-                                
-                                    
-                                    
-                                </div>
-                            </form>
+                    {% endfor %}
+                    {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Booking End -->
+        <!-- Room End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl testimonial mt-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
+            <div class="container">
+                <div class="owl-carousel testimonial-carousel py-5">
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                        <p>As a computer engineering student, I noticed that the educational barter that I had made whith another finance student had gone successfully. He mastered C programming and I mastered financial analysis.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
+                            <div class="ps-3">
+                                <h6 class="fw-bold mb-1">Fatma</h6>
+                                <small>IT engineering student</small>
+                            </div>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                    </div>
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                        <p>I really liked the concept of exchange of services, I gave an electricity service for a woman who does not have enough money, on the other hand she offered me a cleaning service, thus the problem of electricity in her house was solved without having lost of money.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
+                            <div class="ps-3">
+                                <h6 class="fw-bold mb-1">Ahmed</h6>
+                                <small>electrician</small>
+                            </div>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                    </div>
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                        <p>I offered a makeup & hair service to a woman and she offered me a coooking class service, it's very intressting and funny too.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
+                            <div class="ps-3">
+                                <h6 class="fw-bold mb-1">Alex</h6>
+                                <small>Makeup artist</small>
+                            </div>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
 
 
         <!-- Newsletter Start -->
@@ -224,7 +283,7 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-4">
                         <div class="bg-primary rounded p-4">
-                            <a href="index"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
+                            <a href="index.html"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
                             <p class="text-white mb-0">
 								Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">SwapCraze</a> & Let's create a world where everyone's excess becomes someone else's essentials.
                                 Join the barter revolution!
@@ -295,6 +354,7 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -309,5 +369,31 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <script>
+    $(document).ready(function () {
+        // Function to perform the search based on the specified keyword, location, and category
+        function filterServices(keyword, location, category) {
+            $(".room-item").each(function () {
+                var textContent = $(this).text().toLowerCase();
+                var foundKeyword = textContent.includes(keyword.toLowerCase());
+                var foundLocation = (location === "" || textContent.includes(location.toLowerCase()));
+                var foundCategory = (category === "" || textContent.includes(category.toLowerCase()));
+
+                $(this).toggle(foundKeyword && foundLocation && foundCategory); // Show/hide the card based on search result, location, and category
+            });
+        }
+
+        // Event handler for the search input, location filter, and category filter
+        $("#searchapplication, #locationFilter, #categoryFilter").on("change keyup", function () {
+            var searchText = $("#searchapplication").val();
+            var locationFilter = $("#locationFilter").val();
+            var categoryFilter = $("#categoryFilter").val();
+            filterServices(searchText, locationFilter, categoryFilter);
+        });
+    });
+</script>
 </body>
 {% endblock %}
