@@ -24,14 +24,7 @@ class LocalisationGeographiqueType extends AbstractType
                 'Gabes' => 'Gabes',
                 'Mistir' => 'Mistir',
             ],
-            'placeholder' => 'Select a region',
-            'constraints' => [
-                new NotBlank(['message' => 'Le champ région ne peut pas être vide']),
-                new Choice([
-                    'choices' => ['Kebili', 'Tunis', 'Nabeul', 'Gabes', 'Mounistir'],
-                    'message' => 'Veuillez sélectionner une région valide',
-                ]),
-            ],
+            'placeholder' => 'Select a region'
         ])
             ->add('codepostal')
             ->add('adresse')

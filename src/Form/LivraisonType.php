@@ -36,22 +36,14 @@ class LivraisonType extends AbstractType
                     'JTM' => 'JTM',
                 ],
                 'placeholder' => 'Select the company',
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le champ entreprise ne peut pas être vide']),
-                    new Assert\Length(['max' => 255, 'maxMessage' => 'La longueur maximale est de 255 caractères']),
-                ],
-            ])
+                ])
             ->add('frais', ChoiceType::class, [
                 'choices' => [
                     24 => 24,
                     15 => 15,
                     7 => 7,
                 ],
-                'placeholder' => 'Select the fees',
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le champ frais ne peut pas être vide']),
-                    new Assert\Type(['type' => 'integer', 'message' => 'La valeur doit être un nombre entier']),
-                ],
+                'placeholder' => 'Select the fees'
             ])
             ->add('status', ChoiceType::class, [
                 'choices' => [
@@ -63,9 +55,6 @@ class LivraisonType extends AbstractType
                 ])
             ->add('localisationGeographique', EntityType::class, [
                 'class' => LocalisationGeographique::class,
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le champ localisation géographique ne peut pas être vide']),
-                ],
                 'choice_label' => 'region'
             ])
             ->add('Add_delivery', SubmitType::class);

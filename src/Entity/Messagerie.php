@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\MessagerieRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,6 +18,16 @@ class Messagerie
     #[ORM\Column(length: 255)]
     private ?string $DateEnvoie = null;
 
+    
+
+    /** 
+  * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="La contenue ne peut pas être vide")
+     * @Assert\Length(
+      *     max=255,
+       *   maxMessage="La contenue ne peut pas dépasser {{ limit }} caractères"
+      *)
+     */
     #[ORM\Column(length: 255)]
     private ?string $Contenue = null;
 

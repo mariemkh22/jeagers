@@ -119,19 +119,22 @@ class MessagerieController extends AbstractController
         return $this->redirectToRoute("received");
     }
 
-    #[Route('/contact', name: 'app_messaging')]
-    public function contact(): Response
+        #[Route('/chatting', name: 'chatting')]
+    public function chatting(ManagerRegistry $managerRegistry, Request $request): Response
     {
-        return $this->render('messaging/contact.html.twig', [
-            'controller_name' => 'MessagingController',
-        ]);
-        return $this->redirectToRoute('chatting.html.twig');
-    }
-    #[Route('/chatting', name: 'chatting')]
-    public function chatting(): Response
-    {
+        $m=$managerRegistry->getManager();
+        $message=new Messagerie();
+        $form=$this->createForm(MessagerieType::class,$message);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+
+            $m->persist($message);
+            $m->flush();
+
+            return $this->redirectToRoute('Home');
+        }
         return $this->render('messagerie/chatting.html.twig', [
-            'controller_name' => 'MessagingController',
+            'form' => $form->createView()
         ]);
     }
 

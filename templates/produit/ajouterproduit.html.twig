@@ -131,12 +131,7 @@
                                         <div class="form-group">
                                             <label>Product Name</label>
                                 {{ form_widget(form.nom_produit, {'attr': {'class': 'form-control'}}) }} 
-                        
-                                {% if form_errors(form.nom_produit) %}
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ form_errors(form.nom_produit) }} 
-                                    </div>
-                                {% endif %}
+                                {{ form_errors(form.nom_produit, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -144,12 +139,7 @@
                                             
                                             <label>Equivalent Price</label>
                                             {{ form_widget(form.equiv, {'attr': {'class': 'form-control'}}) }} 
-                                    
-                                            {% if form_errors(form.equiv) %}
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ form_errors(form.equiv) }} 
-                                                </div>
-                                            {% endif %}
+                                            {{ form_errors(form.equiv, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
                                          
                                         </div>
                                     </div>
@@ -157,18 +147,14 @@
                                         <div class="form-group">
                                             <label for="select3">Categories</label>
                                             {{ form_widget(form.type, {'attr': {'class': 'form-control select', 'id': 'select3'}}) }}
+                                            {{ form_errors(form.type, {'attr': {'class': 'form-control select', 'id': 'select3'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Description</label>
                                 {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': '5'}}) }}
-                        
-                                {% if form_errors(form.description) %}
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ form_errors(form.description) }}
-                                    </div>
-                                {% endif %}
+                                {{ form_errors(form.description, {'attr': {'class': 'form-control', 'rows': '5'}}) }}
                                         </div>
                                     </div>
 

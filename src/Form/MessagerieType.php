@@ -24,9 +24,6 @@ class MessagerieType extends AbstractType
             ]
         ])
         ->add('DateEnvoie',TextType::class)
-        ->add('DateReception',TextType::class)
-        ->add('IsRead',TextType::class)
-
         ->add('recipient', EntityType::class, [
             "class" => User::class,
             "choice_label" => "email",

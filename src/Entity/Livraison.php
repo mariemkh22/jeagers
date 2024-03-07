@@ -22,20 +22,28 @@ class Livraison
     
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $DateFin = null;
+    
     /**
-     * @Assert\NotBlank(message="Le champ entreprise ne peut pas être vide")
-     * @Assert\Length(max=255, maxMessage="La longueur maximale est de 255 caractères")
-     */
+    * @ORM\Column(type="string", length=255)
+    * @Assert\NotBlank(message="L'entreprise' ne peut pas être vide")
+    * @Assert\Length(max=255, maxMessage="Le nom du produit ne peut pas dépasser {{ limit }} caractères")
+    */
     #[ORM\Column(length: 255)]
     private ?string $entreprise = null;
-    /**
-     * @ORM\Column
-     * @Assert\NotBlank(message="Le champ frais ne peut pas être vide")
-     * @Assert\Type(type="int", message="La valeur doit être un nombre entier")
+    
+     /**
+     * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="Le champ fees ne peut pas être vide")
+     * @Assert\Type(type="int", message="La valeur doit être un nombre décimal")
      */
     #[ORM\Column]
     private ?int $frais = null;
 
+    /**
+    * @ORM\Column(type="string", length=255)
+    * @Assert\NotBlank(message="La status ne peut pas être vide")
+    * @Assert\Length(max=255, maxMessage="Le nom du status ne peut pas dépasser {{ limit }} caractères")
+    */
     #[ORM\Column(length: 255)]
     private ?string $status = null;
  

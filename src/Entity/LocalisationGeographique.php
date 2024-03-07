@@ -16,7 +16,7 @@ class LocalisationGeographique
     private ?int $id = null;
     /**
      * @Assert\NotBlank(message="Le champ région ne peut pas être vide")
-     * @Assert\Choice(choices={"Kebili", "Tunis", "Nabeul", "Gabes", "Mounistir"}, message="Veuillez sélectionner une région valide")
+     * @Assert\Choice(choices={"Kebili", "Tunis", "Nabeul", "Gabes", "Mounistir"})
      */
     #[ORM\Column(length: 255)]
     private ?string $region = null;
@@ -24,7 +24,7 @@ class LocalisationGeographique
   /**
      * @ORM\Column(type="int")
      * @Assert\NotBlank(message="Le champ code postal ne peut pas être vide")
-     * @Assert\Type(type="int", message="La valeur doit être un nombre ")
+     * @Assert\Type(type="int")
      */
 
     #[ORM\Column]
@@ -36,7 +36,6 @@ class LocalisationGeographique
      * @Assert\NotBlank(message="L'adresse ne peut pas être vide")
      * @Assert\Length(
       *     max=255,
-       *   maxMessage="La description ne peut pas dépasser {{ limit }} caractères"
       *)
      */
 

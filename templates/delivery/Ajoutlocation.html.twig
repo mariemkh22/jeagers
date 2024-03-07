@@ -1,91 +1,132 @@
 {% extends 'base.html.twig' %}
-{% block title %}Location List{% endblock %}
+{% block title %}Add a location{% endblock %}
 {% block body %}
 
-<style>
-    .profile{
-        width: 50px;
-        transform: translate(-40%);
+    <style>
+        .profile{
+            width: 50px;
+            transform: translate(-40%);
+        }
+        .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 1300px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .content-table thead tr {
+        background-color: #FEA116;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+    }
+    
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #FEA116;
     }
     </style>
-    <body>
-    
     <div class="container-xxl bg-white p-0">
-       <!-- Spinner Start -->
-       <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-           <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-               <span class="sr-only">Loading...</span>
-           </div>
-       </div>
-       <!-- Spinner End -->
-    
-       <!-- Header Start -->
-       <div class="container-fluid bg-dark px-0">
-           <div class="row gx-0">
-               <div class="col-lg-3 bg-dark d-none d-lg-block">
-                   <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                       <style>
-                           .logo{
-                               width: 160px;
-                               height: 113px;
-                               border-radius: 90px;
-                           }
-                       </style>
-                       <img src="img/test.png" class="logo">
-                       <!--<h1 class="m-0 text-primary text-uppercase">Hotelier</h1>-->
-                   </a>
-               </div>
-               <div class="col-lg-9">
-                   <div class="row gx-0 bg-white d-none d-lg-flex">
-                       <div class="col-lg-7 px-5 text-start">
-                           <div class="h-100 d-inline-flex align-items-center py-2 me-4">
-                               <i class="fa fa-envelope text-primary me-2"></i>
-                               <p class="mb-0">info@example.com</p>
-                           </div>
-                           <div class="h-100 d-inline-flex align-items-center py-2">
-                               <i class="fa fa-phone-alt text-primary me-2"></i>
-                               <p class="mb-0">+012 345 6789</p>
-                           </div>
-                       </div>
-                       <div class="col-lg-5 px-5 text-end">
-                           <div class="d-inline-flex align-items-center py-2">
-                               <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                               <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
-                               <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                               <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
-                               <a class="" href=""><i class="fab fa-youtube"></i></a>
-                           </div>
-                       </div>
-                   </div>
-                   <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                       <a href="index.html" class="navbar-brand d-block d-lg-none">
-                           <h1 class="m-0 text-primary text-uppercase">Swapcraze</h1>
-                       </a>
-                       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                           <span class="navbar-toggler-icon"></span>
-                       </button>
-                       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                           <div class="navbar-nav mr-auto py-0">
-                               <a href="Home" class="nav-item nav-link">Home</a>
-                               <a href="displayP" class="nav-item nav-link">Deliveries list</a>
-                               <a href="addProductFE" class="nav-item nav-link">Add delivery</a>
-                               <a href="displayComdFE" class="nav-item nav-link">Orders list</a>
-                               <a href="addComdFE" class="nav-item nav-link">Add command</a>
-                           </div>
-                           <div class="nav-item dropdown">
-                               <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="assets/img/profiles/profile.png" class="profile"></a>
-                               <div class="dropdown-menu rounded-0 m-0">
-                                   <a href="Profile" class="dropdown-item">My profile</a>
-                                   <a href="backendHome" class="dropdown-item">Dashboard</a>
-                                   <a href="logout" class="dropdown-item">Log out</a>
-                               </div>
-                           </div>
-                       </div>
-                   </nav>
-               </div>
-           </div>
-       </div>
-       <!-- Header End -->
+        <div class="container-xxl bg-white p-0">
+            <!-- Spinner Start -->
+            <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <!-- Spinner End -->
+        
+            <!-- Header Start -->
+            <div class="container-fluid bg-dark px-0">
+                <div class="row gx-0">
+                    <div class="col-lg-3 bg-dark d-none d-lg-block">
+                        <a href="Home" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                            <style>
+                                .logo{
+                                    width: 160px;
+                                    height: 113px;
+                                }
+                            </style>
+                            <img src="img/test.png" class="logo">
+                        </a>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row gx-0 bg-white d-none d-lg-flex">
+                            <div class="col-lg-7 px-5 text-start">
+                                <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                                    <i class="fa fa-envelope text-primary me-2"></i>
+                                    <p class="mb-0">contact@swapcraze.com</p>
+                                </div>
+                                <div class="h-100 d-inline-flex align-items-center py-2">
+                                    <i class="fa fa-phone-alt text-primary me-2"></i>
+                                    <p class="mb-0">+216 55 462 001</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 px-5 text-end">
+                                <div class="d-inline-flex align-items-center py-2">
+                                    <a class="me-3" href="https://www.facebook.com/profile.php?id=61552363545156"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="" href="https://www.youtube.com/channel/UC5OrDvL9DscpcAstz7JnQGA"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                <div class="navbar-nav mr-auto py-0">
+                                    <a href="Home" class="nav-item nav-link active">Home</a>
+                                    <a href="WhoItsFor" class="nav-item nav-link">Who it's for</a>
+                                    <a href="HowToCraze" class="nav-item nav-link">How to craze</a>
+                                    <a href="WhereWeBarter" class="nav-item nav-link">Where we barter</a>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Managments</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <a href="displayP" class="dropdown-item">Product Managment</a>
+                                            <a href="myservices" class="dropdown-item">Service Managment</a>
+                                            <a href="Ajoutdelivery" class="dropdown-item">Delivery Managment</a>
+                                            <a href="chatting" class="dropdown-item">Messaging Managment</a>
+                                        </div>
+                                    </div>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Delivery</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <a href="addServic" class="dropdown-item">Add a delivery</a>
+                                            <a href="Ajoutlocation" class="dropdown-item">Add a location</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="assets/img/profiles/profile.png" class="profile"></a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="Profile" class="dropdown-item">My profile</a>
+                                        <a href="logout" class="dropdown-item">Log out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
 
 
         <!-- Page Header Start -->
@@ -134,21 +175,21 @@
                                         <div class="form-group">
                                             <label for="select3">Region</label>
                                             {{ form_widget(form.region, {'attr': {'class': 'form-control select', 'id': 'region'}}) }}
-                                            {{ form_errors(form.region) }}
+                                            {{ form_errors(form.region, {'attr': {'class': 'form-control select', 'id': 'region'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="select3">Code Postal</label>
                                             {{ form_widget(form.codepostal, {'attr': {'class': 'form-control select', 'id': 'codepostal'}}) }}
-                                            {{ form_errors(form.codepostal, {'attr': {'class': 'text-danger'}}) }}
+                                            {{ form_errors(form.codepostal, {'attr': {'class': 'form-control select', 'id': 'codepostal'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="select3">Adresse</label>
                                             {{ form_widget(form.adresse, {'attr': {'class': 'form-control ', 'id': 'adresse'}}) }}
-                                            {{ form_errors(form.adresse, {'attr': {'class': 'text-danger'}}) }}
+                                            {{ form_errors(form.adresse, {'attr': {'class': 'form-control select', 'id': 'adresse'}}) }}
                                         </div>
                                     </div>
                                     <div class="col-12">

@@ -15,9 +15,19 @@ class CategorieService
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @Assert\NotBlank(message="This field should not be blank.")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
     #[ORM\Column(length: 255)]
     private ?string $nameC = null;
 
+    /**
+     * @Assert\NotBlank(message="This field should not be blank.")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
     #[ORM\Column(length: 255)]
     private ?string $descriptionC = null;
 

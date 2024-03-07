@@ -17,11 +17,17 @@ class Commande
      
 
    
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Assert\NotBlank(message: "Veuillez sélectionner une date")]
-    #[Assert\NotNull(message: "La date ne peut pas être vide")]
+    /**
+     * @ORM\Column(type="datetime")
+     * @Assert\NotBlank(message="This field should not be blank.")
+     */
     private ?\DateTimeInterface $DateCmd = null;
 
+    /**
+     * @Assert\NotBlank(message="This field should not be blank.")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
     #[ORM\Column(length: 255)]
     private ?string $methode_livraison = null;
 
@@ -29,6 +35,11 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?Produit $Produit = null;
 
+    /**
+     * @Assert\NotBlank(message="This field should not be blank.")
+     * )
+     * @ORM\Column(type="string",length=255)
+     */
     #[ORM\Column(length: 255)]
     private ?string $ville = null;
 
